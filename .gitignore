@@ -23,7 +23,4 @@ paper-dragon-front.DS_Store
 *.sln
 *.sw?
 
-
-
-src/config/api-keys.ts
-
+paper-dragon-api/credentials.json
