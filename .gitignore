@@ -13,15 +13,17 @@ dist-ssr
 *.local
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
+paper-dragon-front.vscode/*
+paper-dragon-front!.vscode/extensions.json
+paper-dragon-front.idea
+paper-dragon-front.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+
 
 src/config/api-keys.ts
 

@@ -1,0 +1,23 @@
+{
+  "name": "paper-dragon-api",
+  "version": "1.0.0",
+  "description": "server to fetch data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yodivdhende/PaperDragon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yodivdhende/PaperDragon/issues"
+  },
+  "homepage": "https://github.com/yodivdhende/PaperDragon#readme",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "googleapis": "^105.0.0"
+  }
+}
