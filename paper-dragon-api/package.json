@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js "
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/yodivdhende/PaperDragon#readme",
   "dependencies": {
     "@google-cloud/local-auth": "^2.1.0",
+    "express": "^4.19.2",
     "googleapis": "^105.0.0"
   }
 }
