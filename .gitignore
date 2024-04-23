@@ -23,4 +23,7 @@ paper-dragon-front.DS_Store
 *.sln
 *.sw?
 
+#Secrits
 paper-dragon-api/credentials.json
+paper-dragon-api/token.json
+

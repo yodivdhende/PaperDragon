@@ -45,7 +45,8 @@ async function getDeck(id) {
   const deckContent = (await getSheetData(SHEETNAMES.deckcontent)).filter(
     (deckLine) => deckLine.deckid === deckMeta.id
   );
-  return deckContent.flatMap(({ cardid, amount, id }) => {
+  return deckContent.flatMap(({ cardid, amount, id, print }) => {
+    if (print === "FALSE") return [];
     const card = allCards.find((card) => card.id === cardid);
     const results = [];
     for (let count = 0; count < amount; count++) {

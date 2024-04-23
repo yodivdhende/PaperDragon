@@ -1,14 +1,10 @@
 const express = require("express");
 const { authorize } = require("./services/google-auth.js");
 const {
-  getDeckList,
   getMetadata,
   getSheetData,
   SHEETNAMES,
 } = require("./services/spread-fetch.js");
-const {
-  appsactivity,
-} = require("googleapis/build/src/apis/appsactivity/index.js");
 const { getDeck } = require("./services/deck-builder.js");
 
 const PORT = 3001;
