@@ -5,7 +5,7 @@ const {
   getSheetData,
   SHEETNAMES,
 } = require("./services/spread-fetch.js");
-const { getDeck } = require("./services/deck-builder.js");
+const { getDeck, CARDTYPES } = require("./services/deck-builder.js");
 
 const PORT = 3001;
 
@@ -20,7 +20,9 @@ app.get("/decktypes", (_, res) =>
   getSheetData(SHEETNAMES.DeckTypes).then((decklist) => res.send(decklist))
 );
 
-app.get("/type/:type", ({ params }, result) =>
+app.get("/cardtypes", (_, result) => result.send(Object.keys(CARDTYPES)));
+
+app.get("/cards/:type", ({ params }, result) =>
   getSheetData(SHEETNAMES[params.type]).then((deck) => result.send(deck))
 );
 

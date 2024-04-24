@@ -1,24 +1,26 @@
 <script lang="ts">
+  import CardTemplateSelector from './components/card-template-selector.svelte';
   import Card from "./components/card-templates/card.svelte";
-  import {
-    handleAuthClick,
-    handleSignoutClick,
-  } from "./services/spreadsheet.service";
+  import { selectedCardTemplateStore } from './services/card-type-selector.service';
+
+  $: card = {
+    template: $selectedCardTemplateStore
+  }
 </script>
 
 <main>
-  <div>
-    <button id="authorize_button" on:click={handleAuthClick}>Authorize</button>
-    <button id="signout_button" on:click={handleSignoutClick}>Sign Out</button>
-  </div>
   <div class="card">
-    <Card></Card>
+    <Card {card}></Card>
+  </div>
+  <div class="options">
+    <CardTemplateSelector/>
   </div>
 </main>
 
 <style>
   main {
     display: grid;
+    grid-template-columns: 1fr 100px;
     justify-content: center;
     align-content: center;
   }

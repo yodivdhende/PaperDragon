@@ -1,10 +1,10 @@
 export const CardTemplates = {
- actionBack: "actionBack",
- attack: "attack",
- maneuver: "maneuver",
- item: "item",
- status: "status",
- condition: "condition",
+    actionBack: "actionBack",
+    attack: "attacks",
+    maneuver: "maneuvers",
+    item: "items",
+    status: "statuses",
+    condition: "conditions",
 } as const
 
 export type CardTemplate = typeof CardTemplates[keyof typeof CardTemplates]
@@ -24,12 +24,12 @@ export type AttackCardData = {
     effect: string;
     damage: string;
     damageType: string;
-    mind:string;
+    mind: string;
     strength: string;
     reflex: string;
-}                                            
+}
 
-export type ManeuverCardData= {
+export type ManeuverCardData = {
     template: typeof CardTemplates.maneuver;
     name: string;
     id: string;
@@ -37,12 +37,12 @@ export type ManeuverCardData= {
     image: string;
     kost: string;
     effect: string;
-    mind:string;
+    mind: string;
     strength: string;
     reflex: string;
-}                                            
+}
 
-export type ItemCardData= {
+export type ItemCardData = {
     template: typeof CardTemplates.item;
     name: string;
     id: string;
@@ -50,10 +50,10 @@ export type ItemCardData= {
     image: string;
     kost: string;
     effect: string;
-    mind:string;
+    mind: string;
     strength: string;
     reflex: string;
-}                                            
+}
 
 export type StatusCardData = {
     template: typeof CardTemplates.status;
@@ -61,10 +61,10 @@ export type StatusCardData = {
     id: string;
     image: string;
     effect: string;
-}                                            
+}
 
 
-export type ConditionCardData= {
+export type ConditionCardData = {
     template: typeof CardTemplates.condition;
     name: string;
     id: string;
@@ -72,15 +72,15 @@ export type ConditionCardData= {
     image: string;
     kost: string;
     effect: string;
-    mind:string;
+    mind: string;
     strength: string;
     reflex: string;
-}                                            
+}
 
 export type CardData = ActionBackCardData
-    | AttackCardData 
-    | ManeuverCardData 
-    | ItemCardData 
+    | AttackCardData
+    | ManeuverCardData
+    | ItemCardData
     | StatusCardData
     | ConditionCardData
-;
+    ;

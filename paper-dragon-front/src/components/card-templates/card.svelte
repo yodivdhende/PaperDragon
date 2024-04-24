@@ -1,14 +1,13 @@
 <script lang="ts">
-  import { CardTemplates } from "./card-templates.type";
+  import { CardTemplates, type CardTemplate, type CardData } from "./card-templates.type";
   import AttackCard from "./attack-card.svelte";
   import ManeuverCard from "./maneuver-card.svelte";
   import ItemCard from "./item-card.svelte";
   import StatusCard from "./status-card.svelte";
   import ConditionCard from "./condition-card.svelte";
-  import ActionBack from "./action-back-card.svelte";
   import ActionBackCard from "./action-back-card.svelte";
 
-  export let card = {
+  export let card: {template: CardTemplate}= {
     template: CardTemplates.actionBack,
   };
 </script>

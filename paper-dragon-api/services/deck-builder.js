@@ -1,5 +1,18 @@
 const { getSheetData, SHEETNAMES } = require("./spread-fetch");
 
+const CARDTYPES = {
+  maneuvers: SHEETNAMES.maneuvers,
+  attacks: SHEETNAMES.attacks,
+  items: SHEETNAMES.items,
+  traps: SHEETNAMES.traps,
+  minions: SHEETNAMES.minions,
+  bosses: SHEETNAMES.bosses,
+  artifacts: SHEETNAMES.artifacts,
+  backgrounds: SHEETNAMES.backgrounds,
+  statuses: SHEETNAMES.statuses,
+  conditions: SHEETNAMES.conditions,
+};
+
 async function getAllCards() {
   const [
     maneuvers,
@@ -61,5 +74,6 @@ async function getDeck(id) {
 }
 
 module.exports = {
+  CARDTYPES,
   getDeck,
 };
