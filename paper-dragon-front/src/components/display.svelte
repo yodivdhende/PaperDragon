@@ -5,6 +5,7 @@
     type DisplayType,
   } from "../services/display-type-selector.service";
   import Card from "./card-templates/card.svelte";
+  import Deck from "./deck.svelte";
 
   export let displayType: DisplayType;
 
@@ -19,6 +20,9 @@
       <Card {card}></Card>
     </div>
   {/if}
+  {#if displayType === DISPLAYTYPES.deck}
+    <Deck />
+  {/if}
 </main>
 
 <style>
@@ -27,11 +31,5 @@
     display: grid;
     justify-content: center;
     align-content: center;
-  }
-
-  .card {
-    --width: 500px;
-    width: var(--width);
-    height: calc(var(--width) * 1.39);
   }
 </style>
