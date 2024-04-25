@@ -1,12 +1,16 @@
 <script lang="ts">
-  import type { CardData } from "./card-templates/card-templates.type";
+  import { getDeck, selectedDeckIdStore } from "../services/deck.service";
   import Card from "./card-templates/card.svelte";
+  import DeckSelector from "./deck-selector.svelte";
 
-  let deck: CardData[] = [];
+  let deck = getDeck($selectedDeckIdStore);
 </script>
 
 <main>
-  {#each deck as card}
+  <div class="header">
+    <DeckSelector />
+  </div>
+  {#each $deck as card}
     <Card {card}></Card>
   {/each}
 </main>
@@ -14,6 +18,14 @@
 <style>
   main {
     display: grid;
+    place-content: center;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-area:
+      " header header header "
+      " . . .";
+  }
+
+  .header {
+    grid-area: header;
   }
 </style>
