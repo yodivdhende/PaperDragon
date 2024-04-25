@@ -30,7 +30,7 @@
   main {
     width: 100%;
     height: 100%;
-    border: 10px solid lime;
+    outline: 10px solid lime;
     border-radius: 20px;
     background-color: white;
     color: black;

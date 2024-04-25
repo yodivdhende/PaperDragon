@@ -18,7 +18,7 @@
   main {
     width: 100%;
     height: 100%;
-    border: 10px solid black;
+    outline: 10px solid black;
     border-radius: 20px;
     background-color: white;
     color: black;

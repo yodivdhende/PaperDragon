@@ -1,33 +1,25 @@
 <script lang="ts">
-  import CardTemplateSelector from './components/card-template-selector.svelte';
-  import Card from "./components/card-templates/card.svelte";
-  import { selectedCardTemplateStore } from './services/card-type-selector.service';
-
-  $: card = {
-    template: $selectedCardTemplateStore
-  }
+  import CardTemplateSelector from "./components/card-template-selector.svelte";
+  import DisplaySelector from "./components/display-selector.svelte";
+  import Display from "./components/display.svelte";
+  import { currentDisplayStore } from "./services/display-type-selector.service";
 </script>
 
 <main>
-  <div class="card">
-    <Card {card}></Card>
-  </div>
+  <Display displayType={$currentDisplayStore} />
   <div class="options">
-    <CardTemplateSelector/>
+    <DisplaySelector />
+    <CardTemplateSelector />
   </div>
 </main>
 
 <style>
   main {
-    display: grid;
-    grid-template-columns: 1fr 100px;
-    justify-content: center;
-    align-content: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
   }
-
-  .card {
-    --width: 500px;
-    width: var(--width);
-    height: calc(var(--width) * 1.39);
+  .options {
+    max-width: 200px;
   }
 </style>

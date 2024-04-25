@@ -34,7 +34,7 @@
   main {
     width: 100%;
     height: 100%;
-    border: 10px solid orange;
+    outline: 10px solid orange;
     border-radius: 20px;
     background-color: white;
     color: black;

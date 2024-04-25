@@ -22,7 +22,7 @@
   main {
     width: 100%;
     height: 100%;
-    border: 10px solid silver;
+    outline: 10px solid silver;
     border-radius: 20px;
     background-color: white;
     color: black;
