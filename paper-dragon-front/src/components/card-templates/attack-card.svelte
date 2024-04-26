@@ -16,11 +16,9 @@
     strength: "S",
     reflex: "R",
   };
-
-  export let scale = 1;
 </script>
 
-<main style={`--scale: ${scale}`}>
+<main class="card">
   <div class="kost">{card.kost}</div>
   <div class="name">{card.name}</div>
   <div class="damage">{card.damage}</div>
@@ -35,14 +33,7 @@
 
 <style>
   main {
-    --outline-width: calc(10px * var(--scale));
-    width: calc(100% - var(--outline-width) * 2);
-    height: calc(100% - var(--outline-width) * 2);
-    border: var(--outline-width) solid orange;
-    border-radius: calc(20px * var(--scale));
-    background-color: white;
-    color: black;
-    font-size: calc(1rem * var(--scale));
+    border-color: var(--border-color);
     display: grid;
     place-content: center;
     grid-template-columns: 1fr 3fr 1fr;
@@ -53,69 +44,5 @@
       "damageType . ."
       "effect effect effect "
       ". attributes id";
-  }
-  .kost {
-    grid-area: kost;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    background-color: yellow;
-    border-radius: 50%;
-    font-size: 2em;
-  }
-  .name {
-    grid-area: name;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    font-size: 2em;
-    font-weight: bolder;
-    border-bottom: 3px solid black;
-  }
-  .damage {
-    grid-area: damage;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    font-weight: bolder;
-    border-radius: 50% 50% 0 0;
-    background-color: red;
-  }
-  .type {
-    grid-area: type;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-  }
-  .damageType {
-    grid-area: damageType;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    border-radius: 0 0 100% 100%;
-    background-color: red;
-  }
-
-  .effect {
-    grid-area: effect;
-    justify-self: center;
-    padding-top: 2em;
-  }
-
-  :global(.damageType > img),
-  :global(.effect > img) {
-    width: 1.2em;
-    height: 1.2em;
-  }
-
-  .attributes {
-    grid-area: attributes;
-  }
-  .id {
-    grid-area: id;
-    font-size: 0.8em;
-    display: grid;
-    justify-content: center;
-    align-content: end;
   }
 </style>
