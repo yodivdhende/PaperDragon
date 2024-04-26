@@ -1,4 +1,5 @@
 const { getSheetData, SHEETNAMES } = require("./spread-fetch");
+const { replaceWithIcons } = require("./icon");
 
 const CARDTYPES = {
   maneuvers: SHEETNAMES.maneuvers,
@@ -58,19 +59,24 @@ async function getDeck(id) {
   const deckContent = (await getSheetData(SHEETNAMES.deckcontent)).filter(
     (deckLine) => deckLine.deckid === deckMeta.id
   );
-  return deckContent.flatMap(({ cardid, amount, id, print }) => {
-    if (print === "FALSE") return [];
+  const resultDeck = [];
+  for (let deckLine of deckContent) {
+    const { cardid, amount, id, print } = deckLine;
+    if (print === "FALSE") return;
     const card = allCards.find((card) => card.id === cardid);
-    const results = [];
     for (let count = 0; count < amount; count++) {
-      results.push({
+      const effectWithIcons = await replaceWithIcons(card.effect);
+      const damageTypeIcon = await replaceWithIcons(card.damagetype);
+      resultDeck.push({
         ...card,
         id: `${id}-${count + 1}`,
         deck: deckMeta,
+        effect: effectWithIcons,
+        damagetype: damageTypeIcon,
       });
     }
-    return results;
-  });
+  }
+  return resultDeck;
 }
 
 module.exports = {

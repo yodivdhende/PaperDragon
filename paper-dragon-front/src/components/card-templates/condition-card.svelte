@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Attributes from "../attributes/attributes.svelte";
+  import Attributes from "../card-sections/attributes/attributes.svelte";
   import { CardTypes, type AttackCardData } from "./card-templates.type";
 
   export let data: ConditionCard = {
-    template: CardTypes.attack,
+    cardType: CardTypes.attack,
     name: "name",
     id: "id",
     type: "type",

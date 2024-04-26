@@ -23,7 +23,7 @@ export type AttackCardData = {
     kost: string;
     effect: string;
     damage: string;
-    damageType: string;
+    damagetype: string;
     mind: string;
     strength: string;
     reflex: string;

@@ -15,6 +15,6 @@
     "checkJs": true,
     "isolatedModules": true
   },
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte", "src/components/attributes"],
+  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte", "src/components/card-sections/attributes"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

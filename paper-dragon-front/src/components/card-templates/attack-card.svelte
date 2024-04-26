@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Attributes from "../attributes/attributes.svelte";
+  import Attributes from "../card-sections/attributes/attributes.svelte";
   import { CardTypes, type AttackCardData } from "./card-templates.type";
 
   export let card: AttackCardData = {
@@ -11,7 +11,7 @@
     kost: "kost",
     effect: "effect",
     damage: "dmg",
-    damageType: "dmg-type",
+    damagetype: "dmg-type",
     mind: "M",
     strength: "S",
     reflex: "R",
@@ -25,8 +25,8 @@
   <div class="name">{card.name}</div>
   <div class="damage">{card.damage}</div>
   <div class="type"><em>{card.type}</em></div>
-  <div class="damageType">{card.damageType}</div>
-  <div class="effect">{card.effect}</div>
+  <div class="damageType">{@html card.damagetype}</div>
+  <div class="effect">{@html card.effect}</div>
   <div class="attributes">
     <Attributes data={card}></Attributes>
   </div>
@@ -36,14 +36,15 @@
 <style>
   main {
     --outline-width: calc(10px * var(--scale));
-    width: calc(100% - var(--outline-width));
-    height: calc(100% - var(--outline-width));
-    outline: var(--outline-width) solid orange;
+    width: calc(100% - var(--outline-width) * 2);
+    height: calc(100% - var(--outline-width) * 2);
+    border: var(--outline-width) solid orange;
     border-radius: calc(20px * var(--scale));
     background-color: white;
     color: black;
     font-size: calc(1rem * var(--scale));
     display: grid;
+    place-content: center;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 2fr 1fr 1fr 10fr 1fr;
     grid-template-areas:
@@ -94,17 +95,27 @@
     border-radius: 0 0 100% 100%;
     background-color: red;
   }
+
   .effect {
     grid-area: effect;
+    justify-self: center;
     padding-top: 2em;
   }
+
+  :global(.damageType > img),
+  :global(.effect > img) {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
   .attributes {
     grid-area: attributes;
   }
   .id {
     grid-area: id;
+    font-size: 0.8em;
     display: grid;
-    justify-content: end;
+    justify-content: center;
     align-content: end;
   }
 </style>

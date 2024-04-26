@@ -1,11 +1,12 @@
 <script lang="ts">
-  import Attributes from "../attributes/attributes.svelte";
+  import Attributes from "../card-sections/attributes/attributes.svelte";
   import { CardTypes, type ManeuverCardData } from "./card-templates.type";
 
   export let card: ManeuverCardData = {
     cardType: CardTypes.maneuver,
     name: "name",
     id: "id",
+    image: "",
     type: "type",
     kost: "kost",
     effect: "effect",
@@ -20,7 +21,7 @@
   <div class="kost">{card.kost}</div>
   <div class="name">{card.name}</div>
   <div class="type"><em>{card.type}</em></div>
-  <div class="effect">{card.effect}</div>
+  <div class="effect">{@html card.effect}</div>
   <div class="attributes">
     <Attributes data={card}></Attributes>
   </div>
@@ -30,9 +31,9 @@
 <style>
   main {
     --outline-width: calc(10px * var(--scale));
-    width: calc(100% - var(--outline-width));
-    height: calc(100% - var(--outline-width));
-    outline: var(--outline-width) solid blue;
+    width: calc(100% - var(--outline-width) * 2);
+    height: calc(100% - var(--outline-width) * 2);
+    border: var(--outline-width) solid blue;
     border-radius: calc(20px * var(--scale));
     background-color: white;
     color: black;
@@ -80,6 +81,7 @@
   }
   .id {
     grid-area: id;
+    font-size: 0.8em;
     display: grid;
     justify-content: end;
     align-content: end;
