@@ -1,5 +1,4 @@
 import { writable, type Writable } from "svelte/store"
-import type Card from "../components/card-templates/card.svelte";
 import type { CardData } from "../components/card-templates/card-templates.type";
 
 const HOST = "http://localhost:3001" as const;
@@ -10,22 +9,23 @@ type DeckType = {
 }
 
 type Deck = CardData[];
-export const deckTypesStore: Writable<DeckType[]> = writable();
 export const selectedDeckIdStore: Writable<DeckType['id']> = writable();
 
-fetch(`${HOST}/decktypes`).then(async (response) => {
+
+export async function fetchDeckTypes() {
+    const response  = await fetch(`${HOST}/decktypes`)
     const decks = await response.json();
-    if(decks.every((deck: any): deck is DeckType => typeof deck.name === 'string' && typeof deck.id === 'string')) {
-        deckTypesStore.set(decks)
-    }
-})
+    const result: DeckType[] = decks.filter((deck: any): deck is DeckType => {
+        return typeof deck.name === 'string' && typeof deck.id === 'string';
+    }) 
+    return result;
+}
 
 
-export function getDeck(id: string): Writable<Deck> {
-    const deckStore: Writable<Deck> = writable();
-    fetch(`${HOST}/deck/${id}`).then(async(response) => {
+export async function getDeck(id?: string) {
+    if(id !== undefined) {
+        const response  = await fetch(`${HOST}/deck/${id}`)
         const deck:Deck  = await response.json();
-        deckStore.set(deck);
-    })
-    return deckStore;
+        return deck;
+    }
 }

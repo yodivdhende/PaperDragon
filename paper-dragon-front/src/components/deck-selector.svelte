@@ -1,16 +1,20 @@
 <script lang="ts">
   import {
-    deckTypesStore,
+    fetchDeckTypes,
     selectedDeckIdStore,
   } from "../services/deck.service";
 </script>
 
 <main>
-  <select bind:value={$selectedDeckIdStore}>
-    {#each $deckTypesStore as deckType}
-      <option value={deckType.id}>{deckType.name}</option>
-    {/each}
-  </select>
+  {#await fetchDeckTypes()}
+    <p>... waiting for deck types</p>
+  {:then deckTypes}
+    <select bind:value={$selectedDeckIdStore}>
+      {#each deckTypes as deckType}
+        <option value={deckType.id}>{deckType.name}</option>
+      {/each}
+    </select>
+  {/await}
 </main>
 
 <style>

@@ -41,7 +41,6 @@ async function getMetadata() {
   const sheet = (await getSpreadSheet()).get({
     spreadsheetId: SPREADSHEET_ID,
   });
-  console.log(sheet);
   return sheet;
 }
 

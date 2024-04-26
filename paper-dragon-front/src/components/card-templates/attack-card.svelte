@@ -1,11 +1,12 @@
 <script lang="ts">
   import Attributes from "../attributes/attributes.svelte";
-  import { CardTemplates, type AttackCardData } from "./card-templates.type";
+  import { CardTypes, type AttackCardData } from "./card-templates.type";
 
-  export let data: AttackCardData = {
-    template: CardTemplates.attack,
+  export let card: AttackCardData = {
+    cardType: CardTypes.attack,
     name: "name",
     id: "id",
+    image: "image",
     type: "type",
     kost: "kost",
     effect: "effect",
@@ -15,29 +16,33 @@
     strength: "S",
     reflex: "R",
   };
+
+  export let scale = 1;
 </script>
 
-<main>
-  <div class="kost">{data.kost}</div>
-  <div class="name">{data.name}</div>
-  <div class="damage">{data.damage}</div>
-  <div class="type"><em>{data.type}</em></div>
-  <div class="damageType">{data.damageType}</div>
-  <div class="effect">{data.effect}</div>
+<main style={`--scale: ${scale}`}>
+  <div class="kost">{card.kost}</div>
+  <div class="name">{card.name}</div>
+  <div class="damage">{card.damage}</div>
+  <div class="type"><em>{card.type}</em></div>
+  <div class="damageType">{card.damageType}</div>
+  <div class="effect">{card.effect}</div>
   <div class="attributes">
-    <Attributes {data}></Attributes>
+    <Attributes data={card}></Attributes>
   </div>
-  <div class="id">{data.id}</div>
+  <div class="id">{card.id}</div>
 </main>
 
 <style>
   main {
-    width: 100%;
-    height: 100%;
-    outline: 10px solid orange;
-    border-radius: 20px;
+    --outline-width: calc(10px * var(--scale));
+    width: calc(100% - var(--outline-width));
+    height: calc(100% - var(--outline-width));
+    outline: var(--outline-width) solid orange;
+    border-radius: calc(20px * var(--scale));
     background-color: white;
     color: black;
+    font-size: calc(1rem * var(--scale));
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 2fr 1fr 1fr 10fr 1fr;
@@ -55,14 +60,14 @@
     align-content: center;
     background-color: yellow;
     border-radius: 50%;
-    font-size: 2rem;
+    font-size: 2em;
   }
   .name {
     grid-area: name;
     display: grid;
     justify-content: center;
     align-content: center;
-    font-size: 2rem;
+    font-size: 2em;
     font-weight: bolder;
     border-bottom: 3px solid black;
   }
@@ -91,7 +96,7 @@
   }
   .effect {
     grid-area: effect;
-    padding-top: 2rem;
+    padding-top: 2em;
   }
   .attributes {
     grid-area: attributes;

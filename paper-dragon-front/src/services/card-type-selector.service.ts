@@ -32,5 +32,3 @@ export const CARDTYPES = {
 type CardTypes = keyof typeof CARDTYPES;
 
 export const selectedCardTemplateStore: Writable<CardTemplate> = writable();
-
-selectedCardTemplateStore.subscribe(value => console.log(value));

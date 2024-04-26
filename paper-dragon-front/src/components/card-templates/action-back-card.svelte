@@ -1,11 +1,8 @@
 <script lang="ts">
-  import {
-    CardTemplates,
-    type ActionBackCardData,
-  } from "./card-templates.type";
+  import { CardTypes, type ActionBackCardData } from "./card-templates.type";
 
   export let data: ActionBackCardData = {
-    template: CardTemplates.actionBack,
+    template: CardTypes.actionBack,
     kost: "kost",
   };
 </script>

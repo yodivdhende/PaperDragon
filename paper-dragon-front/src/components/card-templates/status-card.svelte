@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { CardTemplates, type StatusCardData } from "./card-templates.type";
+  import { CardTypes, type StatusCardData } from "./card-templates.type";
 
   export let data: StatusCardData = {
-    template: CardTemplates.status,
+    template: CardTypes.status,
     name: "name",
     image: "test",
     id: "id",

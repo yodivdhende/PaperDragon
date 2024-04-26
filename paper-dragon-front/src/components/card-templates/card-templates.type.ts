@@ -1,4 +1,4 @@
-export const CardTemplates = {
+export const CardTypes = {
     actionBack: "actionBack",
     attack: "attacks",
     maneuver: "maneuvers",
@@ -7,15 +7,15 @@ export const CardTemplates = {
     condition: "conditions",
 } as const
 
-export type CardTemplate = typeof CardTemplates[keyof typeof CardTemplates]
+export type CardTemplate = typeof CardTypes[keyof typeof CardTypes]
 
 export type ActionBackCardData = {
-    template: typeof CardTemplates.actionBack;
+    cardType: typeof CardTypes.actionBack;
     kost: string;
 }
 
 export type AttackCardData = {
-    template: typeof CardTemplates.attack;
+    cardType: typeof CardTypes.attack;
     name: string;
     id: string;
     type: string;
@@ -30,7 +30,7 @@ export type AttackCardData = {
 }
 
 export type ManeuverCardData = {
-    template: typeof CardTemplates.maneuver;
+    cardType: typeof CardTypes.maneuver;
     name: string;
     id: string;
     type: string;
@@ -43,7 +43,7 @@ export type ManeuverCardData = {
 }
 
 export type ItemCardData = {
-    template: typeof CardTemplates.item;
+    cardType: typeof CardTypes.item;
     name: string;
     id: string;
     type: string;
@@ -56,7 +56,7 @@ export type ItemCardData = {
 }
 
 export type StatusCardData = {
-    template: typeof CardTemplates.status;
+    cardType: typeof CardTypes.status;
     name: string;
     id: string;
     image: string;
@@ -65,7 +65,7 @@ export type StatusCardData = {
 
 
 export type ConditionCardData = {
-    template: typeof CardTemplates.condition;
+    cardType: typeof CardTypes.condition;
     name: string;
     id: string;
     type: string;

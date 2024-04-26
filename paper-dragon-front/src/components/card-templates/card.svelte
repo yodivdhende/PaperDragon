@@ -1,6 +1,6 @@
 <script lang="ts">
   import {
-    CardTemplates,
+    CardTypes,
     type CardTemplate,
     type CardData,
   } from "./card-templates.type";
@@ -11,30 +11,31 @@
   import ConditionCard from "./condition-card.svelte";
   import ActionBackCard from "./action-back-card.svelte";
 
-  export let card: { template: CardTemplate } = {
-    template: CardTemplates.actionBack,
-  };
+  export let card: CardData;
+  export let scale = 1;
 </script>
 
-<main>
-  {#if card.template === CardTemplates.actionBack}
+<main style={`--scale: ${scale}`}>
+  {#if card === undefined}
+    no card{/if}
+  {#if card.cardType === CardTypes.actionBack}
     <ActionBackCard></ActionBackCard>
-  {:else if card.template === CardTemplates.attack}
-    <AttackCard></AttackCard>
-  {:else if card.template === CardTemplates.maneuver}
-    <ManeuverCard></ManeuverCard>
-  {:else if card.template === CardTemplates.item}
+  {:else if card.cardType === CardTypes.attack}
+    <AttackCard {card} {scale}></AttackCard>
+  {:else if card.cardType === CardTypes.maneuver}
+    <ManeuverCard {card} {scale}></ManeuverCard>
+  {:else if card.cardType === CardTypes.item}
     <ItemCard></ItemCard>
-  {:else if card.template === CardTemplates.status}
+  {:else if card.cardType === CardTypes.status}
     <StatusCard></StatusCard>
-  {:else if card.template === CardTemplates.condition}
+  {:else if card.cardType === CardTypes.condition}
     <ConditionCard></ConditionCard>
   {/if}
 </main>
 
 <style>
   main {
-    --width: 500px;
+    --width: calc(500px * var(--scale));
     width: var(--width);
     height: calc(var(--width) * 1.39);
   }

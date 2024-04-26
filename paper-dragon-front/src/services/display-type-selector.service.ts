@@ -6,4 +6,4 @@ export const DISPLAYTYPES = {
 } as const
 export type DisplayType = typeof DISPLAYTYPES[keyof typeof DISPLAYTYPES];
 
-export let currentDisplayStore: Writable<DisplayType>=  writable();
+export let currentDisplayStore: Writable<DisplayType>=  writable(DISPLAYTYPES.deck);
