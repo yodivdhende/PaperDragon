@@ -2,18 +2,7 @@
   import Attributes from "../card-sections/attributes/attributes.svelte";
   import { CardTypes, type ConditionCardData } from "./card-templates.type";
 
-  export let card: ConditionCardData = {
-    cardType: CardTypes.condition,
-    name: "name",
-    id: "id",
-    type: "type",
-    image: "image",
-    kost: "kost",
-    effect: "effect",
-    mind: "M",
-    strength: "S",
-    reflex: "R",
-  };
+  export let card: ConditionCardData ;
 </script>
 
 <main class="card">

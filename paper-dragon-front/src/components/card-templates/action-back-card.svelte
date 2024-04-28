@@ -1,14 +1,11 @@
 <script lang="ts">
   import { CardTypes, type ActionBackCardData } from "./card-templates.type";
 
-  export let data: ActionBackCardData = {
-    template: CardTypes.actionBack,
-    kost: "kost",
-  };
+  export let card: ActionBackCardData;
 </script>
 
 <main>
-  <div class="kost">{data.kost}</div>
+  <div class="kost">{card.kost}</div>
 </main>
 
 <style>

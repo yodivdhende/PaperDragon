@@ -1,28 +1,29 @@
 <script lang="ts">
+  import Attributes from "../card-sections/attributes/attributes.svelte";
   import { CardTypes, type BackgroundCardData } from "./card-templates.type";
 
-  export let card: BackgroundCardData = {
-    cardType: CardTypes.backgrounds,
-    name: "name",
-    id: "id",
-    lp: "5",
-    mind: "1",
-    strength: "1",
-    reflex: "1",
-  };
+  export let card: BackgroundCardData ;
 </script>
 
 <main class="card">
-  <div class="name">{card.name}</div>
-  <div class="id">{card.id}</div>
   <div class="lp">{card.lp}</div>
-  <div class="mind">{card.mind}</div>
-  <div class="strength">{card.strength}</div>
-  <div class="reflex">{card.reflex}</div>
+  <div class="name">{card.name}</div>
+  <div class="attributes">
+    <Attributes {card} />
+  </div>
+  <div class="id">{card.id}</div>
 </main>
 
 <style>
   main {
     border-color: var(--border-color);
+    grid-template-columns: 1fr 3fr 1fr;  
+    grid-template-rows: 2fr 1fr 11fr 1fr;
+    grid-template-areas: 
+    "lp name ."
+    ". attributes ."
+    ". . ."
+    ". . id"
+    ;
   }
 </style>

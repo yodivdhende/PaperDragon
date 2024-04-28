@@ -1,14 +1,7 @@
 <script lang="ts">
   import { CardTypes, type BossesCardData } from "./card-templates.type";
 
-  export let card: BossesCardData = {
-    cardType: CardTypes.bosses,
-    name: "name",
-    id: "id",
-    lp: "lp",
-    condition: "condition",
-    defeatcondition: "defeatcondition",
-  };
+  export let card: BossesCardData ;
 </script>
 
 <main class="card">

@@ -66,15 +66,14 @@ async function getDeck(id) {
     const card = allCards.find((card) => card.id === cardid);
     for (let count = 0; count < amount; count++) {
       const newCard = {};
-      Object.entries([key, value]);
-      const effectWithIcons = await replaceWithIcons(card.effect);
-      const damageTypeIcon = await replaceWithIcons(card.damagetype);
+      const paramatersOfCards = Object.entries(card);
+      for (let [key, value] of paramatersOfCards) {
+        newCard[key] = await replaceWithIcons(value);
+      }
       resultDeck.push({
-        ...card,
+        ...newCard,
         id: `${id}-${count + 1}`,
         deck: deckMeta,
-        effect: effectWithIcons,
-        damagetype: damageTypeIcon,
       });
     }
   }

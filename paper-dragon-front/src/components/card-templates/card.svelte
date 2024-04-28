@@ -15,34 +15,15 @@
   import BackgroundCard from "./background-card.svelte";
   import BossCard from "./boss-card.svelte";
 
-  export let cardType: CardTemplate;
-  export let card: CardData;
+   export let card: CardData;
   export let scale = 1;
 </script>
 
 <main style={`--scale: ${scale}`}>
-  {#if card === undefined && cardType !== undefined}
-    {#if cardType === CardTypes.attack}
-      <AttackCard --border-color="orange" />
-    {:else if cardType === CardTypes.maneuver}
-      <ManeuverCard --border-color="blue" />
-    {:else if cardType === CardTypes.item}
-      <ItemCard --border-color="lime" />
-    {:else if cardType === CardTypes.status}
-      <StatusCard --border-color="red" />
-    {:else if cardType === CardTypes.condition}
-      <ConditionCard --border-color="silver" />
-    {:else if cardType === CardTypes.minions}
-      <MinionCard --border-color="black" />
-    {:else if cardType === CardTypes.bosses}
-      <BossCard --border-color="black" />
-    {:else if cardType === CardTypes.artifacts}
-      <ArtifactCard --border-color="black" />
-    {:else if cardType === CardTypes.backgrounds}
-      <BackgroundCard --border-color="black" />
-    {/if}
+  {#if card === undefined}
+    no card
   {:else if card.cardType === CardTypes.actionBack}
-    <ActionBackCard />
+    <ActionBackCard {card}/>
   {:else if card.cardType === CardTypes.attack}
     <AttackCard {card} --border-color="orange" />
   {:else if card.cardType === CardTypes.maneuver}
@@ -86,8 +67,7 @@
   :global(.kost) {
     grid-area: kost;
     display: grid;
-    justify-content: center;
-    align-content: center;
+    place-content: center;
     background-color: yellow;
     border-radius: 50%;
     font-size: 2em;
@@ -96,8 +76,7 @@
   :global(.name) {
     grid-area: name;
     display: grid;
-    justify-content: center;
-    align-content: center;
+    place-content: center;
     font-size: 2em;
     font-weight: bolder;
     border-bottom: 3px solid black;
@@ -115,8 +94,7 @@
   :global(.type) {
     grid-area: type;
     display: grid;
-    justify-content: center;
-    align-content: center;
+    place-content: center;
   }
   :global(.effect) {
     grid-area: effect;
@@ -145,5 +123,20 @@
     display: grid;
     justify-content: center;
     align-content: end;
+  }
+
+  :global(.lp) {
+    grid-area: lp;
+    font-size: 2em;
+    display: grid; 
+    place-content: center;
+    background-color: lightcoral;
+  }
+
+  :global(.actions) {
+    grid-area: actions;
+    font-size:  2em;
+    text-align: center;
+    background-color: yellow;
   }
 </style>

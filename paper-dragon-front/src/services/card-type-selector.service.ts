@@ -1,5 +1,5 @@
-import { writable, type Writable } from 'svelte/store';
-import type { CardTemplate } from '../components/card-templates/card-templates.type';
+import { derived, writable, type Writable } from 'svelte/store';
+import { CardTypes, getDefaultTemplate, type CardType } from '../components/card-templates/card-templates.type';
 
 export const SHEETNAMES = {
   decktypes: "DeckTypes",
@@ -30,4 +30,5 @@ export const CARDTYPES = {
   conditions: SHEETNAMES.conditions,
 } as const;
 
-export const selectedCardTemplateStore: Writable<CardTemplate> = writable('minions');
+export const selectedCardTypeStore: Writable<CardType> = writable(CardTypes.backgrounds);
+export const selectedDefaulCardTemplateStore = derived(selectedCardTypeStore, selected => getDefaultTemplate(selected))

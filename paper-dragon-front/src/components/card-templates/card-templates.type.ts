@@ -11,126 +11,154 @@ export const CardTypes = {
     backgrounds: "backgrounds",
 } as const
 
-export type CardTemplate = typeof CardTypes[keyof typeof CardTypes]
+export type CardType = typeof CardTypes[keyof typeof CardTypes]
 
-export type ActionBackCardData = {
-    cardType: typeof CardTypes.actionBack;
-    kost: string;
+const ActionBackCardTemplate = {
+    template: CardTypes.actionBack,
+    kost: 1,
 }
+export type ActionBackCardData = typeof ActionBackCardTemplate;
 
-export type AttackCardData = {
-    cardType: typeof CardTypes.attack;
-    name: string;
-    id: string;
-    type: string;
-    image: string;
-    kost: string;
-    effect: string;
-    damage: string;
-    damagetype: string;
-    mind: string;
-    strength: string;
-    reflex: string;
+const AttackCardTemplate = {
+    cardType: CardTypes.attack,
+    name: "name",
+    id: "id",
+    image: "image",
+    type: "type",
+    kost: 1,
+    effect: "effect",
+    damage: 2,
+    damagetype: "DT",
+    mind: 3,
+    strength: 4,
+    reflex: 5,
 }
+export type AttackCardTemplate = typeof AttackCardTemplate;
 
-export type ManeuverCardData = {
-    cardType: typeof CardTypes.maneuver;
-    name: string;
-    id: string;
-    type: string;
-    image: string;
-    kost: string;
-    effect: string;
-    mind: string;
-    strength: string;
-    reflex: string;
+const ManeuverCardTemplate = {
+    cardType: CardTypes.maneuver,
+    name: "name",
+    id: "id",
+    image: "image",
+    type: "type",
+    kost: 1,
+    effect: "effect",
+    mind: 2,
+    strength: 3,
+    reflex: 4,
 }
+export type ManeuverCardData = typeof ManeuverCardTemplate;
 
-export type ItemCardData = {
-    cardType: typeof CardTypes.item;
-    name: string;
-    id: string;
-    type: string;
-    image: string;
-    kost: string;
-    effect: string;
-    mind: string;
-    strength: string;
-    reflex: string;
+
+const ItemCardTemplate = {
+    cardType: CardTypes.item,
+    name: "name",
+    id: "id",
+    image: "image",
+    type: "type",
+    kost: 1,
+    effect: "effect",
+    mind: 2,
+    strength: 3,
+    reflex: 4,
 }
+export type ItemCardData = typeof ItemCardTemplate;
 
-export type StatusCardData = {
-    cardType: typeof CardTypes.status;
-    name: string;
-    id: string;
-    image: string;
-    type: string;
-    effect: string;
+
+const StatusCardTemplate = {
+    cardType: CardTypes.status,
+    name: "name",
+    image: "test",
+    id: "id",
+    type: "type",
+    effect: "effect",
 }
+export type StatusCardData = typeof StatusCardTemplate;
 
-
-export type ConditionCardData = {
-    cardType: typeof CardTypes.condition;
-    name: string;
-    id: string;
-    type: string;
-    image: string;
-    kost: string;
-    effect: string;
-    mind: string;
-    strength: string;
-    reflex: string;
+const ConditionCardTemplate = {
+    cardType: CardTypes.condition,
+    name: "name",
+    id: "id",
+    type: "type",
+    image: "image",
+    kost: "kost",
+    effect: "effect",
+    mind: 1,
+    strength: 2,
+    reflex: 3,
 }
+export type ConditionCardData = typeof ConditionCardTemplate;
 
-export type MinionCardData = {
-    cardType: typeof CardTypes.minions;
-    name: string;
-    id: string;
-    type: string;
-    lp: string;
-    actions: string;
-    passive: string;
-    mind: string;
-    strength: string;
-    reflex: string;
+
+const MinionCardTemplate = {
+    cardType: CardTypes.minions,
+    name: "name",
+    id: "id",
+    type: "type",
+    lp: 10,
+    actions: 1,
+    passive: "passive",
+    mind: 2,
+    strength: 3,
+    reflex: 4,
 }
+export type MinionCardData = typeof MinionCardTemplate;
 
-export type BossesCardData = {
-    cardType: typeof CardTypes.bosses;
-    name: string;
-    id: string;
-    lp: string;
-    condition: string;
-    defeatcondition: string;
+const BossCardTemplate = {
+    cardType: CardTypes.bosses,
+    name: "name",
+    id: "id",
+    lp: 10,
+    condition: "condition",
+    defeatcondition: "defeatcondition",
 }
+export type BossesCardData = typeof BossCardTemplate;
 
-export type ArtifactCardData  = {
-    cardType: typeof CardTypes.artifacts;
-    name: string;
-    id: string;
-    actions: string;
-    mechanics: string;
+const ArtifactCardTemplate = {
+    cardType: CardTypes.artifacts,
+    name: "name",
+    id: "id",
+    actions: 1,
+    mechanics: "mechanics",
 }
+export type ArtifactCardData = typeof ArtifactCardTemplate;
 
-export type BackgroundCardData  = {
-    cardType: typeof CardTypes.backgrounds;
-    name: string;
-    id: string;
-    lp: string;
-    mind: string;
-    strength: string;
-    reflex: string;
+const BackgroundCardTemplate = {
+    cardType: CardTypes.backgrounds,
+    name: "name",
+    id: "id",
+    lp: 10,
+    mind: 1,
+    strength: 2,
+    reflex: 3,
+}
+export type BackgroundCardData = typeof BackgroundCardTemplate;
+
+export function getDefaultTemplate(cardType: CardType): CardData {
+    switch (cardType) {
+        case (CardTypes.actionBack): return ActionBackCardTemplate;
+        case (CardTypes.attack): return AttackCardTemplate;
+        case (CardTypes.maneuver): return ManeuverCardTemplate;
+        case (CardTypes.item): return ItemCardTemplate;
+        case (CardTypes.status): return StatusCardTemplate;
+        case (CardTypes.condition): return ConditionCardTemplate;
+        case (CardTypes.minions): return MinionCardTemplate;
+        case (CardTypes.bosses): return BossCardTemplate;
+        case (CardTypes.artifacts): return ArtifactCardTemplate;
+        case (CardTypes.backgrounds): return BackgroundCardTemplate;
+    }
 }
 
 
 export type CardData = ActionBackCardData
-    | AttackCardData
+    | AttackCardTemplate
     | ManeuverCardData
     | ItemCardData
     | StatusCardData
     | ConditionCardData
-    | MinionCardData 
-    | BossesCardData 
+    | MinionCardData
+    | BossesCardData
     | ArtifactCardData
     | BackgroundCardData
     ;
+

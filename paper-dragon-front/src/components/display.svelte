@@ -1,24 +1,20 @@
 <script lang="ts">
-  import { selectedCardTemplateStore } from "../services/card-template-selector.service";
   import {
     DISPLAYTYPES,
     type DisplayType,
   } from "../services/display-type-selector.service";
   import type { CardTypes } from "./card-templates/card-templates.type";
+  import {selectedDefaulCardTemplateStore} from "../services/card-type-selector.service";
   import Card from "./card-templates/card.svelte";
   import Deck from "./deck.svelte";
 
   export let displayType: DisplayType;
-
-  $: card = {
-    cardType: $selectedCardTemplateStore,
-  };
 </script>
 
 <main>
   {#if displayType === DISPLAYTYPES.template}
-    <div class="card">
-      <Card {card}></Card>
+    <div>
+      <Card card={$selectedDefaulCardTemplateStore}></Card>
     </div>
   {/if}
   {#if displayType === DISPLAYTYPES.deck}

@@ -2,20 +2,7 @@
   import Attributes from "../card-sections/attributes/attributes.svelte";
   import { CardTypes, type AttackCardData } from "./card-templates.type";
 
-  export let card: AttackCardData = {
-    cardType: CardTypes.attack,
-    name: "name",
-    id: "id",
-    image: "image",
-    type: "type",
-    kost: "kost",
-    effect: "effect",
-    damage: "dmg",
-    damagetype: "dmg-type",
-    mind: "M",
-    strength: "S",
-    reflex: "R",
-  };
+  export let card: AttackCardData ;
 </script>
 
 <main class="card">

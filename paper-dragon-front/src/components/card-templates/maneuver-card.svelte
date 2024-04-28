@@ -2,18 +2,7 @@
   import Attributes from "../card-sections/attributes/attributes.svelte";
   import { CardTypes, type ManeuverCardData } from "./card-templates.type";
 
-  export let card: ManeuverCardData = {
-    cardType: CardTypes.maneuver,
-    name: "name",
-    id: "id",
-    image: "",
-    type: "type",
-    kost: "kost",
-    effect: "effect",
-    mind: "M",
-    strength: "S",
-    reflex: "R",
-  };
+  export let card: ManeuverCardData;
 </script>
 
 <main class="card">

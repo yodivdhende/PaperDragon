@@ -1,14 +1,14 @@
 <script lang="ts">
   import {
     CARDTYPES,
-    selectedCardTemplateStore,
-  } from "../services/card-template-selector.service";
+    selectedCardTypeStore,
+  } from "../services/card-type-selector.service";
 
   const cardTypesKeys = Object.keys(CARDTYPES);
 </script>
 
 <main>
-  <select bind:value={$selectedCardTemplateStore}>
+  <select bind:value={$selectedCardTypeStore}>
     {#each cardTypesKeys as type}
       <option value={type}>{type}</option>
     {/each}

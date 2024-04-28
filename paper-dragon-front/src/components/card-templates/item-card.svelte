@@ -2,18 +2,7 @@
   import Attributes from "../card-sections/attributes/attributes.svelte";
   import { CardTypes, type ItemCardData } from "./card-templates.type";
 
-  export let card: ItemCardData = {
-    cardType: CardTypes.item,
-    name: "name",
-    id: "id",
-    image: "image",
-    type: "type",
-    kost: "kost",
-    effect: "effect",
-    mind: "M",
-    strength: "S",
-    reflex: "R",
-  };
+  export let card: ItemCardData ;
 </script>
 
 <main class="card">

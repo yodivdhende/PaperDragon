@@ -2,26 +2,15 @@
   import Attributes from "../card-sections/attributes/attributes.svelte";
   import { CardTypes, type MinionCardData } from "./card-templates.type";
 
-  export let card: MinionCardData = {
-    cardType: CardTypes.minions,
-    name: "name",
-    id: "id",
-    type: "type",
-    lp: "lp",
-    actions: "actions",
-    passive: "passive",
-    mind: "mind",
-    strength: "strength",
-    reflex: "reflex",
-  };
+  export let card: MinionCardData ;
 </script>
 
 <main class="card">
+  <div class="lp">{card.lp}</div>
   <div class="name">{card.name}</div>
   <div class="type">{card.type}</div>
-  <div class="lp">{card.lp}</div>
   <div class="actions">{card.actions}</div>
-  <div class="passive">{card.passive}</div>
+  <div class="effect">{card.passive}</div>
   <div class="attributes">
     <Attributes {card}></Attributes>
   </div>
@@ -32,5 +21,12 @@
   main {
     border-color: var(--border-color);
     place-content: center;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 2fr 1fr 10fr 1fr ;
+    grid-template-areas:
+      "lp name ." 
+      "actions type ."
+      ". effect ."
+      ". attributes id"
   }
 </style>

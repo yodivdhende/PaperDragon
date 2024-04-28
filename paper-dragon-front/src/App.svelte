@@ -3,6 +3,7 @@
   import DisplaySelector from "./components/display-selector.svelte";
   import Display from "./components/display.svelte";
   import { currentDisplayStore } from "./services/display-type-selector.service";
+  import DeckSelector from "./components/deck-selector.svelte";
 </script>
 
 <main>
@@ -10,6 +11,7 @@
   <div class="options">
     <DisplaySelector />
     <CardTemplateSelector />
+    <DeckSelector />
   </div>
 </main>
 
