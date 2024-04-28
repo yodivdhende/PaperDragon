@@ -65,6 +65,8 @@ async function getDeck(id) {
     if (print === "FALSE") return;
     const card = allCards.find((card) => card.id === cardid);
     for (let count = 0; count < amount; count++) {
+      const newCard = {};
+      Object.entries([key, value]);
       const effectWithIcons = await replaceWithIcons(card.effect);
       const damageTypeIcon = await replaceWithIcons(card.damagetype);
       resultDeck.push({

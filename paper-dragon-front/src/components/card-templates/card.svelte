@@ -1,8 +1,8 @@
 <script lang="ts">
   import {
     CardTypes,
-    type CardTemplate,
     type CardData,
+    type CardTemplate,
   } from "./card-templates.type";
   import AttackCard from "./attack-card.svelte";
   import ManeuverCard from "./maneuver-card.svelte";
@@ -10,26 +10,57 @@
   import StatusCard from "./status-card.svelte";
   import ConditionCard from "./condition-card.svelte";
   import ActionBackCard from "./action-back-card.svelte";
+  import MinionCard from "./minion-card.svelte";
+  import ArtifactCard from "./artifact-card.svelte";
+  import BackgroundCard from "./background-card.svelte";
+  import BossCard from "./boss-card.svelte";
 
+  export let cardType: CardTemplate;
   export let card: CardData;
   export let scale = 1;
 </script>
 
 <main style={`--scale: ${scale}`}>
-  {#if card === undefined}
-    no card{/if}
-  {#if card.cardType === CardTypes.actionBack}
-    <ActionBackCard></ActionBackCard>
+  {#if card === undefined && cardType !== undefined}
+    {#if cardType === CardTypes.attack}
+      <AttackCard --border-color="orange" />
+    {:else if cardType === CardTypes.maneuver}
+      <ManeuverCard --border-color="blue" />
+    {:else if cardType === CardTypes.item}
+      <ItemCard --border-color="lime" />
+    {:else if cardType === CardTypes.status}
+      <StatusCard --border-color="red" />
+    {:else if cardType === CardTypes.condition}
+      <ConditionCard --border-color="silver" />
+    {:else if cardType === CardTypes.minions}
+      <MinionCard --border-color="black" />
+    {:else if cardType === CardTypes.bosses}
+      <BossCard --border-color="black" />
+    {:else if cardType === CardTypes.artifacts}
+      <ArtifactCard --border-color="black" />
+    {:else if cardType === CardTypes.backgrounds}
+      <BackgroundCard --border-color="black" />
+    {/if}
+  {:else if card.cardType === CardTypes.actionBack}
+    <ActionBackCard />
   {:else if card.cardType === CardTypes.attack}
-    <AttackCard {card} --border-color="orange"></AttackCard>
+    <AttackCard {card} --border-color="orange" />
   {:else if card.cardType === CardTypes.maneuver}
-    <ManeuverCard {card} --border-color="blue"></ManeuverCard>
+    <ManeuverCard {card} --border-color="blue" />
   {:else if card.cardType === CardTypes.item}
-    <ItemCard --border-color="lime"></ItemCard>
+    <ItemCard {card} --border-color="lime" />
   {:else if card.cardType === CardTypes.status}
-    <StatusCard --border-color="red"></StatusCard>
+    <StatusCard {card} --border-color="red" />
   {:else if card.cardType === CardTypes.condition}
-    <ConditionCard --border-color="silver"></ConditionCard>
+    <ConditionCard {card} --border-color="silver" />
+  {:else if card.cardType === CardTypes.minions}
+    <MinionCard {card} --border-color="black" />
+  {:else if card.cardType === CardTypes.bosses}
+    <BossCard {card} --border-color="black" />
+  {:else if card.cardType === CardTypes.artifacts}
+    <ArtifactCard {card} --border-color="black" />
+  {:else if card.cardType === CardTypes.backgrounds}
+    <BackgroundCard {card} --border-color="black" />
   {/if}
 </main>
 
@@ -39,6 +70,7 @@
     width: var(--width);
     height: calc(var(--width) * 1.39);
   }
+
   :global(.card) {
     --outline-width: calc(10px * var(--scale));
     width: calc(100% - var(--outline-width) * 2);
@@ -48,6 +80,7 @@
     background-color: white;
     color: black;
     font-size: calc(1rem * var(--scale));
+    display: grid;
   }
 
   :global(.kost) {
@@ -71,11 +104,12 @@
   }
   :global(.damage) {
     grid-area: damage;
-    display: grid;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    align-content: center;
+    gap: 0.5em;
+    font-size: 2em;
     font-weight: bolder;
-    border-radius: 50% 50% 0 0;
     background-color: red;
   }
   :global(.type) {
@@ -84,23 +118,21 @@
     justify-content: center;
     align-content: center;
   }
-  :global(.damageType) {
-    grid-area: damageType;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    border-radius: 0 0 100% 100%;
-    background-color: red;
-  }
   :global(.effect) {
     grid-area: effect;
     justify-self: center;
-    padding-top: 2em;
+    font-size: 1.2em;
+    padding: 2em 1em;
   }
-  :global(.damageType > img),
+  :global(.damage > img) {
+    width: 1em;
+    height: 1em;
+    display: inline;
+  }
   :global(.effect > img) {
-    width: 1.2em;
-    height: 1.2em;
+    width: 2em;
+    height: 2em;
+    display: inline;
   }
 
   :global(.attributes) {

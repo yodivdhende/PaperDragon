@@ -1,7 +1,7 @@
 <script lang="ts">
   import { CardTypes, type StatusCardData } from "./card-templates.type";
 
-  export let data: StatusCardData = {
+  export let card: StatusCardData = {
     cardType: CardTypes.status,
     name: "name",
     image: "test",
@@ -12,10 +12,10 @@
 </script>
 
 <main class="card">
-  <div class="name">{data.name}</div>
-  <div class="image">{data.image}</div>
-  <div class="effect">{data.effect}</div>
-  <div class="id">{data.id}</div>
+  <div class="name">{card.name}</div>
+  <div class="image">{card.image}</div>
+  <div class="effect">{card.effect}</div>
+  <div class="id">{card.id}</div>
 </main>
 
 <style>

@@ -1,16 +1,17 @@
 <script lang="ts">
-  import { selectedCardTemplateStore } from "../services/card-type-selector.service";
+  import { selectedCardTemplateStore } from "../services/card-template-selector.service";
   import {
     DISPLAYTYPES,
     type DisplayType,
   } from "../services/display-type-selector.service";
+  import type { CardTypes } from "./card-templates/card-templates.type";
   import Card from "./card-templates/card.svelte";
   import Deck from "./deck.svelte";
 
   export let displayType: DisplayType;
 
   $: card = {
-    template: $selectedCardTemplateStore,
+    cardType: $selectedCardTemplateStore,
   };
 </script>
 

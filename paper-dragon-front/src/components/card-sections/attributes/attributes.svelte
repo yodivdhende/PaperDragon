@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Attribute } from "./attributes.type";
 
-  export let data: Attribute = {
+  export let card: Attribute = {
     mind: "M",
     strength: "S",
     reflex: "R",
@@ -9,9 +9,9 @@
 </script>
 
 <main>
-  <div class="mind">{data.mind}</div>
-  <div class="strength">{data.strength}</div>
-  <div class="reflex">{data.reflex}</div>
+  <div class="mind">{card.mind}</div>
+  <div class="strength">{card.strength}</div>
+  <div class="reflex">{card.reflex}</div>
 </main>
 
 <style>

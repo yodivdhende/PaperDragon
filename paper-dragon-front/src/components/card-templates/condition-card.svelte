@@ -2,7 +2,7 @@
   import Attributes from "../card-sections/attributes/attributes.svelte";
   import { CardTypes, type ConditionCardData } from "./card-templates.type";
 
-  export let data: ConditionCardData = {
+  export let card: ConditionCardData = {
     cardType: CardTypes.condition,
     name: "name",
     id: "id",
@@ -17,14 +17,14 @@
 </script>
 
 <main class="card">
-  <div class="kost">{data.kost}</div>
-  <div class="name">{data.name}</div>
-  <div class="type"><em>{data.type}</em></div>
-  <div class="effect">{data.effect}</div>
+  <div class="kost">{card.kost}</div>
+  <div class="name">{card.name}</div>
+  <div class="type"><em>{card.type}</em></div>
+  <div class="effect">{card.effect}</div>
   <div class="attributes">
-    <Attributes {data}></Attributes>
+    <Attributes data={card}></Attributes>
   </div>
-  <div class="id">{data.id}</div>
+  <div class="id">{card.id}</div>
 </main>
 
 <style>

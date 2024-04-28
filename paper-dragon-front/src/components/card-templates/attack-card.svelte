@@ -19,22 +19,20 @@
 </script>
 
 <main class="card">
-  <div class="kost">{card.kost}</div>
-  <div class="name">{card.name}</div>
-  <div class="damage">{card.damage}</div>
-  <div class="type"><em>{card.type}</em></div>
-  <div class="damageType">{@html card.damagetype}</div>
-  <div class="effect">{@html card.effect}</div>
+  <div class="kost">{card?.kost}</div>
+  <div class="name">{card?.name}</div>
+  <div class="damage">{card?.damage} {@html card?.damagetype}</div>
+  <div class="type"><em>{card?.type}</em></div>
+  <div class="effect">{@html card?.effect}</div>
   <div class="attributes">
-    <Attributes data={card}></Attributes>
+    <Attributes {card}></Attributes>
   </div>
-  <div class="id">{card.id}</div>
+  <div class="id">{card?.id}</div>
 </main>
 
 <style>
   main {
     border-color: var(--border-color);
-    display: grid;
     place-content: center;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 2fr 1fr 1fr 10fr 1fr;

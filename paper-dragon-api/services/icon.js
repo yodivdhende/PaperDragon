@@ -11,7 +11,7 @@ async function getIcons() {
 async function replaceWithIcons(text) {
   if (text == null) return;
   const ICONS = await getIcons();
-  console.log(ICONS);
+  if (text.includes("#") === "false") return text;
   return text
     .split("#")
     .map((section, i) => {

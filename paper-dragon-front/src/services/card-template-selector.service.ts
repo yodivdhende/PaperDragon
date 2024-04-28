@@ -29,6 +29,5 @@ export const CARDTYPES = {
   statuses: SHEETNAMES.statuses,
   conditions: SHEETNAMES.conditions,
 } as const;
-type CardTypes = keyof typeof CARDTYPES;
 
-export const selectedCardTemplateStore: Writable<CardTemplate> = writable();
+export const selectedCardTemplateStore: Writable<CardTemplate> = writable('minions');
