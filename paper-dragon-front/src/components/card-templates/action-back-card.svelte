@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { type ActionBackCardData } from "./card-templates.type";
+  import type { ActionCardBackData } from "./card-type.types";
 
-  export let card: ActionBackCardData;
+  export let card: ActionCardBackData;
 </script>
 
 <main>
@@ -10,9 +10,10 @@
 
 <style>
   main {
-    width: 100%;
-    height: 100%;
-    outline: 10px solid black;
+    --border-size: 10px;
+    width: calc(100% - var(--border-size));
+    height: calc(100% - var(--border-size));
+    outline: var(--border-size) solid black;
     border-radius: 20px;
     background-color: white;
     color: black;

@@ -1,6 +1,6 @@
+import { CARDSIDE, type CardSide } from "../../services/card-type-selector.service";
+
 export const CardTypes = {
-    actionBack: "actionBack",
-    trapBack: "trapBack",
     attack: "attacks",
     maneuver: "maneuvers",
     item: "items",
@@ -15,17 +15,6 @@ export const CardTypes = {
 
 export type CardType = typeof CardTypes[keyof typeof CardTypes]
 
-const ActionBackCardTemplate = {
-    cardType: CardTypes.actionBack,
-    kost: 1,
-}
-export type ActionBackCardData = typeof ActionBackCardTemplate;
-
-const TrapBackCardTemplate = {
-    cardType: CardTypes.trapBack,
-    kost: 1
-}
-export type TrapBackCardData = typeof TrapBackCardTemplate;
 
 const AttackCardTemplate = {
     cardType: CardTypes.attack,
@@ -42,6 +31,7 @@ const AttackCardTemplate = {
     reflex: 5,
 }
 export type AttackCardData = typeof AttackCardTemplate;
+
 
 const ManeuverCardTemplate = {
     cardType: CardTypes.maneuver,
@@ -154,26 +144,54 @@ const BackgroundCardTemplate = {
 }
 export type BackgroundCardData = typeof BackgroundCardTemplate;
 
-export function getDefaultTemplate(cardType: CardType): CardData {
-    switch (cardType) {
-        case (CardTypes.actionBack): return ActionBackCardTemplate;
-        case (CardTypes.attack): return AttackCardTemplate;
-        case (CardTypes.maneuver): return ManeuverCardTemplate;
-        case (CardTypes.item): return ItemCardTemplate;
-        case (CardTypes.status): return StatusCardTemplate;
-        case (CardTypes.condition): return ConditionCardTemplate;
-        case (CardTypes.minions): return MinionCardTemplate;
-        case (CardTypes.bosses): return BossCardTemplate;
-        case (CardTypes.artifacts): return ArtifactCardTemplate;
-        case (CardTypes.backgrounds): return BackgroundCardTemplate;
-        case (CardTypes.trapBack): return TrapBackCardTemplate;
-        case (CardTypes.trap): return TrapCardTemplate;
-    }
+export type ActionCardBackData = Extract<CardData, AttackCardData
+    | ManeuverCardData
+    | ItemCardData
+    | ConditionCardData
+> ;
+
+export function isActionCard(card: CardData): card is ActionCardBackData{ 
+        switch (card.cardType) {
+            case (CardTypes.attack):
+            case (CardTypes.maneuver):
+            case (CardTypes.item):
+            case (CardTypes.condition):
+                return true;
+            case (CardTypes.status):
+            case (CardTypes.minions):
+            case (CardTypes.bosses):
+            case (CardTypes.artifacts):
+            case (CardTypes.backgrounds):
+            case (CardTypes.trap):
+                return false;
+        }
 }
 
+export type BlankCardBackData = Extract<CardData, StatusCardData
+    | MinionCardData
+    | BossesCardData
+    | ArtifactCardData
+    | BackgroundCardData
+>
 
-export type CardData = ActionBackCardData
-    | AttackCardTemplate
+export function isBlankCardBack(card: CardData): card is BlankCardBackData {
+        switch (card.cardType) {
+            case (CardTypes.status):
+            case (CardTypes.minions):
+            case (CardTypes.bosses):
+            case (CardTypes.artifacts):
+            case (CardTypes.backgrounds):
+                return true;
+            case (CardTypes.attack):
+            case (CardTypes.maneuver):
+            case (CardTypes.item):
+            case (CardTypes.condition):
+            case (CardTypes.trap):
+                return false;
+        }
+}
+
+export type CardData = AttackCardData 
     | ManeuverCardData
     | ItemCardData
     | StatusCardData
@@ -182,7 +200,20 @@ export type CardData = ActionBackCardData
     | BossesCardData
     | ArtifactCardData
     | BackgroundCardData
-    | TrapBackCardData
     | TrapCardData
     ;
 
+export function getDefaultTemplate(cardType: CardType): CardData {
+        switch (cardType) {
+            case (CardTypes.attack): return AttackCardTemplate;
+            case (CardTypes.maneuver): return ManeuverCardTemplate;
+            case (CardTypes.item): return ItemCardTemplate;
+            case (CardTypes.status): return StatusCardTemplate;
+            case (CardTypes.condition): return ConditionCardTemplate;
+            case (CardTypes.minions): return MinionCardTemplate;
+            case (CardTypes.bosses): return BossCardTemplate;
+            case (CardTypes.artifacts): return ArtifactCardTemplate;
+            case (CardTypes.backgrounds): return BackgroundCardTemplate;
+            case (CardTypes.trap): return  TrapCardTemplate; 
+        }
+}

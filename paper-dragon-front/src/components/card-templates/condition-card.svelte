@@ -1,8 +1,8 @@
 <script lang="ts">
   import Attributes from "../card-sections/attributes/attributes.svelte";
-  import { type ConditionCardData } from "./card-templates.type";
+  import type { ConditionCardData } from "./card-type.types";
 
-  export let card: ConditionCardData ;
+  export let card: ConditionCardData;
 </script>
 
 <main class="card">

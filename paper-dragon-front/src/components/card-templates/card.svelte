@@ -1,8 +1,5 @@
 <script lang="ts">
-  import {
-    CardTypes,
-    type CardData,
-  } from "./card-templates.type";
+  import { CardTypes, isActionCard, type CardData } from "./card-type.types";
   import AttackCard from "./attack-card.svelte";
   import ManeuverCard from "./maneuver-card.svelte";
   import ItemCard from "./item-card.svelte";
@@ -13,20 +10,26 @@
   import ArtifactCard from "./artifact-card.svelte";
   import BackgroundCard from "./background-card.svelte";
   import BossCard from "./boss-card.svelte";
-  import TrapBackCard from './trap-back-card.svelte';
-  import TrapCard from './trap-card.svelte';
+  import TrapBackCard from "./trap-back-card.svelte";
+  import TrapCard from "./trap-card.svelte";
+  import BlankBackCard from "./blank-back-card.svelte";
+  import { selectedCardSideStore } from "../../services/card-type-selector.service";
 
-   export let card: CardData;
+  export let card: CardData;
   export let scale = 1;
 </script>
 
 <main style={`--scale: ${scale}`}>
   {#if card === undefined}
     no card
-  {:else if card.cardType === CardTypes.actionBack}
-    <ActionBackCard {card}/>
-  {:else if card.cardType === CardTypes.trapBack}
-    <TrapBackCard {card}/>
+  {:else if $selectedCardSideStore === "Back"}
+    {#if card.cardType === CardTypes.trap}
+      <TrapBackCard {card} />
+    {:else if isActionCard(card)}
+      <ActionBackCard {card} />
+    {:else}
+      <BlankBackCard />
+    {/if}
   {:else if card.cardType === CardTypes.attack}
     <AttackCard {card} --border-color="orange" />
   {:else if card.cardType === CardTypes.maneuver}
@@ -34,7 +37,7 @@
   {:else if card.cardType === CardTypes.item}
     <ItemCard {card} --border-color="lime" />
   {:else if card.cardType === CardTypes.trap}
-    <TrapCard {card} --border-color="purple"/>
+    <TrapCard {card} --border-color="purple" />
   {:else if card.cardType === CardTypes.status}
     <StatusCard {card} --border-color="red" />
   {:else if card.cardType === CardTypes.condition}
@@ -63,6 +66,7 @@
     height: calc(100% - var(--outline-width) * 2);
     border: var(--outline-width) solid;
     border-radius: calc(20px * var(--scale));
+    border-color: var(--border-color);
     background-color: white;
     color: black;
     font-size: calc(1rem * var(--scale));
@@ -133,14 +137,14 @@
   :global(.lp) {
     grid-area: lp;
     font-size: 2em;
-    display: grid; 
+    display: grid;
     place-content: center;
     background-color: lightcoral;
   }
 
   :global(.actions) {
     grid-area: actions;
-    font-size:  2em;
+    font-size: 2em;
     text-align: center;
     background-color: yellow;
   }

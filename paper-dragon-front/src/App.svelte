@@ -1,9 +1,10 @@
 <script lang="ts">
-  import CardTemplateSelector from "./components/card-template-selector.svelte";
+  import CardTemplateSelector from "./components/card-type-selector.svelte";
   import DisplaySelector from "./components/display-selector.svelte";
   import Display from "./components/display.svelte";
   import { currentDisplayStore } from "./services/display-type-selector.service";
   import DeckSelector from "./components/deck-selector.svelte";
+  import CardSideSelector from "./components/card-side-selector.svelte";
 </script>
 
 <main>
@@ -11,6 +12,7 @@
   <div class="options">
     <DisplaySelector />
     <CardTemplateSelector />
+    <CardSideSelector />
     <DeckSelector />
   </div>
 </main>

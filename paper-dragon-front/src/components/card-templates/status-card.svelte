@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { type StatusCardData } from "./card-templates.type";
+  import type { StatusCardData } from "./card-type.types";
 
-  export let card: StatusCardData ;
+  export let card: StatusCardData;
 </script>
 
 <main class="card">

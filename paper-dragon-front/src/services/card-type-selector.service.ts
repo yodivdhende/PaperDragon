@@ -1,5 +1,5 @@
 import { derived, writable, type Writable } from 'svelte/store';
-import { CardTypes, getDefaultTemplate, type CardType } from '../components/card-templates/card-templates.type';
+import { CardTypes, getDefaultTemplate, type CardType } from '../components/card-templates/card-type.types';
 
 export const SHEETNAMES = {
   decktypes: "DeckTypes",
@@ -30,5 +30,13 @@ export const CARDTYPES = {
   conditions: SHEETNAMES.conditions,
 } as const;
 
-export const selectedCardTypeStore: Writable<CardType> = writable(CardTypes.backgrounds);
-export const selectedDefaulCardTemplateStore = derived(selectedCardTypeStore, selected => getDefaultTemplate(selected))
+export const CARDSIDE= {
+  front: "Front", 
+  back: "Back",
+} as const
+export type CardSide = typeof CARDSIDE[keyof typeof CARDSIDE];
+
+export const selectedCardTypeStore: Writable<CardType> = writable(CardTypes.trap);
+export const selectedCardSideStore: Writable<CardSide> = writable("Back");
+export const selectedDefaulCardTemplateStore = derived( selectedCardTypeStore, (selected) => getDefaultTemplate(selected)  )
+

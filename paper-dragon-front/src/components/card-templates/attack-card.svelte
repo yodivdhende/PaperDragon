@@ -1,8 +1,8 @@
 <script lang="ts">
   import Attributes from "../card-sections/attributes/attributes.svelte";
-  import { type AttackCardData } from "./card-templates.type";
+  import { type AttackCardData } from "./card-type.types";
 
-  export let card: AttackCardData ;
+  export let card: AttackCardData;
 </script>
 
 <main class="card">
