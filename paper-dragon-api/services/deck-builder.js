@@ -64,6 +64,10 @@ async function getDeck(id) {
     const { cardid, amount, id, print } = deckLine;
     if (print === "FALSE") return;
     const card = allCards.find((card) => card.id === cardid);
+    if (card === undefined) {
+      console.error(`Can't find card with id: ${cardid}`);
+      break;
+    }
     for (let count = 0; count < amount; count++) {
       const newCard = {};
       const paramatersOfCards = Object.entries(card);
