@@ -26,7 +26,7 @@
     grid-template-areas:
       "lp name ." 
       "actions type ."
-      ". effect ."
+      "effect effect effect"
       ". attributes id"
   }
 </style>

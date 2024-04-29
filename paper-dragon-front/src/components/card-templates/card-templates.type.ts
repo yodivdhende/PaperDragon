@@ -1,8 +1,10 @@
 export const CardTypes = {
     actionBack: "actionBack",
+    trapBack: "trapBack",
     attack: "attacks",
     maneuver: "maneuvers",
     item: "items",
+    trap: "traps",
     status: "statuses",
     condition: "conditions",
     minions: "minions",
@@ -14,10 +16,16 @@ export const CardTypes = {
 export type CardType = typeof CardTypes[keyof typeof CardTypes]
 
 const ActionBackCardTemplate = {
-    template: CardTypes.actionBack,
+    cardType: CardTypes.actionBack,
     kost: 1,
 }
 export type ActionBackCardData = typeof ActionBackCardTemplate;
+
+const TrapBackCardTemplate = {
+    cardType: CardTypes.trapBack,
+    kost: 1
+}
+export type TrapBackCardData = typeof TrapBackCardTemplate;
 
 const AttackCardTemplate = {
     cardType: CardTypes.attack,
@@ -33,7 +41,7 @@ const AttackCardTemplate = {
     strength: 4,
     reflex: 5,
 }
-export type AttackCardTemplate = typeof AttackCardTemplate;
+export type AttackCardData = typeof AttackCardTemplate;
 
 const ManeuverCardTemplate = {
     cardType: CardTypes.maneuver,
@@ -63,6 +71,18 @@ const ItemCardTemplate = {
     reflex: 4,
 }
 export type ItemCardData = typeof ItemCardTemplate;
+
+const TrapCardTemplate = {
+    cardType: CardTypes.trap,
+    name: 'name',
+    id: 'id',
+    kost: 1,
+    effect: 'effect',
+    mind: 2,
+    strength: 3,
+    reflex: 4,
+}
+export type TrapCardData = typeof TrapCardTemplate;
 
 
 const StatusCardTemplate = {
@@ -146,6 +166,8 @@ export function getDefaultTemplate(cardType: CardType): CardData {
         case (CardTypes.bosses): return BossCardTemplate;
         case (CardTypes.artifacts): return ArtifactCardTemplate;
         case (CardTypes.backgrounds): return BackgroundCardTemplate;
+        case (CardTypes.trapBack): return TrapBackCardTemplate;
+        case (CardTypes.trap): return TrapCardTemplate;
     }
 }
 
@@ -160,5 +182,7 @@ export type CardData = ActionBackCardData
     | BossesCardData
     | ArtifactCardData
     | BackgroundCardData
+    | TrapBackCardData
+    | TrapCardData
     ;
 

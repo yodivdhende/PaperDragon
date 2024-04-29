@@ -1,6 +1,6 @@
 <script lang="ts">
   import Attributes from "../card-sections/attributes/attributes.svelte";
-  import { CardTypes, type BackgroundCardData } from "./card-templates.type";
+  import { type BackgroundCardData } from "./card-templates.type";
 
   export let card: BackgroundCardData ;
 </script>

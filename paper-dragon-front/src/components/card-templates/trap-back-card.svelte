@@ -1,22 +1,21 @@
 <script lang="ts">
-  import { type ActionBackCardData } from "./card-templates.type";
+  import type { TrapBackCardData } from './card-templates.type';
 
-  export let card: ActionBackCardData;
+  export let card: TrapBackCardData; 
 </script>
-
 <main>
   <div class="kost">{card.kost}</div>
 </main>
-
 <style>
   main {
     width: 100%;
     height: 100%;
-    outline: 10px solid black;
+    border: 10px solid purple;
     border-radius: 20px;
     background-color: white;
     color: black;
     display: grid;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
   }

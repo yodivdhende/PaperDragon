@@ -19,7 +19,7 @@
     grid-template-rows: 2fr 12fr  1fr;
     grid-template-areas:
       "actions name ."
-      ". effect . "
+      "effect effect effect"
       ". . id";
   }
 </style>

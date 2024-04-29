@@ -1,11 +1,7 @@
 <script lang="ts">
   import type { Attribute } from "./attributes.type";
 
-  export let card: Attribute = {
-    mind: "M",
-    strength: "S",
-    reflex: "R",
-  };
+  export let card: Attribute;
 </script>
 
 <main>

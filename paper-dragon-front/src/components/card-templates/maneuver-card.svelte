@@ -1,6 +1,6 @@
 <script lang="ts">
   import Attributes from "../card-sections/attributes/attributes.svelte";
-  import { CardTypes, type ManeuverCardData } from "./card-templates.type";
+  import {  type ManeuverCardData } from "./card-templates.type";
 
   export let card: ManeuverCardData;
 </script>
@@ -11,7 +11,7 @@
   <div class="type"><em>{card.type}</em></div>
   <div class="effect">{@html card.effect}</div>
   <div class="attributes">
-    <Attributes data={card}></Attributes>
+    <Attributes {card}></Attributes>
   </div>
   <div class="id">{card.id}</div>
 </main>

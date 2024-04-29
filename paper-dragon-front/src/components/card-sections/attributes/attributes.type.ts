@@ -1,6 +1,6 @@
 
-  export type Attribute = {
-    mind: string;
-    strength: string;
-    reflex: string;
-  };
+export type Attribute = {
+  mind: number;
+  strength: number;
+  reflex: number;
+};

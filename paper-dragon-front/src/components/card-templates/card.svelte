@@ -2,7 +2,6 @@
   import {
     CardTypes,
     type CardData,
-    type CardTemplate,
   } from "./card-templates.type";
   import AttackCard from "./attack-card.svelte";
   import ManeuverCard from "./maneuver-card.svelte";
@@ -14,6 +13,8 @@
   import ArtifactCard from "./artifact-card.svelte";
   import BackgroundCard from "./background-card.svelte";
   import BossCard from "./boss-card.svelte";
+  import TrapBackCard from './trap-back-card.svelte';
+  import TrapCard from './trap-card.svelte';
 
    export let card: CardData;
   export let scale = 1;
@@ -24,12 +25,16 @@
     no card
   {:else if card.cardType === CardTypes.actionBack}
     <ActionBackCard {card}/>
+  {:else if card.cardType === CardTypes.trapBack}
+    <TrapBackCard {card}/>
   {:else if card.cardType === CardTypes.attack}
     <AttackCard {card} --border-color="orange" />
   {:else if card.cardType === CardTypes.maneuver}
     <ManeuverCard {card} --border-color="blue" />
   {:else if card.cardType === CardTypes.item}
     <ItemCard {card} --border-color="lime" />
+  {:else if card.cardType === CardTypes.trap}
+    <TrapCard {card} --border-color="purple"/>
   {:else if card.cardType === CardTypes.status}
     <StatusCard {card} --border-color="red" />
   {:else if card.cardType === CardTypes.condition}

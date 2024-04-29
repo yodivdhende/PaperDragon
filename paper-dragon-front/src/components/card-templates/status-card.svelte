@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CardTypes, type StatusCardData } from "./card-templates.type";
+  import { type StatusCardData } from "./card-templates.type";
 
   export let card: StatusCardData ;
 </script>
