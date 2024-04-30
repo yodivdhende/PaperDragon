@@ -10,9 +10,9 @@
 
 <style>
   main {
-    --border-size: 10px;
-    width: calc(100% - var(--border-size));
-    height: calc(100% - var(--border-size));
+    --border-size: calc(10px * var(--scale));
+    width: calc(100% - var(--border-size) * 2);
+    height: calc(100% - var(--border-size) * 2);
     border: var(--border-size) solid purple;
     border-radius: 20px;
     background-color: white;

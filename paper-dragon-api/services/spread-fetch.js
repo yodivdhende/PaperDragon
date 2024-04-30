@@ -45,6 +45,7 @@ async function getMetadata() {
 }
 
 async function getSheetData(name) {
+  console.log("getting sheet data: " + name);
   let result = await (
     await getSpreadSheet()
   ).values.get({

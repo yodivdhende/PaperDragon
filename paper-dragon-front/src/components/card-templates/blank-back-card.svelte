@@ -5,7 +5,7 @@
 
 <style>
   main {
-    --border-size: 10px;
+    --border-size: calc(10px * var(--scale));
     width: calc(100% - var(--border-size));
     height: calc(100% - var(--border-size));
     outline: var(--border-size) solid black;

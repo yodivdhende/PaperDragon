@@ -10,10 +10,10 @@
 
 <style>
   main {
-    --border-size: 10px;
-    width: calc(100% - var(--border-size));
-    height: calc(100% - var(--border-size));
-    outline: var(--border-size) solid black;
+    --border-size: calc(10px * var(--scale));
+    width: calc(100% - var(--border-size) *2 );
+    height: calc(100% - var(--border-size)* 2);
+    outline: var(--border-size) solid yellow;
     border-radius: 20px;
     background-color: white;
     color: black;
