@@ -1,5 +1,5 @@
 import { writable, type Writable } from "svelte/store"
-import type { CardData } from "../components/card-templates/card-type.types";
+import type { CardData } from "../components/cards/card-type.types";
 
 const HOST = "http://localhost:3001" as const;
 

@@ -4,22 +4,11 @@
   export let card: TrapCardData;
 </script>
 
-<main>
+<main class="card">
   <div class="kost">{card.kost}</div>
 </main>
 
 <style>
-  main {
-    --border-size: calc(10px * var(--scale));
-    width: calc(100% - var(--border-size) * 2);
-    height: calc(100% - var(--border-size) * 2);
-    border: var(--border-size) solid purple;
-    border-radius: 20px;
-    background-color: white;
-    color: black;
-    display: grid;
-    place-content: center;
-  }
   .kost {
     width: calc(200px * var(--scale));
     height: calc(200px * var(--scale));

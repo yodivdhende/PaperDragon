@@ -1,6 +1,6 @@
 <script lang="ts">
   import Attributes from "../card-sections/attributes/attributes.svelte";
-  import { CardTypes, type MinionCardData } from "./card-type.types";
+  import { CARDTYPES, type MinionCardData } from "./card-type.types";
 
   export let card: MinionCardData;
 </script>

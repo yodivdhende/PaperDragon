@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getDeck, selectedDeckIdStore } from "../services/deck.service";
-  import Card from "./card-templates/card.svelte";
+  import Card from "./cards/card.svelte";
 
   $: fetchDeck = getDeck($selectedDeckIdStore);
   let scale = 0.5;

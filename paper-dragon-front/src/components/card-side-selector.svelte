@@ -2,7 +2,7 @@
   import {
     CARDSIDE,
     selectedCardSideStore,
-  } from "../services/card-type-selector.service";
+  } from "../services/card-selector.service";
 </script>
 
 <main>

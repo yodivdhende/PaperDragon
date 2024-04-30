@@ -1,10 +1,8 @@
 <script lang="ts">
-  import {
-    CARDTYPES,
-    selectedCardTypeStore,
-  } from "../services/card-type-selector.service";
+  import { selectedCardTypeStore } from "../services/card-selector.service";
+  import { CARDTYPES } from "./cards/card-type.types";
 
-  const cardTypesKeys = Object.keys(CARDTYPES);
+  const cardTypesKeys = Object.values(CARDTYPES);
 </script>
 
 <main>

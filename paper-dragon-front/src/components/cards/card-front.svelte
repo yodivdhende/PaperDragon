@@ -1,65 +1,42 @@
 <script lang="ts">
-  import { CardTypes, isActionCard, type CardData } from "./card-type.types";
+  import { CARDTYPES, type CardData } from "./card-type.types";
   import AttackCard from "./attack-card.svelte";
   import ManeuverCard from "./maneuver-card.svelte";
   import ItemCard from "./item-card.svelte";
   import StatusCard from "./status-card.svelte";
   import ConditionCard from "./condition-card.svelte";
-  import ActionBackCard from "./action-back-card.svelte";
   import MinionCard from "./minion-card.svelte";
   import ArtifactCard from "./artifact-card.svelte";
   import BackgroundCard from "./background-card.svelte";
   import BossCard from "./boss-card.svelte";
-  import TrapBackCard from "./trap-back-card.svelte";
   import TrapCard from "./trap-card.svelte";
-  import BlankBackCard from "./blank-back-card.svelte";
-  import { selectedCardSideStore } from "../../services/card-type-selector.service";
 
   export let card: CardData;
-  export let scale = 1;
 </script>
 
-<main style={`--scale: ${scale}`}>
-  {#if card === undefined}
-    no card
-  {:else if $selectedCardSideStore === "Back"}
-    {#if card.cardType === CardTypes.trap}
-      <TrapBackCard {card} />
-    {:else if isActionCard(card)}
-      <ActionBackCard {card} />
-    {:else}
-      <BlankBackCard />
-    {/if}
-  {:else if card.cardType === CardTypes.attack}
-    <AttackCard {card} --border-color="orange" />
-  {:else if card.cardType === CardTypes.maneuver}
-    <ManeuverCard {card} --border-color="blue" />
-  {:else if card.cardType === CardTypes.item}
-    <ItemCard {card} --border-color="lime" />
-  {:else if card.cardType === CardTypes.trap}
-    <TrapCard {card} --border-color="purple" />
-  {:else if card.cardType === CardTypes.status}
-    <StatusCard {card} --border-color="red" />
-  {:else if card.cardType === CardTypes.condition}
-    <ConditionCard {card} --border-color="silver" />
-  {:else if card.cardType === CardTypes.minions}
-    <MinionCard {card} --border-color="black" />
-  {:else if card.cardType === CardTypes.bosses}
-    <BossCard {card} --border-color="black" />
-  {:else if card.cardType === CardTypes.artifacts}
-    <ArtifactCard {card} --border-color="black" />
-  {:else if card.cardType === CardTypes.backgrounds}
-    <BackgroundCard {card} --border-color="black" />
-  {/if}
-</main>
+{#if card.cardType === CARDTYPES.attack}
+  <AttackCard {card} --border-color="orange" />
+{:else if card.cardType === CARDTYPES.maneuver}
+  <ManeuverCard {card} --border-color="blue" />
+{:else if card.cardType === CARDTYPES.item}
+  <ItemCard {card} --border-color="lime" />
+{:else if card.cardType === CARDTYPES.trap}
+  <TrapCard {card} --border-color="purple" />
+{:else if card.cardType === CARDTYPES.status}
+  <StatusCard {card} --border-color="red" />
+{:else if card.cardType === CARDTYPES.condition}
+  <ConditionCard {card} --border-color="silver" />
+{:else if card.cardType === CARDTYPES.minions}
+  <MinionCard {card} --border-color="black" />
+{:else if card.cardType === CARDTYPES.bosses}
+  <BossCard {card} --border-color="black" />
+{:else if card.cardType === CARDTYPES.artifacts}
+  <ArtifactCard {card} --border-color="black" />
+{:else if card.cardType === CARDTYPES.backgrounds}
+  <BackgroundCard {card} --border-color="black" />
+{/if}
 
 <style>
-  main {
-    --width: calc(500px * var(--scale));
-    width: var(--width);
-    height: calc(var(--width) * 1.39);
-  }
-
   :global(.card) {
     --outline-width: calc(10px * var(--scale));
     width: calc(100% - var(--outline-width) * 2);

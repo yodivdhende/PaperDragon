@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CardTypes, type ArtifactCardData } from "./card-type.types";
+  import { CARDTYPES, type ArtifactCardData } from "./card-type.types";
 
   export let card: ArtifactCardData;
 </script>

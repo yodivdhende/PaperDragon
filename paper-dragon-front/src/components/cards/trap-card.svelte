@@ -5,7 +5,7 @@
   export let card: TrapCardData;
 </script>
 
-<main class="card">
+<main class="card trap">
   <div class="name">{card.name}</div>
   <div class="kost">{card.kost}</div>
   <div class="effect">{card.effect}</div>

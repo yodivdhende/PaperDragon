@@ -3,8 +3,8 @@
     DISPLAYTYPES,
     type DisplayType,
   } from "../services/display-type-selector.service";
-  import { selectedDefaulCardTemplateStore } from "../services/card-type-selector.service";
-  import Card from "./card-templates/card.svelte";
+  import { selectedDefaulCardTemplateStore } from "../services/card-selector.service";
+  import Card from "./cards/card.svelte";
   import Deck from "./deck.svelte";
 
   export let displayType: DisplayType;
