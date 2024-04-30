@@ -15,16 +15,16 @@ export const SHEETNAMES = {
 } as const;
 
 export const CARDTYPES = {
-    attack: SHEETNAMES.attacks.toLowerCase(),
-    maneuver: SHEETNAMES.maneuvers.toLowerCase(),
-    item: SHEETNAMES.items.toLowerCase(),
-    trap: SHEETNAMES.traps.toLowerCase(),
-    status:SHEETNAMES.statuses.toLowerCase(),
-    condition: SHEETNAMES.conditions.toLowerCase(),
-    minions: SHEETNAMES.minions.toLowerCase(),
-    bosses: SHEETNAMES.bosses.toLowerCase(),
-    artifacts: SHEETNAMES.artifacts.toLowerCase(),
-    backgrounds: SHEETNAMES.backgrounds.toLowerCase(),
+    attack: 'attacks',
+    maneuver: 'maneuvers',
+    item: 'items',
+    trap: 'traps',
+    status: 'statuses',
+    condition: 'conditions',
+    minions: 'minions',
+    bosses: 'bosses',
+    artifacts: 'artifacts',
+    backgrounds: 'backgrounds',
 } as const
 
 export type CardType = typeof CARDTYPES[keyof typeof CARDTYPES]
@@ -131,9 +131,10 @@ export type MinionCardData = typeof MinionCardTemplate;
 const BossCardTemplate = {
     cardType: CARDTYPES.bosses,
     name: "name",
+    type: "type",
     id: "id",
     lp: 10,
-    condition: "condition",
+    effect: "effect",
     defeatcondition: "defeatcondition",
 }
 export type BossesCardData = typeof BossCardTemplate;
@@ -183,7 +184,6 @@ export function isActionCard(card: CardData): card is ActionCardBackData{
 
 export type BlankCardBackData = Extract<CardData, StatusCardData
     | MinionCardData
-    | BossesCardData
     | ArtifactCardData
     | BackgroundCardData
 >
@@ -192,10 +192,10 @@ export function isBlankCardBack(card: CardData): card is BlankCardBackData {
         switch (card.cardType) {
             case (CARDTYPES.status):
             case (CARDTYPES.minions):
-            case (CARDTYPES.bosses):
             case (CARDTYPES.artifacts):
             case (CARDTYPES.backgrounds):
                 return true;
+            case (CARDTYPES.bosses):
             case (CARDTYPES.attack):
             case (CARDTYPES.maneuver):
             case (CARDTYPES.item):

@@ -7,7 +7,7 @@ export const CARDSIDE= {
 } as const
 export type CardSide = typeof CARDSIDE[keyof typeof CARDSIDE];
 
-export const selectedCardTypeStore: Writable<CardType> = writable(CARDTYPES.trap);
-export const selectedCardSideStore: Writable<CardSide> = writable(CARDSIDE.back);
+export const selectedCardTypeStore: Writable<CardType> = writable(CARDTYPES.bosses);
+export const selectedCardSideStore: Writable<CardSide> = writable(CARDSIDE.front);
 export const selectedDefaulCardTemplateStore = derived( selectedCardTypeStore, (selected) => getDefaultTemplate(selected)  )
 

@@ -1,5 +1,6 @@
 <script lang="ts">
   import ActionBackCard from "./action-card-back.svelte";
+  import BossCardBack from "./boss-card-back.svelte";
   import { CARDTYPES, isActionCard, type CardData } from "./card-type.types";
   import TrapBackCard from "./trap-card-back.svelte";
 
@@ -11,6 +12,8 @@
   <p></p>
 {:else if card.cardType === CARDTYPES.trap}
   <TrapBackCard {card} --border-color="purple" />
+{:else if card.cardType === CARDTYPES.bosses}
+  <BossCardBack {card} --border-color="black" />
 {:else if isActionCard(card)}
   <ActionBackCard {card} --border-color="black" />
 {:else}
