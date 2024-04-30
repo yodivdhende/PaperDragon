@@ -18,14 +18,9 @@ async function replaceWithIcons(text) {
       if (i % 2 === 0) return section;
       const icon = ICONS.find((icon) => icon.id === section);
       if (icon === undefined) return section;
-      return `<img src="${fixIconPath(icon.path)}"/>`;
+      return `<img src="src/assets/icons/${icon.path}"/>`;
     })
     .join("");
-}
-
-function fixIconPath(path) {
-  let id = path.split("/")[5];
-  return `https://drive.google.com/thumbnail?id=${id}`;
 }
 
 module.exports = {
