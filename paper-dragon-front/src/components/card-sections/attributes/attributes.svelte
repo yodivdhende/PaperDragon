@@ -2,6 +2,7 @@
   import type { Attribute } from "./attributes.type";
 
   export let card: Attribute;
+  console.log(card);
 </script>
 
 <main>

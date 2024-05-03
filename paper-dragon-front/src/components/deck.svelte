@@ -3,7 +3,7 @@
   import Card from "./cards/card.svelte";
 
   $: fetchDeck = getDeck($selectedDeckIdStore);
-  let scale = 0.5;
+  let scale = 1;
 </script>
 
 <main>
@@ -11,10 +11,12 @@
     <p>...waiting</p>
   {:then deck}
     {#if deck !== undefined}
-      <div class="deck">
-        {#each deck as card}
-          <Card {card} {scale}></Card>
-        {/each}
+      <div class="view">
+        <div class="deck">
+          {#each deck as card}
+            <Card {card} {scale}></Card>
+          {/each}
+        </div>
       </div>
     {/if}
   {/await}
@@ -33,6 +35,8 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    overflow-y: auto;
+  }
+  .view {
+    overflow: auto;
   }
 </style>
