@@ -125,4 +125,12 @@
     text-align: center;
     background-color: yellow;
   }
+
+  :global(.image) {
+    grid-area: image;
+  }
+  :global(.image img) {
+    width: 100%;
+    height: 100%;
+  }
 </style>

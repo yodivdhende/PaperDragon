@@ -1,5 +1,6 @@
 const { getSheetData, SHEETNAMES } = require("./spread-fetch");
 const { replaceWithIcons } = require("./icon");
+const { sheets } = require("googleapis/build/src/apis/sheets");
 
 const CARDTYPES = {
   maneuvers: SHEETNAMES.maneuvers,
@@ -24,6 +25,8 @@ async function getAllCards() {
     bosses,
     artifacts,
     backgrounds,
+    conditions,
+    statuses,
   ] = await Promise.all([
     getSheetData(SHEETNAMES.maneuvers),
     getSheetData(SHEETNAMES.attacks),
@@ -33,6 +36,8 @@ async function getAllCards() {
     getSheetData(SHEETNAMES.bosses),
     getSheetData(SHEETNAMES.artifacts),
     getSheetData(SHEETNAMES.backgrounds),
+    getSheetData(SHEETNAMES.conditions),
+    getSheetData(SHEETNAMES.statuses),
   ]);
   return {
     maneuvers,
@@ -43,6 +48,8 @@ async function getAllCards() {
     bosses,
     artifacts,
     backgrounds,
+    conditions,
+    statuses,
   };
 }
 

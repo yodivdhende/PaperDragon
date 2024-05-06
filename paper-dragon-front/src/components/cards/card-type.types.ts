@@ -92,7 +92,7 @@ export type TrapCardData = typeof TrapCardTemplate;
 const StatusCardTemplate = {
     cardType: CARDTYPES.status,
     name: "name",
-    image: "test",
+    icon: "icon",
     id: "id",
     type: "type",
     effect: "effect",
@@ -104,7 +104,7 @@ const ConditionCardTemplate = {
     name: "name",
     id: "id",
     type: "type",
-    image: "image",
+    icon: "icon",
     kost: 1,
     effect: "effect",
     mind: 2,

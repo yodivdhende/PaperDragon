@@ -9,6 +9,7 @@
   <div class="kost">{card.kost}</div>
   <div class="name">{card.name}</div>
   <div class="type"><em>{card.type}</em></div>
+  <div class="image">{@html card.icon}</div>
   <div class="effect">{card.effect}</div>
   <div class="attributes">
     <Attributes {card}></Attributes>
@@ -21,10 +22,11 @@
     border-color: var(--border-color);
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 2fr 1fr 10fr 1fr;
+    grid-template-rows: 2fr 1fr 5fr 5fr 1fr;
     grid-template-areas:
       "kost name ."
       ". type ."
+      ". image ."
       "effect effect effect "
       ". attributes id";
   }

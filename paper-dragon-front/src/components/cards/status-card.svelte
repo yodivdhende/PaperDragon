@@ -6,8 +6,8 @@
 
 <main class="card">
   <div class="name">{card.name}</div>
-  <div class="image">{card.image}</div>
-  <div class="effect">{card.effect}</div>
+  <div class="image">{@html card.icon}</div>
+  <div class="effect">{@html card.effect}</div>
   <div class="id">{card.id}</div>
 </main>
 
