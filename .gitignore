@@ -27,3 +27,6 @@ paper-dragon-front.DS_Store
 paper-dragon-api/credentials.json
 paper-dragon-api/token.json
 
+./export_files
+
+
