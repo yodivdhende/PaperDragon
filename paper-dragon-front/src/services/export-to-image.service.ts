@@ -1,6 +1,6 @@
 import {toPng} from 'html-to-image';
 import download from 'downloadjs';
-import { fetchDeckTypes, selectedDeckIdStore, selectedDeckNameStore } from './deck.service';
+import { fetchDeckTypes, selectedDeckIdStore, selectedDeckNameStore, selectedDeckStore } from './deck.service';
 import { get } from 'svelte/store';
 import { selectedCardSideStore } from './card-selector.service';
 
@@ -16,25 +16,30 @@ export async function exportCurrentDeck(): Promise<void>{
 }
 
 export async function exportAll() {
-    let currentFileName: string = '';
-    let deckNameUnSubscriber = selectedDeckNameStore.subscribe(fileName => {
-            if(fileName == null) return;
-            if(fileName === currentFileName) return;
-            currentFileName = fileName;
-            exportCurrentElement(fileName);
-    })
+    let deckUnsubscriber = () => {};
     try {
     const deckTypes = await fetchDeckTypes();
-    for (let {id } of deckTypes) {
-        selectedDeckIdStore.set(id);
-    }
+    let currentDeckIndex = 0;
+    selectedDeckIdStore.set(deckTypes[currentDeckIndex].id);
+    deckUnsubscriber = selectedDeckStore.subscribe(async (deck)=> {
+            if(deck == null) return;
+            await exportCurrentDeck();
+            currentDeckIndex++;
+            if(deckTypes.length === currentDeckIndex) return;
+            selectedDeckIdStore.set(deckTypes[currentDeckIndex].id);
+    });
+
     } catch(error) {
         console.error(error);
     } finally {
-        deckNameUnSubscriber();
+      deckUnsubscriber();
         return;
     }
 }
+
+selectedDeckIdStore.subscribe(id => {
+    console.log('selectedDeckId: ', id);
+})
 
 async function exportCurrentElement(fileName?: string): Promise<void>{
     const element = document.getElementsByClassName("deck")[0] as HTMLElement

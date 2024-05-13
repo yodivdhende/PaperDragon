@@ -1,3 +1,6 @@
+import CardTypeSelector from "../card-type-selector.svelte";
+import type LocationCard from "./location-card.svelte";
+
 export const SHEETNAMES = {
   decktypes: "DeckTypes",
   maneuvers: "Maneuvers",
@@ -12,6 +15,7 @@ export const SHEETNAMES = {
   conditions: "Conditions",
   icons: "Icons",
   deckcontent: "DeckContent",
+  locations: "Locations",
 } as const;
 
 export const CARDTYPES = {
@@ -25,6 +29,7 @@ export const CARDTYPES = {
     bosses: 'bosses',
     artifacts: 'artifacts',
     backgrounds: 'backgrounds',
+    locations: 'locations',
 } as const
 
 export type CardType = typeof CARDTYPES[keyof typeof CARDTYPES]
@@ -134,10 +139,18 @@ const BossCardTemplate = {
     type: "type",
     id: "id",
     lp: 10,
+    actions: '2p+2',
     effect: "effect",
     defeatcondition: "defeatcondition",
+    mind: 2,
+    strength: 3,
+    reflex: 4,
 }
-export type BossesCardData = typeof BossCardTemplate;
+export type BossesCardData = Omit<typeof BossCardTemplate, 'mind' | 'strength' | 'reflex'> & {
+    mind?: number;
+    strength?: number;
+    reflex?: number;
+}
 
 const ArtifactCardTemplate = {
     cardType: CARDTYPES.artifacts,
@@ -146,7 +159,7 @@ const ArtifactCardTemplate = {
     actions: 1,
     mechanics: "mechanics",
 }
-export type ArtifactCardData = typeof ArtifactCardTemplate;
+export type ArtifactCardData = typeof ArtifactCardTemplate
 
 const BackgroundCardTemplate = {
     cardType: CARDTYPES.backgrounds,
@@ -158,6 +171,14 @@ const BackgroundCardTemplate = {
     reflex: 3,
 }
 export type BackgroundCardData = typeof BackgroundCardTemplate;
+
+export const LocationCardTemplate = {
+    cardType: CARDTYPES.locations,
+    name: "name",
+    effect: "effect",
+    id: "id",
+}
+export type LocationCardData = typeof LocationCardTemplate;
 
 export type ActionCardBackData = Extract<CardData, AttackCardData
     | ManeuverCardData
@@ -172,12 +193,7 @@ export function isActionCard(card: CardData): card is ActionCardBackData{
             case (CARDTYPES.item):
             case (CARDTYPES.condition):
                 return true;
-            case (CARDTYPES.status):
-            case (CARDTYPES.minions):
-            case (CARDTYPES.bosses):
-            case (CARDTYPES.artifacts):
-            case (CARDTYPES.backgrounds):
-            case (CARDTYPES.trap):
+            default:
                 return false;
         }
 }
@@ -186,6 +202,7 @@ export type BlankCardBackData = Extract<CardData, StatusCardData
     | MinionCardData
     | ArtifactCardData
     | BackgroundCardData
+    | LocationCardData
 >
 
 export function isBlankCardBack(card: CardData): card is BlankCardBackData {
@@ -194,13 +211,9 @@ export function isBlankCardBack(card: CardData): card is BlankCardBackData {
             case (CARDTYPES.minions):
             case (CARDTYPES.artifacts):
             case (CARDTYPES.backgrounds):
+            case (CARDTYPES.locations):
                 return true;
-            case (CARDTYPES.bosses):
-            case (CARDTYPES.attack):
-            case (CARDTYPES.maneuver):
-            case (CARDTYPES.item):
-            case (CARDTYPES.condition):
-            case (CARDTYPES.trap):
+            default:
                 return false;
         }
 }
@@ -215,6 +228,7 @@ export type CardData = AttackCardData
     | ArtifactCardData
     | BackgroundCardData
     | TrapCardData
+    | LocationCardData
     ;
 
 export function getDefaultTemplate(cardType: CardType): CardData {
@@ -229,5 +243,6 @@ export function getDefaultTemplate(cardType: CardType): CardData {
             case (CARDTYPES.artifacts): return ArtifactCardTemplate;
             case (CARDTYPES.backgrounds): return BackgroundCardTemplate;
             case (CARDTYPES.trap): return  TrapCardTemplate; 
+            case (CARDTYPES.locations): return LocationCardTemplate;
         }
 }

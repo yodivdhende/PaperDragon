@@ -1,6 +1,7 @@
 const { getSheetData, SHEETNAMES } = require("./spread-fetch");
 const { replaceWithIcons } = require("./icon");
 const { sheets } = require("googleapis/build/src/apis/sheets");
+const { all } = require("proxy-addr");
 
 const CARDTYPES = {
   maneuvers: SHEETNAMES.maneuvers,
@@ -14,8 +15,9 @@ const CARDTYPES = {
   statuses: SHEETNAMES.statuses,
   conditions: SHEETNAMES.conditions,
 };
-
+let allCards;
 async function getAllCards() {
+  if (allCards) return allCards;
   const [
     maneuvers,
     attacks,
@@ -27,6 +29,7 @@ async function getAllCards() {
     backgrounds,
     conditions,
     statuses,
+    locations,
   ] = await Promise.all([
     getSheetData(SHEETNAMES.maneuvers),
     getSheetData(SHEETNAMES.attacks),
@@ -38,8 +41,9 @@ async function getAllCards() {
     getSheetData(SHEETNAMES.backgrounds),
     getSheetData(SHEETNAMES.conditions),
     getSheetData(SHEETNAMES.statuses),
+    getSheetData(SHEETNAMES.locations),
   ]);
-  return {
+  allCards = {
     maneuvers,
     attacks,
     items,
@@ -50,20 +54,34 @@ async function getAllCards() {
     backgrounds,
     conditions,
     statuses,
+    locations,
   };
+  return allCards;
+}
+let decktypes;
+async function getDeckTypes() {
+  if (decktypes) return decktypes;
+  decktypes = await getSheetData(SHEETNAMES.decktypes);
+  return decktypes;
+}
+
+let deckContentList;
+async function getDecksContent() {
+  if (deckContentList) return deckContentList;
+  deckContentList = await getSheetData(SHEETNAMES.deckcontent);
+  return deckContentList;
 }
 
 async function getDeck(id) {
-  const deckMeta = (await getSheetData(SHEETNAMES.decktypes)).find(
-    (deck) => deck.id === id
-  );
+  const decktypes = await getDeckTypes();
+  const deckMeta = decktypes.find((deck) => deck.id === id);
   const allCards = Object.entries(await getAllCards()).flatMap(([key, value]) =>
     value.map((card) => {
       card.cardType = key;
       return card;
     })
   );
-  const deckContent = (await getSheetData(SHEETNAMES.deckcontent)).filter(
+  const deckContent = (await getDecksContent()).filter(
     (deckLine) => deckLine.deckid === deckMeta.id
   );
   const resultDeck = [];

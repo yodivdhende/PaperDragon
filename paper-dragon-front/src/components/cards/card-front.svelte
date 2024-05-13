@@ -10,6 +10,7 @@
   import BackgroundCard from "./background-card.svelte";
   import BossCard from "./boss-card.svelte";
   import TrapCard from "./trap-card.svelte";
+  import LocationCard from "./location-card.svelte";
 
   export let card: CardData;
 </script>
@@ -34,6 +35,8 @@
   <ArtifactCard {card} --border-color="black" />
 {:else if card.cardType === CARDTYPES.backgrounds}
   <BackgroundCard {card} --border-color="black" />
+{:else if card.cardType === CARDTYPES.locations}
+  <LocationCard {card} --border-color="green" />
 {/if}
 
 <style>
@@ -80,7 +83,8 @@
   :global(.type) {
     grid-area: type;
     display: grid;
-    place-content: center;
+    align-content: start;
+    justify-content: center;
   }
   :global(.effect) {
     grid-area: effect;

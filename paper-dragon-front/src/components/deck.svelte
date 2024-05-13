@@ -1,25 +1,19 @@
 <script lang="ts">
-  import { getDeck, selectedDeckIdStore } from "../services/deck.service";
+  import { type Deck } from "../services/deck.service";
   import Card from "./cards/card.svelte";
 
-  $: fetchDeck = getDeck($selectedDeckIdStore);
+  export let deck: Deck = [];
   let scale = 1;
 </script>
 
 <main>
-  {#await fetchDeck}
-    <p>...waiting</p>
-  {:then deck}
-    {#if deck !== undefined}
-      <div class="view">
-        <div class="deck">
-          {#each deck as card}
-            <Card {card} {scale}></Card>
-          {/each}
-        </div>
-      </div>
-    {/if}
-  {/await}
+  <div class="view">
+    <div class="deck">
+      {#each deck as card}
+        <Card {card} {scale}></Card>
+      {/each}
+    </div>
+  </div>
 </main>
 
 <style>

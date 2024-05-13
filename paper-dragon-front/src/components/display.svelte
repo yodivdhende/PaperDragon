@@ -6,8 +6,17 @@
   import { selectedDefaulCardTemplateStore } from "../services/card-selector.service";
   import Card from "./cards/card.svelte";
   import Deck from "./deck.svelte";
+  import { fetchDeck, selectedDeckIdStore } from "../services/deck.service";
 
   export let displayType: DisplayType;
+  $: deckPromise = getDeck(displayType, $selectedDeckIdStore);
+
+  async function getDeck(displayType: DisplayType, selectedDeckId: string) {
+    if (displayType === DISPLAYTYPES.deck) {
+      return await fetchDeck(selectedDeckId);
+    }
+    return;
+  }
 </script>
 
 <main>
@@ -17,7 +26,13 @@
     </div>
   {/if}
   {#if displayType === DISPLAYTYPES.deck}
-    <Deck />
+    {#await deckPromise}
+      ...Waiting
+    {:then deck}
+      {#if deck !== undefined}
+        <Deck {deck} />
+      {/if}
+    {/await}
   {/if}
 </main>
 

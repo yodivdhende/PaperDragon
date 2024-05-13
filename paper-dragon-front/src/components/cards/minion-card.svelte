@@ -1,6 +1,6 @@
 <script lang="ts">
   import Attributes from "../card-sections/attributes/attributes.svelte";
-  import { CARDTYPES, type MinionCardData } from "./card-type.types";
+  import { type MinionCardData } from "./card-type.types";
 
   export let card: MinionCardData;
 </script>
@@ -9,7 +9,7 @@
   <div class="lp">{card.lp}</div>
   <div class="name">{card.name}</div>
   <div class="type">{card.type}</div>
-  <div class="actions">{card.actions}</div>
+  <div class="kost">{card.actions}</div>
   <div class="effect">{@html card.passive}</div>
   <div class="attributes">
     <Attributes {card}></Attributes>
@@ -22,10 +22,10 @@
     border-color: var(--border-color);
     place-content: center;
     grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 2fr 1fr 10fr 1fr;
+    grid-template-rows: 2fr 2fr 10fr 1fr;
     grid-template-areas:
       "lp name ."
-      "actions type ."
+      "kost type ."
       "effect effect effect"
       ". attributes id";
   }

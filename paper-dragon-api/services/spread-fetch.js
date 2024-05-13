@@ -16,6 +16,7 @@ const SHEETNAMES = {
   conditions: "Conditions",
   icons: "Icons",
   deckcontent: "DeckContent",
+  locations: "Locations",
 };
 
 async function getSpreadSheet() {
@@ -45,6 +46,7 @@ async function getMetadata() {
 }
 
 async function getSheetData(name) {
+  console.log("requesting sheet: ", name);
   let result = await (
     await getSpreadSheet()
   ).values.get({

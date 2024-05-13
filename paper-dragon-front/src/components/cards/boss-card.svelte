@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Attributes from "../card-sections/attributes/attributes.svelte";
   import { type BossesCardData } from "./card-type.types";
 
   export let card: BossesCardData;
@@ -6,9 +7,13 @@
 
 <main class="card">
   <div class="lp">{card.lp}</div>
+  <div class="kost">{card.actions}</div>
   <div class="name">{card.name}</div>
   <div class="type">{card.type}</div>
   <div class="effect">{@html card.effect}</div>
+  <div class="attributes">
+    <Attributes {card}></Attributes>
+  </div>
   <div class="id">{card.id}</div>
 </main>
 
@@ -16,11 +21,11 @@
   main {
     border-color: var(--border-color);
     grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 2fr 1fr 11fr 1fr;
+    grid-template-rows: 2fr 2fr 10fr 1fr;
     grid-template-areas:
       "lp name ."
-      ". type ."
+      "kost type ."
       "effect effect effect"
-      ". . id";
+      ". attributes id";
   }
 </style>

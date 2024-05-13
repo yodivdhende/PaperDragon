@@ -5,7 +5,10 @@
   import { currentDisplayStore } from "./services/display-type-selector.service";
   import DeckSelector from "./components/deck-selector.svelte";
   import CardSideSelector from "./components/card-side-selector.svelte";
-  import { exportCurrentDeck } from "./services/export-to-image.service";
+  import {
+    exportAll,
+    exportCurrentDeck,
+  } from "./services/export-to-image.service";
 </script>
 
 <main>
@@ -16,6 +19,7 @@
     <CardSideSelector />
     <DeckSelector />
     <button on:click={exportCurrentDeck}> Export current</button>
+    <button on:click={exportAll}> Export All</button>
   </div>
 </main>
 

@@ -5,7 +5,6 @@
   import TrapBackCard from "./trap-card-back.svelte";
 
   export let card: CardData;
-  console.log(card.cardType);
 </script>
 
 {#if card === undefined}

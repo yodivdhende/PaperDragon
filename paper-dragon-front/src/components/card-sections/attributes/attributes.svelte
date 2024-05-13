@@ -2,14 +2,18 @@
   import type { Attribute } from "./attributes.type";
 
   export let card: Attribute;
-  console.log(card);
+  function showAttributes() {
+    return card.mind != null && card.strength != null && card.reflex != null;
+  }
 </script>
 
-<main>
-  <div class="mind">{card.mind}</div>
-  <div class="strength">{card.strength}</div>
-  <div class="reflex">{card.reflex}</div>
-</main>
+{#if showAttributes()}
+  <main>
+    <div class="mind">{card.mind}</div>
+    <div class="strength">{card.strength}</div>
+    <div class="reflex">{card.reflex}</div>
+  </main>
+{/if}
 
 <style>
   main {
