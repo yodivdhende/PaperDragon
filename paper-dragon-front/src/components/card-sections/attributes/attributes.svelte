@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Attribute } from "./attributes.type";
+  import type { Attributes } from "./attributes.type";
 
-  export let card: Attribute;
+  export let card: Attributes;
   function showAttributes() {
     return card.mind != null && card.strength != null && card.reflex != null;
   }

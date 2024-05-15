@@ -1,8 +1,9 @@
 import {toPng} from 'html-to-image';
 import download from 'downloadjs';
-import { fetchDeckTypes, selectedDeckIdStore, selectedDeckNameStore, selectedDeckStore } from './deck.service';
+import { fetchDeck, fetchDeckTypes, selectedDeckIdStore, selectedDeckNameStore, selectedDeckStore } from './deck.service';
 import { get } from 'svelte/store';
 import { selectedCardSideStore } from './card-selector.service';
+import Deck from '../components/deck.svelte';
 
 export async function exportCurrentDeck(): Promise<void>{
     try {
@@ -18,17 +19,18 @@ export async function exportCurrentDeck(): Promise<void>{
 export async function exportAll() {
     let deckUnsubscriber = () => {};
     try {
-    const deckTypes = await fetchDeckTypes();
-    let currentDeckIndex = 0;
-    selectedDeckIdStore.set(deckTypes[currentDeckIndex].id);
-    deckUnsubscriber = selectedDeckStore.subscribe(async (deck)=> {
-            if(deck == null) return;
-            await exportCurrentDeck();
-            currentDeckIndex++;
-            if(deckTypes.length === currentDeckIndex) return;
-            selectedDeckIdStore.set(deckTypes[currentDeckIndex].id);
-    });
-
+        const deckTypes = await fetchDeckTypes();
+        for(let deckType of deckTypes) {
+            const deckElement = document.createElement('div');
+            deckElement.id = deckType.id;
+            const deckData  = await fetchDeck(deckType.id);
+            if(deckData === undefined) continue;
+            const deck = new Deck({
+               target: deckElement,
+               props: {deck: deckData}
+            })
+            console.log(deck);
+        }
     } catch(error) {
         console.error(error);
     } finally {
