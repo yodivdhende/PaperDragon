@@ -7,6 +7,7 @@
   import Card from "./cards/card.svelte";
   import Deck from "./deck.svelte";
   import { fetchDeck, selectedDeckIdStore } from "../services/deck.service";
+  import AllDecks from "./all-decks.svelte";
 
   export let displayType: DisplayType;
   $: deckPromise = getDeck(displayType, $selectedDeckIdStore);
@@ -33,6 +34,9 @@
         <Deck {deck} />
       {/if}
     {/await}
+  {/if}
+  {#if displayType === DISPLAYTYPES.allDecks}
+    <AllDecks />
   {/if}
 </main>
 

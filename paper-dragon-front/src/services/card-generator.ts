@@ -1,6 +1,4 @@
-import { CARDTYPES, isActionCard, type CardData } from "../components/cards/card-type.types";
-import { createArtifactCardFront } from "./card-generators/artifact-card.generator";
-import { createAttackCardFront } from "./card-generators/attack-card.generator";
+import { CARDTYPES, isActionCard, type CardData } from "../components/cards/card-type.types"; import { createArtifactCardFront } from "./card-generators/artifact-card.generator"; import { createAttackCardFront } from "./card-generators/attack-card.generator";
 import { createActionCardBack, createBlankCardBack, createBossCardBack, createTrapCardBack } from "./card-generators/back-card.generator";
 import { createBackgroundCardFront } from "./card-generators/background-card.generator";
 import { createBossCardFront } from "./card-generators/boss-card.generator";
@@ -33,14 +31,20 @@ export function getBackCardElement(card: CardData) {
   if(card.cardType === CARDTYPES.trap) return createTrapCardBack(card);
   if(card.cardType === CARDTYPES.bosses) return createBossCardBack(card);
   if(isActionCard(card)) return createActionCardBack(card);
-  return createBlankCardBack();
+  return createBlankCardBack(card);
 }
 
-export function getDeckElement(cards: Deck, face: CardSide) {
+export function getCardElement(card: CardData, side: CardSide) {
+  if(side === 'Front')  return getFrontCardElement(card);
+  if(side === 'Back')  return getBackCardElement(card);
+}
+
+export function getDeckElement(deck: Deck, face: CardSide) {
   const deckElement = document.createElement('div');
   deckElement.classList.add('deck');
-    cards.forEach(card => {
-      const cardElement = face === 'Front' ? getFrontCardElement(card) : getBackCardElement(card);
+  deckElement.id = deck.id;
+    deck.cards.forEach(card => {
+      const cardElement = getCardElement(card, face);
       if(cardElement) deckElement.appendChild(cardElement);
     });
   addStyle(deckElement, `

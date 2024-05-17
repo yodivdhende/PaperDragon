@@ -25,8 +25,9 @@ export function addCardBackDefaultStyle(element: HTMLElement) {
     .card {
       --scale: 1;
       --border-size: calc(10px * var(--scale));
-      width: calc(100% - var(--border-size) * 2);
-      height: calc(100% - var(--border-size) * 2);
+      --width: calc(500px * var(--scale));
+      width: var(--width);
+      height: calc(var(--width) * 1.39);
       border: var(--border-size) solid;
       border-radius: 20px;
       background-color: white;
