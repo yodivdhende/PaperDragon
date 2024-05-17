@@ -1,6 +1,3 @@
-import CardTypeSelector from "../card-type-selector.svelte";
-import type LocationCard from "./location-card.svelte";
-
 export const SHEETNAMES = {
   decktypes: "DeckTypes",
   maneuvers: "Maneuvers",
@@ -52,7 +49,7 @@ export const AttackCardTemplate = {
 export type AttackCardData = typeof AttackCardTemplate;
 
 
-const ManeuverCardTemplate = {
+export const ManeuverCardTemplate = {
     cardType: CARDTYPES.maneuver,
     name: "name",
     id: "id",
@@ -67,7 +64,7 @@ const ManeuverCardTemplate = {
 export type ManeuverCardData = typeof ManeuverCardTemplate;
 
 
-const ItemCardTemplate = {
+export const ItemCardTemplate = {
     cardType: CARDTYPES.item,
     name: "name",
     id: "id",
@@ -81,7 +78,7 @@ const ItemCardTemplate = {
 }
 export type ItemCardData = typeof ItemCardTemplate;
 
-const TrapCardTemplate = {
+export const TrapCardTemplate = {
     cardType: CARDTYPES.trap,
     name: 'name',
     id: 'id',
@@ -94,7 +91,7 @@ const TrapCardTemplate = {
 export type TrapCardData = typeof TrapCardTemplate;
 
 
-const StatusCardTemplate = {
+export const StatusCardTemplate = {
     cardType: CARDTYPES.status,
     name: "name",
     icon: "icon",
@@ -104,7 +101,7 @@ const StatusCardTemplate = {
 }
 export type StatusCardData = typeof StatusCardTemplate;
 
-const ConditionCardTemplate = {
+export const ConditionCardTemplate = {
     cardType: CARDTYPES.condition,
     name: "name",
     id: "id",
@@ -119,7 +116,7 @@ const ConditionCardTemplate = {
 export type ConditionCardData = typeof ConditionCardTemplate;
 
 
-const MinionCardTemplate = {
+export const MinionCardTemplate = {
     cardType: CARDTYPES.minions,
     name: "name",
     id: "id",
@@ -133,7 +130,7 @@ const MinionCardTemplate = {
 }
 export type MinionCardData = typeof MinionCardTemplate;
 
-const BossCardTemplate = {
+export const BossCardTemplate = {
     cardType: CARDTYPES.bosses,
     name: "name",
     type: "type",
@@ -152,7 +149,7 @@ export type BossesCardData = Omit<typeof BossCardTemplate, 'mind' | 'strength' |
     reflex?: number;
 }
 
-const ArtifactCardTemplate = {
+export const ArtifactCardTemplate = {
     cardType: CARDTYPES.artifacts,
     name: "name",
     id: "id",
@@ -161,7 +158,7 @@ const ArtifactCardTemplate = {
 }
 export type ArtifactCardData = typeof ArtifactCardTemplate
 
-const BackgroundCardTemplate = {
+export const BackgroundCardTemplate = {
     cardType: CARDTYPES.backgrounds,
     name: "name",
     id: "id",

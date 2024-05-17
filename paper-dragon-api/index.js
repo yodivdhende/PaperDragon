@@ -5,7 +5,11 @@ const {
   getSheetData,
   SHEETNAMES,
 } = require("./services/spread-fetch.js");
-const { getDeck, CARDTYPES } = require("./services/deck-builder.js");
+const {
+  getDeck,
+  CARDTYPES,
+  getDeckTypes,
+} = require("./services/deck-builder.js");
 const cors = require("cors");
 
 const APP = express();
@@ -20,7 +24,7 @@ APP.listen(PORT, () => {
 });
 
 APP.get("/decktypes", (_, res) =>
-  getSheetData(SHEETNAMES.decktypes).then((decklist) => res.send(decklist))
+  getDeckTypes().then((decklist) => res.send(decklist))
 );
 
 APP.get("/cardtypes", (_, result) => result.send(Object.keys(CARDTYPES)));

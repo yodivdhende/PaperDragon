@@ -1,19 +1,26 @@
 <script lang="ts">
+  import { getDeckElement } from "../services/card-generator";
+  import { selectedCardSideStore } from "../services/card-selector.service";
   import { type Deck } from "../services/deck.service";
   import Card from "./cards/card.svelte";
 
   export let deck: Deck = [];
-  let scale = 1;
+  let viewElement: HTMLElement;
+  $: renderElement(viewElement, getDeckElement(deck, $selectedCardSideStore));
+
+  function renderElement(
+    container: HTMLElement | undefined,
+    deckElement: HTMLElement | undefined
+  ) {
+    if (container == null) return;
+    if (deckElement == null) return;
+    container.innerHTML = "";
+    container.appendChild(deckElement);
+  }
 </script>
 
 <main>
-  <div class="view">
-    <div class="deck">
-      {#each deck as card}
-        <Card {card} {scale}></Card>
-      {/each}
-    </div>
-  </div>
+  <div class="view" bind:this={viewElement}></div>
 </main>
 
 <style>
@@ -24,11 +31,6 @@
     flex-direction: column;
     align-items: center;
     overflow-y: hidden;
-  }
-  .deck {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
   }
   .view {
     overflow: auto;
