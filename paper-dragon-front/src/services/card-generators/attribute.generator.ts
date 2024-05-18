@@ -7,9 +7,9 @@ import { addStyle, createElement } from "./card-utils.generators";
       if( mind === undefined || strength === undefined || reflex=== undefined ) return;
       const attributeElement = document.createElement('div');
       attributeElement.classList.add('attributes');
-      const mindElement = createElement(`${mind} <img src="src/assets/icons/brain.png" />`, 'mind');
-      const strengthElement = createElement(`${strength} <img src="src/assets/icons/biceps.png" />`, 'strength');
-      const reflexElement = createElement(`${reflex} <img src="src/assets/icons/sprint.png" />`, 'reflex');
+      const mindElement = createElement(mind.toString(), 'mind');
+      const strengthElement = createElement(strength.toString(), 'strength');
+      const reflexElement = createElement(reflex.toString(), 'reflex');
     attributeElement.appendChild(mindElement);
     attributeElement.appendChild(strengthElement);
     attributeElement.appendChild(reflexElement);
@@ -18,33 +18,26 @@ import { addStyle, createElement } from "./card-utils.generators";
           display: flex;
           height: 100%;
         }
-        .attributes img{
-          width: 2em;
-          height: 2em;
-        }
         div {
           width: 100%;
           padding: auto;
         }
         .mind {
-          display: flex;
+          display: grid;
           justify-content: center;
-          align-items: center;
-          gap: .5em;
+          align-content: center;
           background-color: #39f;
         }
         .strength {
-          display: flex;
+          display: grid;
           justify-content: center;
-          align-items: center;
-          gap: .5em;
+          align-content: center;
           background-color: #e74c3c;
       }
       .reflex {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: .5em;
+        display: grid;
+        justify-content: center;
+        align-content: center;
         background-color: #3c3;
       }
     `);
