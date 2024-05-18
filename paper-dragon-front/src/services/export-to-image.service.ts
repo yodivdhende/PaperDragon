@@ -7,7 +7,8 @@ import { selectedCardSideStore } from './card-selector.service';
 export async function exportCurrentDeck(): Promise<void>{
     try {
     const fileName = get(selectedDeckNameStore);
-    await exportCurrentElement(fileName);
+    const element = document.getElementsByClassName("deck")[0] as HTMLElement
+    await exportCurrentElement(element, fileName);
     } catch(error) {
         console.error(error);
     } finally {
@@ -16,30 +17,23 @@ export async function exportCurrentDeck(): Promise<void>{
 }
 
 export async function exportAll() {
-    let deckUnsubscriber = () => {};
     try {
-    const deckTypes = await fetchDeckTypes();
-    let currentDeckIndex = 0;
-    selectedDeckIdStore.set(deckTypes[currentDeckIndex].id);
-    deckUnsubscriber = selectedDeckStore.subscribe(async (deck)=> {
-            if(deck == null) return;
-            await exportCurrentDeck();
-            currentDeckIndex++;
-            if(deckTypes.length === currentDeckIndex) return;
-            selectedDeckIdStore.set(deckTypes[currentDeckIndex].id);
-    });
-
+        const deckTypes = await fetchDeckTypes();
+        for(let deckType of deckTypes) {
+            const deck = document.getElementById(deckType.id);
+            if(deck == null) continue;
+            await exportCurrentElement(deck, deckType.name);
+        }
     } catch(error) {
         console.error(error);
     } finally {
-      deckUnsubscriber();
+        console.log(`%c exportAll Done`,`background:lime;color:black`);
         return;
     }
 }
 
 
-async function exportCurrentElement(fileName?: string): Promise<void>{
-    const element = document.getElementsByClassName("deck")[0] as HTMLElement
+async function exportCurrentElement(element: HTMLElement, fileName?: string): Promise<void>{
     const sideName = get(selectedCardSideStore);
     const image = await toPng(element);
     download(image,`${fileName}_${sideName}`);
