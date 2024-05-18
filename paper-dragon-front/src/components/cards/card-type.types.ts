@@ -35,7 +35,7 @@ export const CARDTYPES = {
 export type CardType = typeof CARDTYPES[keyof typeof CARDTYPES]
 
 
-export const AttackCardTemplate = {
+const AttackCardTemplate = {
     cardType: CARDTYPES.attack,
     name: "name",
     id: "id",
