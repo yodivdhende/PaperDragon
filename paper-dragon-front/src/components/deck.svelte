@@ -2,8 +2,9 @@
   import { getDeckElement } from "../services/card-generator";
   import { selectedCardSideStore } from "../services/card-selector.service";
   import { type Deck } from "../services/deck.service";
+  import Card from "./cards/card.svelte";
 
-  export let deck: Deck;
+  export let deck: Deck = [];
   let viewElement: HTMLElement;
   $: renderElement(viewElement, getDeckElement(deck, $selectedCardSideStore));
 

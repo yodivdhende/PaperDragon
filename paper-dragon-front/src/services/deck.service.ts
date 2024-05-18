@@ -8,14 +8,14 @@ type DeckType = {
     id: string,
 }
 
-export type Deck = {
-    id: string;
-    cards: CardData[];
-}
+export type Deck = CardData[];
 export const selectedDeckIdStore: Writable<DeckType['id']> = writable();
 const decksStore: Writable<{id: string, name: string}[]> = writable();
 export const selectedDeckNameStore = derived([selectedDeckIdStore, decksStore], ([id, decks]) => decks.find(deck => deck.id === id)?.name)
 
+export const selectedDeckStore =  derived(selectedDeckIdStore, (id, set) => {
+    fetchDeck(id).then(result => set(result));
+});
 
 
 export async function fetchDeckTypes() {
@@ -29,13 +29,10 @@ export async function fetchDeckTypes() {
 }
 
 
-export async function fetchDeck(id: string) {
-    if(id == null) return;
-    if(id === '') return;
-    const response  = await fetch(`${HOST}/deck/${id}`)
-    const deck: CardData[] = await response.json();
-    return {
-        id: id,
-        cards: deck,
-    };
+export async function fetchDeck(id?: string) {
+    if(id !== undefined) {
+        const response  = await fetch(`${HOST}/deck/${id}`)
+        const deck:Deck  = await response.json();
+        return deck;
+    }
 }
