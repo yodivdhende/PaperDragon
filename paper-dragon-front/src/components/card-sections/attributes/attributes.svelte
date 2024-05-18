@@ -9,9 +9,18 @@
 
 {#if showAttributes()}
   <main>
-    <div class="mind">{card.mind}</div>
-    <div class="strength">{card.strength}</div>
-    <div class="reflex">{card.reflex}</div>
+    <div class="mind">
+      {card.mind}
+      <img src="src/assets/icons/brain.png" />
+    </div>
+    <div class="strength">
+      {card.strength}
+      <img src="src/assets/icons/biceps.png" />
+    </div>
+    <div class="reflex">
+      {card.reflex}
+      <img src="src/assets/icons/sprint.png" />
+    </div>
   </main>
 {/if}
 
@@ -23,23 +32,22 @@
   div {
     width: 100%;
     padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+  }
+  div img {
+    width: 2em;
+    height: 2em;
   }
   .mind {
-    display: grid;
-    justify-content: center;
-    align-content: center;
     background-color: #39f;
   }
   .strength {
-    display: grid;
-    justify-content: center;
-    align-content: center;
     background-color: #e74c3c;
   }
   .reflex {
-    display: grid;
-    justify-content: center;
-    align-content: center;
     background-color: #3c3;
   }
 </style>
