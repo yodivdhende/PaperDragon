@@ -13,7 +13,8 @@
     width: calc(200px * var(--scale));
     height: calc(200px * var(--scale));
     display: grid;
-    place-content: center;
+    justify-content: center;
+    align-content: center;
     background-color: yellow;
     border-radius: 50%;
     font-size: calc(4rem * var(--scale));

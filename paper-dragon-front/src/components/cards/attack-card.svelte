@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createAttackCardFront } from "../../services/card-generators/attack-card.generator";
+  import { createAttackCardFront } from "../../services/card-generator";
   import { type AttackCardData } from "./card-type.types";
 
   export let card: AttackCardData;

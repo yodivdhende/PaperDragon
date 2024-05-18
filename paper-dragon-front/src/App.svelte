@@ -23,11 +23,6 @@
   </div>
 </main>
 
-<template>
-  <style id="card-front">
-  </style>
-</template>
-
 <style>
   main {
     width: 100vw;

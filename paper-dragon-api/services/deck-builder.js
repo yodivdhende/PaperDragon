@@ -112,5 +112,4 @@ async function getDeck(id) {
 module.exports = {
   CARDTYPES,
   getDeck,
-  getDeckTypes,
 };

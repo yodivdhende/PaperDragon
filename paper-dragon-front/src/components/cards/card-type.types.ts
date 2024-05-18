@@ -1,3 +1,6 @@
+import CardTypeSelector from "../card-type-selector.svelte";
+import type LocationCard from "./location-card.svelte";
+
 export const SHEETNAMES = {
   decktypes: "DeckTypes",
   maneuvers: "Maneuvers",
@@ -49,7 +52,7 @@ export const AttackCardTemplate = {
 export type AttackCardData = typeof AttackCardTemplate;
 
 
-export const ManeuverCardTemplate = {
+const ManeuverCardTemplate = {
     cardType: CARDTYPES.maneuver,
     name: "name",
     id: "id",
@@ -64,7 +67,7 @@ export const ManeuverCardTemplate = {
 export type ManeuverCardData = typeof ManeuverCardTemplate;
 
 
-export const ItemCardTemplate = {
+const ItemCardTemplate = {
     cardType: CARDTYPES.item,
     name: "name",
     id: "id",
@@ -78,7 +81,7 @@ export const ItemCardTemplate = {
 }
 export type ItemCardData = typeof ItemCardTemplate;
 
-export const TrapCardTemplate = {
+const TrapCardTemplate = {
     cardType: CARDTYPES.trap,
     name: 'name',
     id: 'id',
@@ -91,7 +94,7 @@ export const TrapCardTemplate = {
 export type TrapCardData = typeof TrapCardTemplate;
 
 
-export const StatusCardTemplate = {
+const StatusCardTemplate = {
     cardType: CARDTYPES.status,
     name: "name",
     icon: "icon",
@@ -101,7 +104,7 @@ export const StatusCardTemplate = {
 }
 export type StatusCardData = typeof StatusCardTemplate;
 
-export const ConditionCardTemplate = {
+const ConditionCardTemplate = {
     cardType: CARDTYPES.condition,
     name: "name",
     id: "id",
@@ -116,7 +119,7 @@ export const ConditionCardTemplate = {
 export type ConditionCardData = typeof ConditionCardTemplate;
 
 
-export const MinionCardTemplate = {
+const MinionCardTemplate = {
     cardType: CARDTYPES.minions,
     name: "name",
     id: "id",
@@ -130,7 +133,7 @@ export const MinionCardTemplate = {
 }
 export type MinionCardData = typeof MinionCardTemplate;
 
-export const BossCardTemplate = {
+const BossCardTemplate = {
     cardType: CARDTYPES.bosses,
     name: "name",
     type: "type",
@@ -149,7 +152,7 @@ export type BossesCardData = Omit<typeof BossCardTemplate, 'mind' | 'strength' |
     reflex?: number;
 }
 
-export const ArtifactCardTemplate = {
+const ArtifactCardTemplate = {
     cardType: CARDTYPES.artifacts,
     name: "name",
     id: "id",
@@ -158,7 +161,7 @@ export const ArtifactCardTemplate = {
 }
 export type ArtifactCardData = typeof ArtifactCardTemplate
 
-export const BackgroundCardTemplate = {
+const BackgroundCardTemplate = {
     cardType: CARDTYPES.backgrounds,
     name: "name",
     id: "id",
