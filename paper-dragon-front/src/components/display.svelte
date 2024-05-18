@@ -7,6 +7,8 @@
   import Card from "./cards/card.svelte";
   import Deck from "./deck.svelte";
   import { fetchDeck, selectedDeckIdStore } from "../services/deck.service";
+  import AllDecks from "./all-decks.svelte";
+  import DeckView from "./deck-view.svelte";
 
   export let displayType: DisplayType;
   $: deckPromise = getDeck(displayType, $selectedDeckIdStore);
@@ -30,9 +32,14 @@
       ...Waiting
     {:then deck}
       {#if deck !== undefined}
-        <Deck {deck} />
+        <DeckView>
+          <Deck {deck} />
+        </DeckView>
       {/if}
     {/await}
+  {/if}
+  {#if displayType === DISPLAYTYPES.allDecks}
+    <AllDecks />
   {/if}
 </main>
 

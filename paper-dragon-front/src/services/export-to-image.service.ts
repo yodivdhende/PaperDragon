@@ -37,9 +37,6 @@ export async function exportAll() {
     }
 }
 
-selectedDeckIdStore.subscribe(id => {
-    console.log('selectedDeckId: ', id);
-})
 
 async function exportCurrentElement(fileName?: string): Promise<void>{
     const element = document.getElementsByClassName("deck")[0] as HTMLElement
