@@ -1,6 +1,3 @@
-import CardTypeSelector from "../card-type-selector.svelte";
-import type LocationCard from "./location-card.svelte";
-
 export const SHEETNAMES = {
   decktypes: "DeckTypes",
   maneuvers: "Maneuvers",
