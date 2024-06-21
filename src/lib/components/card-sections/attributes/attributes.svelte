@@ -11,15 +11,15 @@
   <main>
     <div class="mind">
       {card.mind}
-      <img src="src/assets/icons/brain.png" />
+      <img src="src/static/icons/brain.png" />
     </div>
     <div class="strength">
       {card.strength}
-      <img src="src/assets/icons/biceps.png" />
+      <img src="src/static/icons/biceps.png" />
     </div>
     <div class="reflex">
       {card.reflex}
-      <img src="src/assets/icons/sprint.png" />
+      <img src="src/static/icons/sprint.png" />
     </div>
   </main>
 {/if}

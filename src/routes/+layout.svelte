@@ -4,7 +4,7 @@
 </script>
 <main>
     <nav>
-        <a href="/template">Template</a>
+        <a href="/template/main">Template</a>
         <a href="/deck">Deck</a>
         <a href="/allcards">All Cards</a>
     </nav>
