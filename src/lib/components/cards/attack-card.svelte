@@ -1,16 +1,22 @@
 <script lang="ts">
   import Attributes from "../card-sections/attributes/attributes.svelte";
+	import Value from "../value.svelte";
   import { type AttackCardData } from "./card-type.types";
 
   export let card: AttackCardData;
 </script>
 
 <main class="card">
-  <div class="kost">{card?.kost}</div>
-  <div class="name">{card?.name}</div>
-  <div class="damage">{card?.damage} {@html card?.damagetype}</div>
-  <div class="type"><em>{card?.type}</em></div>
-  <div class="effect">{@html card?.effect}</div>
+  <div class="kost">
+    <Value value= {card?.kost} />
+  </div>
+  <div class="name"> {card?.name} </div>
+  <div class="damage">
+    <Value value= {card?.damage} />
+    {@html card?.damagetype}
+  </div>
+  <div class="type"><em> {card?.type} </em></div>
+  <div class="effect"> {@html card?.effect} </div>
   <div class="attributes">
     <Attributes {card}></Attributes>
   </div>

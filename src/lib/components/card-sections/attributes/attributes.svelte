@@ -1,5 +1,10 @@
 <script lang="ts">
   import type { Attribute } from "./attributes.type";
+  import brain from "$lib/assets/icons/brain.png";
+  import biceps from "$lib/assets/icons/biceps.png";
+  import sprint from "$lib/assets/icons/sprint.png";
+	import Value from "$lib/components/value.svelte";
+  
 
   export let card: Attribute;
   function showAttributes() {
@@ -10,16 +15,16 @@
 {#if showAttributes()}
   <main>
     <div class="mind">
-      {card.mind}
-      <img src="src/static/icons/brain.png" />
+      <Value value={card.mind}  />
+      <img src={brain} />
     </div>
     <div class="strength">
-      {card.strength}
-      <img src="src/static/icons/biceps.png" />
+      <Value value={card.strength}  />
+      <img src={biceps} />
     </div>
     <div class="reflex">
-      {card.reflex}
-      <img src="src/static/icons/sprint.png" />
+      <Value value={card.reflex}  />
+      <img src={sprint} />
     </div>
   </main>
 {/if}
