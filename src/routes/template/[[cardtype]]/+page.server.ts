@@ -1,7 +1,8 @@
-import { getDefaultTemplate, isCardType } from '$lib/components/cards/card-type.types.js';
+import { getDefaultTemplate } from '$lib/components/cards/card-data.types';
+import { isCardType } from '$lib/components/cards/card-type.types.js';
 
 export function load({params}) {
     const {cardtype} =  params;
-    if(isCardType(cardtype)) return {template: getDefaultTemplate(cardtype)}
+    if(cardtype && isCardType(cardtype)) return {template: getDefaultTemplate(cardtype)}
     return {template: null} 
 }

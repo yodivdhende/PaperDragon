@@ -1,7 +1,9 @@
 <script lang="ts">
   import ActionBackCard from "./action-card-back.svelte";
+	import { isActionCard } from "./back-card.types";
   import BossCardBack from "./boss-card-back.svelte";
-  import { CARDTYPES, isActionCard, type CardData } from "./card-type.types";
+	import type { CardData } from "./card-data.types";
+  import { CARDTYPES,  } from "./card-type.types";
   import TrapBackCard from "./trap-card-back.svelte";
 
   export let card: CardData;

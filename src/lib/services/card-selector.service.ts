@@ -1,5 +1,5 @@
-import { derived, writable, type Writable } from 'svelte/store';
-import { CARDTYPES, getDefaultTemplate, type CardType } from '../components/cards/card-type.types';
+import {  writable, type Writable } from 'svelte/store';
+import { CARDTYPES, type CardType } from '../components/cards/card-type.types';
 
 export const CARDSIDE= {
   front: "Front", 
