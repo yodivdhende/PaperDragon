@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CARDTYPES, type CardData } from "./card-type.types";
+  import { CARDTYPES } from "./card-type.types";
   import AttackCard from "./attack-card.svelte";
   import ManeuverCard from "./maneuver-card.svelte";
   import ItemCard from "./item-card.svelte";
@@ -11,6 +11,7 @@
   import BossCard from "./boss-card.svelte";
   import TrapCard from "./trap-card.svelte";
   import LocationCard from "./location-card.svelte";
+	import type { CardData } from "./card-data.types";
 
   export let card: CardData;
 </script>

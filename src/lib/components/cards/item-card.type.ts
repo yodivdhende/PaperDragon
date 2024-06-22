@@ -7,7 +7,7 @@ export const ItemCardTemplate = {
     image: "image",
     type: "type",
     kost: 1,
-    users: 2,
+    uses: 2,
     effect: "effect",
     mind: 3,
     strength: 4,

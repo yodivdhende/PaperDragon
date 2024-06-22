@@ -1,8 +1,8 @@
 <script lang="ts">
   import { selectedCardSideStore } from "../../services/card-selector.service";
   import CardBack from "./card-back.svelte";
+	import type { CardData } from "./card-data.types";
   import CardFront from "./card-front.svelte";
-  import type { CardData } from "./card-type.types";
 
   export let card: CardData;
   export let scale = 1;
