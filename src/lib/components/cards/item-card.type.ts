@@ -7,9 +7,10 @@ export const ItemCardTemplate = {
     image: "image",
     type: "type",
     kost: 1,
+    users: 2,
     effect: "effect",
-    mind: 2,
-    strength: 3,
-    reflex: 4,
+    mind: 3,
+    strength: 4,
+    reflex: 5,
 }
 export type ItemCardData = typeof ItemCardTemplate;
