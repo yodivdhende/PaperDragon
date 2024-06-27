@@ -1,28 +1,17 @@
 <script lang="ts">
     import CardSideSelector from '$lib/components/selectors/card-side-selector.svelte'
 	import CardTypeSelector from '$lib/components/selectors/card-type-selector.svelte';
+	import SettingsLayout from '$lib/components/settings-layout.svelte';
        
 </script>
-<main>
-    <div class="card">
+<SettingsLayout>
+    <div slot="section">
         <slot />
     </div>
-    <div class="settings">
+    <div slot="aside">
         <CardTypeSelector />
         <CardSideSelector />
     </div>
-</main>
+</SettingsLayout>
 <style>
-    main {
-        display:flex;
-        flex-direction: row;
-    }
-    .card {
-        width:100%;
-        background-color:var(--color-background);
-    }
-    .settings {
-        max-width: 500px;
-        border: 1px solid var(--color-gray) ;
-    } 
 </style>

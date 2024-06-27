@@ -1,20 +1,20 @@
 <script lang="ts">
-  import {
-    fetchDeckTypes,
-    selectedDeckIdStore,
-  } from "../services/deck.service";
+	import { goto } from "$app/navigation";
+	import { selectedDeckIdStore } from "$lib/services/deck.service";
+
+  export let deckTypes;
+
+  function selectingDeckType(event: Event & {currentTarget: EventTarget & HTMLSelectElement}) {
+    goto(`${event.currentTarget.value}`)
+  }
 </script>
 
 <main>
-  {#await fetchDeckTypes()}
-    <p>... waiting for deck types</p>
-  {:then deckTypes}
-    <select bind:value={$selectedDeckIdStore}>
+    <select bind:value={$selectedDeckIdStore} on:input={(event)=> selectingDeckType(event)}>
       {#each deckTypes as deckType}
         <option value={deckType.id}>{deckType.name}</option>
       {/each}
     </select>
-  {/await}
 </main>
 
 <style>
