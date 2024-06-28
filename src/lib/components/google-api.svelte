@@ -15,7 +15,6 @@
             const result = await response.json();
             apiKey = result.googleApiKey;
             clientId = result.googleClientId;
-            console.log(apiKey, clientId);
         }
         return { apiKey, clientId }
     }

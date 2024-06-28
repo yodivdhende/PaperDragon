@@ -11,7 +11,6 @@ const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 // created automatically when the authorization flow completes for the first
 // time.
 const CREDENTIALS_PATH = path.join(process.cwd(), "./static/credentials.json");
-console.log(CREDENTIALS_PATH);
 
 /**
  * Reads previously authorized credentials from the save file.

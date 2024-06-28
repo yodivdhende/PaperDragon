@@ -6,12 +6,17 @@
 
 </script>
 <SettingsLayout>
-    <div slot="section">
+    <section slot="section">
         <slot />
-    </div>
+    </section>
     <div slot="aside">
         <DeckSelector deckTypes={data.decktypes} />
     </div>
 </SettingsLayout>
 <style>
+    section {
+        width:100%;
+        height: 100%;
+        overflow: auto;
+    }
 </style>

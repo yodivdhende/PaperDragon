@@ -29,24 +29,30 @@ export async function getDeck(id: string) {
         })
     )
     const deckContent = (await getDeckContents()).filter(
-        (deckLine) => deckLine.deckId === deckMeta.id
+        (deckLine) => deckLine.deckid === deckMeta.id
     );
 
-    const resultDeck: (CardData & {deck: DeckType})[] = [];
+    const cards: CardData[] = [];
     for(let deckLine of deckContent) {
-        const {cardId, amount, id, print} = deckLine;
-        if(print === "FALSE") return;
-        const card = allCards.find((card) => card.id === cardId);
-        if(card == null) return console.warn(`cant find card wiht id ${cardId}`);
-        for (let count = 0; count < amount; count ++) {
-            resultDeck.push({
+        const {cardid, amount, id, print} = deckLine;
+        if(print === "FALSE") continue;
+        const card = allCards.find((card) => card.id === cardid);
+        if(card == null) {
+            console.warn(`cant find card wiht id ${cardid}`);
+            continue;
+        }
+        for (let count = 0; count < Number(amount); count ++) {
+            const newCard = {
                 ...(await addIconsToCard(card)),
                 id: `${id}-${count + 1}`,
-                deck: deckMeta,
-            })
-        }
-    }
-    return resultDeck;
+            };
+            cards.push(newCard);
+        };
+    };
+    return {
+        ...deckMeta,
+        cards,
+    };
 }
 
 
@@ -80,10 +86,10 @@ type DeckType = {
     }
 
 type DeckMeta = {
-    deckId: string,
-    deckName: string,
-    cardId: string,
-    cardName: string,
+    deckid: string,
+    deckname: string,
+    cardid: string,
+    cardname: string,
     print: string,
     amount: number,
     id: string,

@@ -16,16 +16,17 @@ import GoogleApi from '$lib/components/google-api.svelte';
 
 <style>
    main {
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
    } 
-
    header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
    }
-
    nav {
     display: flex;
     flex-direction: row;
