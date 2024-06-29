@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Card from '$lib/components/cards/card.svelte';
-
     export let data;
     const {deck} = data;
 </script>
@@ -14,7 +13,7 @@
 <style>
     .deck {
         display:grid;
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(4,min-content);
     }
 
 </style>

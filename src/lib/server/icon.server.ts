@@ -23,7 +23,7 @@ export async function replaceWithIcons(text: string) {
       if (i % 2 === 0) return section;
       const icon = ICONS.find((icon) => icon.id === section);
       if (icon === undefined) return section;
-      return `<img src="src/assets/icons/${icon.path}"/>`;
+      return `<img src="/src/lib/assets/icons/${icon.path}"/>`;
     })
     .join("");
 }
