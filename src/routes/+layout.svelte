@@ -7,7 +7,8 @@ import GoogleApi from '$lib/components/google-api.svelte';
         <nav>
             <a href="/template/main">Template</a>
             <a href="/deck/main">Deck</a>
-            <a href="/alldecks">All Cards</a>
+            <a href="/alldecks/nosplit">All Cards</a>
+            <a href="/alldecks/split">All Cards split</a>
         </nav>
     </header>
     <slot />

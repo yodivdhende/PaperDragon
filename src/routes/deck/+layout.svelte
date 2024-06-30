@@ -8,9 +8,7 @@ import CardSideSelector from "$lib/components/selectors/card-side-selector.svelt
 
 </script>
 <SettingsLayout>
-    <section slot="section">
-        <slot />
-    </section>
+    <slot slot="section"/>
     <div slot="aside">
         <DeckSelector deckTypes={data.decktypes} />
         <CardSideSelector />
@@ -18,9 +16,4 @@ import CardSideSelector from "$lib/components/selectors/card-side-selector.svelt
     </div>
 </SettingsLayout>
 <style>
-    section {
-        width:100%;
-        height: 100%;
-        overflow: auto;
-    }
 </style>
