@@ -5,5 +5,4 @@ export async function load({params}) {
     if(deckid == null) return;
     const deck = await getDeck(deckid);
     return { deck }
-
 }

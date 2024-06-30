@@ -1,19 +1,8 @@
 <script lang="ts">
-	import Card from '$lib/components/cards/card.svelte';
+	import Deck from '$lib/components/deck.svelte';
     export let data;
     const {deck} = data;
 </script>
-{#if deck}
-    <div class="deck" id={deck.id}>
-        {#each deck.cards as card}
-            <Card {card}></Card>
-        {/each}
-    </div>
-{/if}
+    <Deck {deck} />
 <style>
-    .deck {
-        display:grid;
-        grid-template-columns: repeat(4,min-content);
-    }
-
 </style>

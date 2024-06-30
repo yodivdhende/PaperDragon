@@ -35,7 +35,9 @@
 	"type": "module",
 	"dependencies": {
 		"@google-cloud/local-auth": "^3.0.1",
+		"downloadjs": "^1.4.7",
 		"firebase": "^10.12.2",
-		"googleapis": "^140.0.0"
+		"googleapis": "^140.0.0",
+		"html-to-image": "^1.11.11"
 	}
 }
