@@ -4,10 +4,14 @@ import { authorize } from './google-auth.server';
 const SPREADSHEET_ID = '1BzYrPAndlgYYcHC0thx6oNQ4HSuip5CJAbQMpXV3vhc';
 
 async function getSpreadSheet() {
-	const auth = await authorize();
-	//@ts-ignore
-	const sheets = google.sheets({ version: 'v4', auth });
-	return sheets.spreadsheets;
+	try {
+		const auth = await authorize();
+		//@ts-ignore
+		const sheets = google.sheets({ version: 'v4', auth });
+		return sheets.spreadsheets;
+	} catch (error) {
+		console.error(error);
+	}
 }
 
 function createObjectFromSheetData(rows: string[][]) {
@@ -40,4 +44,3 @@ export async function getSheetData(name: string) {
 	});
 	return createObjectFromSheetData(result.data.values as string[][]);
 }
-
