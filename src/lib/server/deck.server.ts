@@ -1,34 +1,42 @@
 import type { CardData } from '$lib/components/cards/card-data.types';
-import { SHEETNAMES, type CardType } from '$lib/components/cards/card-type.types';
-import { getAllCards } from './card.server';
+import { collection, getDocs } from 'firebase/firestore';
+// import { getAllCards } from './card.server';
 import { replaceWithIcons } from './icon.server';
-import { getSheetData } from './spread-fetch.server';
+// import { getSheetData } from './spread-fetch.server';
+import { fireStore } from './firebase.server';
+import { ArtifactCardTemplate } from '../components/cards/artifact-card.type';
+import { BackgroundCardTemplate } from '../components/cards/background-card.type';
 
 let deckTypes: DeckType[];
 export async function getDeckTypes() {
 	if (deckTypes) return deckTypes;
-	deckTypes = (await getSheetData(SHEETNAMES.decktypes)) as unknown as DeckType[];
+	// deckTypes = (await getSheetData(SHEETNAMES.decktypes)) as unknown as DeckType[];
 	return deckTypes;
 }
 
 let deckContentList: DeckMeta[];
 export async function getDeckContents() {
 	if (deckContentList) return deckContentList;
-	deckContentList = (await getSheetData(SHEETNAMES.deckcontent)) as any;
+	// deckContentList = (await getSheetData(SHEETNAMES.deckcontent)) as any;
 	return deckContentList;
 }
+
+function mockGetDeck(id: string) {
+	return fakeDecks.find(deck => deck.id === id);
+}
+
 
 export async function getDeck(id: string) {
 	const deckTypes = await getDeckTypes();
 	const deckMeta = deckTypes.find((deck) => deck.id === id);
 	if (deckMeta == null) return console.warn(`can't find deck with id ${id}`);
 
-	const allCards = Object.entries(await getAllCards()).flatMap(([key, value]) =>
-		value.map((card) => {
-			card.cardType = key as CardType;
-			return card;
-		})
-	);
+	// const allCards = Object.entries(await getAllCards()).flatMap(([key, value]) =>
+	// 	value.map((card) => {
+	// 		card.cardType = key as CardType;
+	// 		return card;
+	// 	})
+	// );
 	const deckContent = (await getDeckContents()).filter(
 		(deckLine) => deckLine.deckid === deckMeta.id
 	);
@@ -37,18 +45,18 @@ export async function getDeck(id: string) {
 	for (let deckLine of deckContent) {
 		const { cardid, amount, id, print } = deckLine;
 		if (print === 'FALSE') continue;
-		const card = allCards.find((card) => card.id === cardid);
-		if (card == null) {
-			console.warn(`cant find card wiht id ${cardid}`);
-			continue;
-		}
-		for (let count = 0; count < Number(amount); count++) {
-			const newCard = {
-				...(await addIconsToCard(card)),
-				id: `${id}-${count + 1}`
-			};
-			cards.push(newCard);
-		}
+		// const card = allCards.find((card) => card.id === cardid);
+		// if (card == null) {
+		// 	console.warn(`cant find card wiht id ${cardid}`);
+		// 	continue;
+		// }
+		// for (let count = 0; count < Number(amount); count++) {
+		// 	const newCard = {
+		// 		...(await addIconsToCard(card)),
+		// 		id: `${id}-${count + 1}`
+		// 	};
+		// 	cards.push(newCard);
+		// }
 	}
 	return {
 		...deckMeta,
@@ -56,9 +64,16 @@ export async function getDeck(id: string) {
 	};
 }
 
-export async function getAllDecks() {
-	const deckTypes = await getDeckTypes();
-	return Promise.all(deckTypes.map((deckType) => getDeck(deckType.id)));
+export async function getDecks() {
+	// const deckTypes = await getDeckTypes();
+	// return Promise.all(deckTypes.map((deckType) => getDeck(deckType.id)));
+
+	// const desksRef = collection(fireStore, 'decks');
+	// const querySnaptshot = await getDocs(desksRef);
+	// querySnaptshot.forEach((doc) => console.log(doc))
+	// return querySnaptshot;
+
+	return fakeDecks;
 }
 
 export function splitDecks(decks: Deck[], cardLimit: number) {
@@ -118,3 +133,8 @@ type DeckMeta = {
 };
 
 export type Deck = Awaited<ReturnType<typeof getDeck>>;
+
+const fakeDecks = [
+	{ id: '1', name: 'deck1', previewCard: ArtifactCardTemplate },
+	{ id: '2', name: 'deck2', previewCard: BackgroundCardTemplate }
+] as const;

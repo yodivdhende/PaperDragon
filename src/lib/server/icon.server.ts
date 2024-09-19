@@ -1,14 +1,12 @@
 import { SHEETNAMES } from "$lib/components/cards/card-type.types";
-import { getSheetData } from "./spread-fetch.server";
 
 let ICONS: {
-    id: string,
-    name: string,
-    path: string,
+  id: string,
+  name: string,
+  path: string,
 }[] = [];
 async function getIcons() {
   if (ICONS.length === 0) {
-    ICONS = await getSheetData(SHEETNAMES.icons) as any;
   }
   return ICONS;
 }
