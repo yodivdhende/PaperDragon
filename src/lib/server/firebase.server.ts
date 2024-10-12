@@ -31,5 +31,9 @@ if (getApps().length) {
 firebaseApp = initializeApp(firebaseConfig);
 
 export const fireStore = getFirestore(firebaseApp);
-//TODO Remove after production relase
+console.log(`
++---------------------+
+| Connect to emulator |
++---------------------+
+`);
 connectFirestoreEmulator(fireStore, '127.0.0.1', 8080);

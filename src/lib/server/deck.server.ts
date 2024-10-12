@@ -68,12 +68,15 @@ export async function getDecks() {
 	// const deckTypes = await getDeckTypes();
 	// return Promise.all(deckTypes.map((deckType) => getDeck(deckType.id)));
 
-	// const desksRef = collection(fireStore, 'decks');
-	// const querySnaptshot = await getDocs(desksRef);
-	// querySnaptshot.forEach((doc) => console.log(doc))
-	// return querySnaptshot;
+	const desksRef = collection(fireStore, 'Decks');
+	const querySnaptshot = await getDocs(desksRef);
+	const decks: { id: string, name: string, previewCard: CardData }[] = [];
+	querySnaptshot.forEach((doc) => {
+		decks.push(doc.data() as any);
+	})
+	return decks;
 
-	return fakeDecks;
+	// return fakeDecks;
 }
 
 export function splitDecks(decks: Deck[], cardLimit: number) {
