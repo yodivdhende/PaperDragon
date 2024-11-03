@@ -1,9 +1,7 @@
 import type { CardData } from '$lib/components/cards/card-data.types';
-import { collection, getDocs } from 'firebase/firestore';
 // import { getAllCards } from './card.server';
 import { replaceWithIcons } from './icon.server';
 // import { getSheetData } from './spread-fetch.server';
-import { fireStore } from './firebase.server';
 import { ArtifactCardTemplate } from '../components/cards/artifact-card.type';
 import { BackgroundCardTemplate } from '../components/cards/background-card.type';
 

@@ -10,4 +10,7 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 /static/credentials.json
 ./public
-./functions/*
+./functions
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
