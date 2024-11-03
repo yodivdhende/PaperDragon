@@ -10,22 +10,10 @@ export async function migration() {
 
 	const deckContents = deckContentsQuery.docs.map((doc) => doc.data());
 	const cards = cardsQuery.docs.map((doc) => doc.data());
-	let decks = decksQuery.docs.map((doc) => doc.data());
-	// decks = decks.map((deck) => {
-	// 	const deckCards = deckContents
-	// 		.filter((content) => deck.cards.include(content.id))
-	// 		.map((content) => {
-	// 			const card = cards.find((card) => content.cardId === card.id);
-	// 			return {
-	// 				...card,
-	// 				...content
-	// 			};
-	// 		});
-	// 	return {
-	// 		...deck,
-	// 		faceCard: deckCards[0]
-	// 	};
-	// });
-
-	console.log(decks);
+	const decks = decksQuery.docs.map((doc) => doc.data());
+	return {
+		deckContents,
+		cards,
+		decks
+	};
 }

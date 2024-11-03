@@ -1,0 +1,149 @@
+[
+	{
+		"cards": ["AC-AC", "AC-AM-002", "AC-AM-012", "AC-AM-015"],
+		"name": "Acolyth",
+		"id": "AC"
+	},
+	{
+		"cards": [
+			"AD-AA-003",
+			"AD-AA-004",
+			"AD-AA-007",
+			"AD-AD",
+			"AD-AM-001",
+			"AD-AM-008",
+			"AD-AA-035"
+		],
+		"name": "Fangs of Zephyr",
+		"id": "AD"
+	},
+	{
+		"cards": [
+			"BD-AA-022",
+			"BD-AM-017",
+			"BD-AA-028",
+			"BD-AA-027",
+			"BD-AM-003",
+			"BD-AA-029",
+			"BD-B-001",
+			"BD-B-002"
+		],
+		"name": "Bear Dragon",
+		"id": "BD"
+	},
+	{
+		"cards": ["ET-ET", "ET-AM-024", "ET-AM-023", "ET-AM-022"],
+		"name": "Entertainer",
+		"id": "ET"
+	},
+	{
+		"cards": ["I-IT-001", "I-IT-002"],
+		"name": "Items",
+		"id": "I"
+	},
+	{
+		"cards": ["LL-L-01"],
+		"name": "Locations",
+		"id": "LL"
+	},
+	{
+		"cards": ["M-M-004"],
+		"name": "Minions",
+		"id": "M"
+	},
+	{
+		"cards": ["MB-AA-015", "MB-AA-016", "MB-AM-007"],
+		"name": "Beast",
+		"id": "MB"
+	},
+	{
+		"cards": ["MD-AA-028", "MD-AA-027", "MD-AM-003"],
+		"name": "Dragon Blood",
+		"id": "MD"
+	},
+	{
+		"cards": ["MG-AA-014", "MG-AA-013", "MG-TR-004", "MG-TR-005"],
+		"name": "Goblin",
+		"id": "MG"
+	},
+	{
+		"cards": ["MV-AA-017", "MV-AA-018", "MV-TR-007"],
+		"name": "Venomous",
+		"id": "MV"
+	},
+	{
+		"cards": [],
+		"name": "Necro Syct",
+		"id": "NS"
+	},
+	{
+		"cards": ["PB-PB", "PB-AM-020", "PB-AM-021", "PB-AA-031", "PB-AA-032", "PB-AA-033"],
+		"name": "Preacher book",
+		"id": "PB"
+	},
+	{
+		"cards": [
+			"PC-AA-005",
+			"PC-AA-006",
+			"PC-AA-008",
+			"PC-AM-025",
+			"PC-AM-011",
+			"PC-PC",
+			"PC-AA-036"
+		],
+		"name": "Todorokis rings",
+		"id": "PC"
+	},
+	{
+		"cards": [
+			"RA-AA-023",
+			"RA-AA-025",
+			"RA-AA-026",
+			"RA-AA-030",
+			"RA-AA-034",
+			"RA-AM-018",
+			"RA-RA"
+		],
+		"name": "Ghahorks blood axe",
+		"id": "RA"
+	},
+	{
+		"cards": ["SC-AM-006", "SC-AM-010", "SC-SC", "SC-TR-001"],
+		"name": "Scout",
+		"id": "SC"
+	},
+	{
+		"cards": ["SO-AM-005", "SO-AM-004", "SO-SO", "SO-TR-008"],
+		"name": "Barbarian",
+		"id": "SO"
+	},
+	{
+		"cards": [
+			"SS-AA-011",
+			"SS-AA-012",
+			"SS-SS",
+			"SS-AA-001",
+			"SS-AM-013",
+			"SS-AA-010",
+			"SS-TR-002"
+		],
+		"name": "Stone Sword and Shield",
+		"id": "SS"
+	},
+	{
+		"cards": [
+			"T-C-001",
+			"T-S-001",
+			"T-S-002",
+			"T-S-003",
+			"T-S-004",
+			"T-S-005",
+			"T-S-006",
+			"T-S-007",
+			"T-AA-002",
+			"T-C-002"
+		],
+		"name": "Tokens",
+		"id": "T"
+	}
+]
