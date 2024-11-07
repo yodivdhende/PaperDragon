@@ -1,16 +1,14 @@
 <script lang="ts">
-	// import DeckPreview from '../../lib/components/deck-preview.svelte';
 	export let data;
-	console.log(data);
-	// const { decks } = data;
+	let {decks} = data;
 </script>
 
 <main>
-	<!-- {#each decks as deck}
+	{#each decks as deck}
 		<a href="deck/{deck.id}">
 			<DeckPreview {deck} />
 		</a>
-	{/each} -->
+	{/each}
 </main>
 
 <style>

@@ -1,7 +1,5 @@
-import { migration } from '../../migrations/2024-10-21T2239';
-import { migrate } from '../../migrations/toLocalJsonFiles';
+import { getDecks } from '$lib/server/deck.server';
 
 export async function load() {
-	return migrate();
-	// return { decks: await getDecks() };
+	return { decks: await getDecks() };
 }
