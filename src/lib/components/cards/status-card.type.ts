@@ -1,11 +1,10 @@
-import { CARDTYPES } from "./card-type.types";
+import { CARDTYPES } from './card-type.types';
 
 export const StatusCardTemplate = {
-    cardType: CARDTYPES.status,
-    name: "name",
-    icon: "icon",
-    id: "id",
-    type: "type",
-    effect: "effect",
-}
+	type: CARDTYPES.status,
+	name: 'name',
+	icon: 'icon',
+	id: 'id',
+	effect: 'effect'
+};
 export type StatusCardData = typeof StatusCardTemplate;

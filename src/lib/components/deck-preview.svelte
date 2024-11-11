@@ -1,14 +1,15 @@
 <script lang="ts">
 	import type { CardData } from './cards/card-data.types';
+	import Card from './cards/card.svelte';
 
 	export let deck: { name: string; previewCard: CardData };
 	const { previewCard: card, name } = deck;
 </script>
 
 <main>
-	<!-- <div class="background">
+	<div class="background">
 		<Card {card} scale={0.5} />
-	</div> -->
+	</div>
 	<p class="name">{name}</p>
 </main>
 

@@ -16,27 +16,27 @@
   export let card: CardData;
 </script>
 
-{#if card.cardType === CARDTYPES.attack}
+{#if card.type === CARDTYPES.attack}
   <AttackCard {card} --border-color="orange" />
-{:else if card.cardType === CARDTYPES.maneuver}
+{:else if card.type === CARDTYPES.maneuver}
   <ManeuverCard {card} --border-color="blue" />
-{:else if card.cardType === CARDTYPES.item}
+{:else if card.type === CARDTYPES.item}
   <ItemCard {card} --border-color="lime" />
-{:else if card.cardType === CARDTYPES.trap}
+{:else if card.type === CARDTYPES.trap}
   <TrapCard {card} --border-color="purple" />
-{:else if card.cardType === CARDTYPES.status}
+{:else if card.type === CARDTYPES.status}
   <StatusCard {card} --border-color="red" />
-{:else if card.cardType === CARDTYPES.condition}
+{:else if card.type === CARDTYPES.condition}
   <ConditionCard {card} --border-color="silver" />
-{:else if card.cardType === CARDTYPES.minions}
+{:else if card.type === CARDTYPES.minions}
   <MinionCard {card} --border-color="black" />
-{:else if card.cardType === CARDTYPES.bosses}
+{:else if card.type === CARDTYPES.bosses}
   <BossCard {card} --border-color="black" />
-{:else if card.cardType === CARDTYPES.artifacts}
+{:else if card.type === CARDTYPES.artifacts}
   <ArtifactCard {card} --border-color="black" />
-{:else if card.cardType === CARDTYPES.backgrounds}
+{:else if card.type === CARDTYPES.backgrounds}
   <BackgroundCard {card} --border-color="black" />
-{:else if card.cardType === CARDTYPES.locations}
+{:else if card.type === CARDTYPES.locations}
   <LocationCard {card} --border-color="green" />
 {/if}
 

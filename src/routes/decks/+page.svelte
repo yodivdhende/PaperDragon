@@ -1,4 +1,6 @@
 <script lang="ts">
+	import DeckPreview from '$lib/components/deck-preview.svelte';
+
 	export let data;
 	let {decks} = data;
 </script>
