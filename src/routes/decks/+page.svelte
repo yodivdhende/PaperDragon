@@ -2,7 +2,7 @@
 	import DeckPreview from '$lib/components/deck-preview.svelte';
 
 	export let data;
-	let {decks} = data;
+	let { decks } = data;
 </script>
 
 <main>
@@ -16,7 +16,17 @@
 <style>
 	main {
 		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 16px;
 		width: auto;
+		padding: 16px;
+		overflow-y: scroll;
+	}
+
+	a {
+		display: block;
+		width: 250px; /* TODO make this reactive */
+		padding: 0;
 	}
 
 	/* TODO: fix styling so deckpreview is in a grid */
