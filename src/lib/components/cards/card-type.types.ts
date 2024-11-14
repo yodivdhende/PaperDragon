@@ -16,17 +16,17 @@ export const SHEETNAMES = {
 } as const;
 
 export const CARDTYPES = {
-	attack: 'Attacks',
-	maneuver: 'Maneuvers',
-	item: 'Items',
-	trap: 'Traps',
-	status: 'Statuses',
-	condition: 'Conditions',
-	minions: 'Minions',
-	bosses: 'Bosses',
-	artifacts: 'Artifacts',
-	backgrounds: 'Backgrounds',
-	locations: 'Locations'
+	attack: 'Attack',
+	maneuver: 'Maneuver',
+	item: 'Item',
+	trap: 'Trap',
+	status: 'Statuse',
+	condition: 'Condition',
+	minions: 'Minion',
+	bosses: 'Boss',
+	artifacts: 'Artifact',
+	backgrounds: 'Background',
+	locations: 'Location'
 } as const;
 
 export type CardType = (typeof CARDTYPES)[keyof typeof CARDTYPES];
