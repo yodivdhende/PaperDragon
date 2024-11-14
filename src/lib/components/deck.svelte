@@ -8,8 +8,8 @@
 {#if deck}
 	<div class="deck" id={deck.id}>
 		{#each deck.cards as card}
-			<div class="card">
-				<div class="amount">{card.amount}</div>
+			<div class="deck-card">
+				<div class="amount">{card.amount}x</div>
 				<Card {card}></Card>
 			</div>
 		{/each}
@@ -25,8 +25,9 @@
 		padding: 16px;
 	}
 
-	.card {
+	.deck-card {
 		position: relative;
+		width: min-content;
 	}
 	.amount {
 		position: absolute;
@@ -37,6 +38,8 @@
 		padding: 1em;
 		text-align: center;
 		border-radius: 50%;
+		color: black;
+		font-size: 1.5rem;
 		background-color: rgba(200, 200, 200, 0.8);
 	}
 </style>
