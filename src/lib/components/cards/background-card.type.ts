@@ -7,6 +7,7 @@ export const BackgroundCardTemplate = {
 	lp: 10,
 	mind: 1,
 	strength: 2,
-	reflex: 3
+	reflex: 3,
+	amount: 0,
 };
 export type BackgroundCardData = typeof BackgroundCardTemplate;

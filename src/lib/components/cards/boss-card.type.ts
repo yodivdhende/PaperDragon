@@ -10,7 +10,8 @@ export const BossCardTemplate = {
 	defeatcondition: 'defeatcondition',
 	mind: 2,
 	strength: 3,
-	reflex: 4
+	reflex: 4,
+	amount: 0,
 };
 export type BossesCardData = Omit<typeof BossCardTemplate, 'mind' | 'strength' | 'reflex'> & {
 	mind?: number;

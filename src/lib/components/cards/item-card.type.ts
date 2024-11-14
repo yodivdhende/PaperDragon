@@ -10,6 +10,7 @@ export const ItemCardTemplate = {
 	effect: 'effect',
 	mind: 3,
 	strength: 4,
-	reflex: 5
+	reflex: 5,
+	amount: 0,
 };
 export type ItemCardData = typeof ItemCardTemplate;

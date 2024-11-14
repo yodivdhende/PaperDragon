@@ -9,6 +9,7 @@ export const ConditionCardTemplate = {
 	effect: 'effect',
 	mind: 2,
 	strength: 3,
-	reflex: 4
+	reflex: 4,
+	amount: 0,
 };
 export type ConditionCardData = typeof ConditionCardTemplate;

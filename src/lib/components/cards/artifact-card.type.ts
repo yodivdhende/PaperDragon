@@ -5,6 +5,7 @@ export const ArtifactCardTemplate = {
 	name: 'name',
 	id: 'id',
 	actions: 1,
-	mechanics: 'mechanics'
+	mechanics: 'mechanics',
+	amount: 0,
 };
 export type ArtifactCardData = typeof ArtifactCardTemplate;

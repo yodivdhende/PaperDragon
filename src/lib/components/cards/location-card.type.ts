@@ -4,6 +4,7 @@ export const LocationCardTemplate = {
 	type: CARDTYPES.locations,
 	name: 'name',
 	effect: 'effect',
-	id: 'id'
+	id: 'id',
+	amount: 0,
 };
 export type LocationCardData = typeof LocationCardTemplate;

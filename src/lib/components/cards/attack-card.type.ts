@@ -13,6 +13,7 @@ export const AttackCardTemplate = {
 	damagetype: 'DT',
 	mind: 4,
 	strength: 5,
-	reflex: 6
+	reflex: 6,
+	amount: 0,
 };
 export type AttackCardData = typeof AttackCardTemplate;

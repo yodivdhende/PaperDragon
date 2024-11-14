@@ -5,6 +5,7 @@ export const StatusCardTemplate = {
 	name: 'name',
 	icon: 'icon',
 	id: 'id',
-	effect: 'effect'
+	effect: 'effect',
+	amount: 0,
 };
 export type StatusCardData = typeof StatusCardTemplate;
