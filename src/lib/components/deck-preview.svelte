@@ -10,7 +10,7 @@
 	<div class="background">
 		<Card {card} scale={0.5} />
 	</div>
-	<p class="name">{name}</p>
+	<p class="deck-name">{name}</p>
 </main>
 
 <style>
@@ -22,13 +22,25 @@
 	.background {
 		grid-column: 1/-1;
 		grid-row: 1/2;
+		filter: blur(2px);
 	}
-	.name {
+
+	.background:hover {
+		filter: none;
+	}
+	.deck-name {
 		grid-column: 2;
 		grid-row: 1/2;
-		height: 2em;
-		padding: 1em;
-		background-color: rgba(255, 255, 255, 0.8);
+		align-self: center;
+		justify-self: center;
+		padding: 0.5em;
+		height: min-content;
+		width: 100%;
+		margin: 0;
+		background-color: rgba(200, 200, 200, 0.8);
 		color: black;
+		text-align: center;
+		font-size: 1rem;
+		z-index: 1;
 	}
 </style>
