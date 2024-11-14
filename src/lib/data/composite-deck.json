@@ -75,6 +75,20 @@
 	"AD": {
 		"cards": [
 			{
+				"image": "",
+				"print": "true",
+				"amount": "1",
+				"deckname": "Fangs of Zephyr",
+				"level": "",
+				"deckid": "AD",
+				"cardid": "AD",
+				"name": "Fangs of Zephyr",
+				"mechanics": "At the start of the round you may move a mark-token to a new Target. If there is no mark-token om the battle field you can place one on a target.",
+				"id": "AD",
+				"actions": "3",
+				"type": "Artifact"
+			},
+			{
 				"damage": "1",
 				"mind": "2",
 				"image": "",
@@ -153,20 +167,6 @@
 				"cardid": "AA-035",
 				"name": "Phantom Blade Slice",
 				"id": "AA-035"
-			},
-			{
-				"image": "",
-				"print": "true",
-				"amount": "1",
-				"deckname": "Fangs of Zephyr",
-				"level": "",
-				"deckid": "AD",
-				"cardid": "AD",
-				"name": "Fangs of Zephyr",
-				"mechanics": "At the start of the round you may move a mark-token to a new Target. If there is no mark-token om the battle field you can place one on a target.",
-				"id": "AD",
-				"actions": "3",
-				"type": "Artifact"
 			},
 			{
 				"mind": "1",
