@@ -1,13 +1,15 @@
 import type { CardData } from '$lib/components/cards/card-data.types';
 import { replaceWithIcons } from './icon.server';
 import Decks from '../data/composite-deck.json';
+import type { Deck } from '../services/deck.service';
 
 export async function getDecks() {
 	return Object.values(Decks);
 }
 
 export async function getDeck(id: string) {
-	return Decks[id as keyof typeof Decks];
+	const result = Decks[id as keyof typeof Decks]
+	return result;
 }
 
 export function splitDecks(decks: Deck[], cardLimit: number) {

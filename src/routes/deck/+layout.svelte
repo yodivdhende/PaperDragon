@@ -1,16 +1,15 @@
 <script lang="ts">
 	import SettingsLayout from '$lib/components/settings-layout.svelte';
-
-	export let data;
+	import ExportButton from '../../lib/components/export-button.svelte';
+	import CardSideSelector from '../../lib/components/selectors/card-side-selector.svelte';
 </script>
 
 <SettingsLayout>
 	<slot slot="section" />
-	<!-- <div slot="aside">
-		<DeckSelector deckTypes={data.decktypes} />
+	<div slot="aside">
 		<CardSideSelector />
 		<ExportButton />
-	</div> -->
+	</div>
 </SettingsLayout>
 
 <style>
