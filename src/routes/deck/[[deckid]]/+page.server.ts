@@ -6,3 +6,5 @@ export async function load({ params }: { params: { deckid: string } }) {
     const deck = await getDeck(deckid);
     return { deck }
 }
+
+

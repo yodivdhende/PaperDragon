@@ -14,7 +14,6 @@
 	import type { CardData } from './card-data.types';
 
 	export let card: CardData;
-	console.log(card.type);
 </script>
 
 {#if card.type === CARDTYPES.attack}

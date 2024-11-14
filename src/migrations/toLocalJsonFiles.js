@@ -63,8 +63,6 @@ function getAbilities(card) {
 	const strengthPoints = Number(card.strength);
 	const reflexPoints = Number(card.reflex);
 
-	console.log(mindPoints, strengthPoints, reflexPoints);
-
 	if (!isNaN(mindPoints)) {
 		for (let i = 0; i < mindPoints; i++) {
 			result.push('mind');

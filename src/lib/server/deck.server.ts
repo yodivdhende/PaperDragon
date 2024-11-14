@@ -2,6 +2,7 @@ import type { CardData } from '$lib/components/cards/card-data.types';
 import { replaceWithIcons } from './icon.server';
 import Decks from '../data/composite-deck.json';
 import type { Deck } from '../services/deck.service';
+import { writeFile } from 'fs/promises';
 
 export async function getDecks() {
 	return Object.values(Decks);
@@ -11,6 +12,14 @@ export async function getDeck(id: string) {
 	const result = Decks[id as keyof typeof Decks]
 	return result;
 }
+
+export async function saveDeck(deck: Deck) {
+	const updatedDecks = Decks;
+	//@ts-ignore
+	updatedDecks[deck.id] = deck;
+	await writeFile('../data/composite-deck.json', JSON.stringify(updatedDecks))
+}
+
 
 export function splitDecks(decks: Deck[], cardLimit: number) {
 	return decks.flatMap((deck) => {

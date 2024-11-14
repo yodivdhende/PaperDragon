@@ -9,7 +9,7 @@
 	<div class="deck" id={deck.id}>
 		{#each deck.cards as card}
 			<div class="deck-card">
-				<div class="amount">{card.amount}x</div>
+				<div class="deck-amount" bind:innerHTML={card.amount} contenteditable></div>
 				<Card {card}></Card>
 			</div>
 		{/each}
@@ -29,7 +29,7 @@
 		position: relative;
 		width: min-content;
 	}
-	.amount {
+	.deck-amount {
 		position: absolute;
 		top: -0.5em;
 		right: -0.5em;
