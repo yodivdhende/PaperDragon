@@ -45,7 +45,7 @@ export function splitDecks(decks: Deck[], cardLimit: number) {
 	});
 }
 
-async function addIconsToCard<TCard extends Record<string, unknown>>(card: TCard) {
+export async function addIconsToCard<TCard extends Record<string, unknown>>(card: TCard) {
 	let result: TCard = {} as TCard;
 	const parametersOfCards = Object.entries(card);
 	for (let [key, value] of parametersOfCards) {

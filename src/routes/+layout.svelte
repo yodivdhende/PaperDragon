@@ -6,7 +6,8 @@
 	<header>
 		<nav>
 			<a href="/decks">decks</a>
-			<a href="/print/nosplit">All Cards</a>
+			<a href="/print/nosplit">print</a>
+			<a href="/cards">cards</a>
 			<a href="/print/split">All Cards split</a>
 		</nav>
 	</header>
