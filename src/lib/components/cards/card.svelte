@@ -6,6 +6,7 @@
 
 	export let card: CardData;
 	export let scale = 1;
+	export let canEdit: boolean = true;
 </script>
 
 <main style={`--scale: ${scale}`}>
@@ -14,7 +15,7 @@
 	{:else if $selectedCardSideStore === 'Back'}
 		<CardBack {card} />
 	{:else}
-		<CardFront {card} />
+		<CardFront {card} {canEdit} />
 	{/if}
 </main>
 

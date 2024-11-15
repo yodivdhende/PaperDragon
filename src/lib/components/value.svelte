@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let value: number = 0;
+	export let canEdit: boolean = true;
 	function updateValue(event: Event) {
 		if (event instanceof InputEvent === false) return;
 		const dateAsNumber = Number(event.data);
@@ -8,7 +9,7 @@
 	}
 </script>
 
-<main on:input={updateValue} contenteditable="true">
+<main on:input={updateValue} contenteditable={canEdit}>
 	{value}
 </main>
 

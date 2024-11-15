@@ -3,18 +3,17 @@ import Decks from '$lib/data/composite-deck.json';
 import { addIconsToCard } from './deck.server';
 
 export function getCards() {
-	return Promise.all(Object.values(Decks)
-		.map((deck) => deck.cards.map(card => {
-			//@ts-ignore
-			card.amount = undefined;
-			return card;
+	return Promise.all([...Object.values(Decks)]
+		.map((deck) => deck.cards.map(card => ({
+			...card,
+			amount: undefined,
 		}))
+		)
 		.flat()
 		.map(card => addIconsToCard(card))
 	)
 }
 
-export function getCard(id: string): CardData | undefined {
-	//TODO fetch card from firstore and return;
-	return;
+export async function getCard(id: string) {
+	return (await getCards()).find(card => card.id === id);
 }

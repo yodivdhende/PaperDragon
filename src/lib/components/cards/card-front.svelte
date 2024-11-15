@@ -14,10 +14,11 @@
 	import type { CardData } from './card-data.types';
 
 	export let card: CardData;
+	export let canEdit: boolean = true;
 </script>
 
 {#if card.type === CARDTYPES.attack}
-	<AttackCard {card} --border-color="orange" />
+	<AttackCard {card} --border-color="orange" {canEdit} />
 {:else if card.type === CARDTYPES.maneuver}
 	<ManeuverCard {card} --border-color="blue" />
 {:else if card.type === CARDTYPES.item}

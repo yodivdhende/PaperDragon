@@ -3,6 +3,7 @@
 
 	export let data;
 	const { cards } = data;
+	console.log(cards);
 </script>
 
 <main>

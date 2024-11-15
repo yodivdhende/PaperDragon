@@ -7,9 +7,10 @@ export async function getDecks() {
 	const decks = [];
 	for (let deck of Object.values(Decks)) {
 		//@ts-ignore
-		deck.cards = await Promise.all(deck.cards.map(card => addIconsToCard(card)))
-		console.log(deck.cards);
-		decks.push(deck);
+		decks.push({
+			...deck,
+			cards: await Promise.all(deck.cards.map(card => addIconsToCard(card))),
+		});
 	}
 	return decks;
 }
