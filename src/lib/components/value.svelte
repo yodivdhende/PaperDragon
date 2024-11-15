@@ -1,15 +1,23 @@
 <script lang="ts">
-    export let value: number = 0;
+	export let value: number = 0;
+	function updateValue(event: Event) {
+		if (event instanceof InputEvent === false) return;
+		const dateAsNumber = Number(event.data);
+		if (isNaN(dateAsNumber)) return;
+		value = dateAsNumber;
+	}
 </script>
-<main>
-    {value}
+
+<main on:input={updateValue} contenteditable="true">
+	{value}
 </main>
+
 <style>
-    main {
-        width: 1.2em;
-        text-align: center;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background-color: white;
-    }
+	main {
+		width: 1.2em;
+		text-align: center;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background-color: white;
+	}
 </style>
