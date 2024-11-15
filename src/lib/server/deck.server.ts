@@ -1,15 +1,21 @@
-import type { CardData } from '$lib/components/cards/card-data.types';
 import { replaceWithIcons } from './icon.server';
 import Decks from '../data/composite-deck.json';
 import type { Deck } from '../services/deck.service';
 import { writeFile } from 'fs/promises';
 
 export async function getDecks() {
-	return Object.values(Decks);
+	const decks = [];
+	for (let deck of Object.values(Decks)) {
+		//@ts-ignore
+		deck.cards = await Promise.all(deck.cards.map(card => addIconsToCard(card)))
+		console.log(deck.cards);
+		decks.push(deck);
+	}
+	return decks;
 }
 
 export async function getDeck(id: string) {
-	const result = Decks[id as keyof typeof Decks]
+	const result = (await getDecks()).find(deck => deck.id === id);
 	return result;
 }
 
@@ -39,8 +45,8 @@ export function splitDecks(decks: Deck[], cardLimit: number) {
 	});
 }
 
-async function addIconsToCard(card: CardData) {
-	let result: CardData = {} as CardData;
+async function addIconsToCard<TCard extends Record<string, unknown>>(card: TCard) {
+	let result: TCard = {} as TCard;
 	const parametersOfCards = Object.entries(card);
 	for (let [key, value] of parametersOfCards) {
 		if (typeof value === 'string') {

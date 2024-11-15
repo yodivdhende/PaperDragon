@@ -13,7 +13,7 @@
 	<div bind:innerHTML={card.name} contenteditable="true" class="name">{card.name}</div>
 	<div class="damage">
 		<Value bind:value={card.damage} />
-		{@html card.damagetype}
+		{@html card.damageType}
 	</div>
 	<div bind:innerHTML={card.attackType} contenteditable="true" class="type">
 		{card.attackType}

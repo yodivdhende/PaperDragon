@@ -10,7 +10,7 @@ export const AttackCardTemplate = {
 	kost: 2,
 	effect: 'effect',
 	damage: 3,
-	damagetype: 'DT',
+	damageType: 'DT',
 	mind: 4,
 	strength: 5,
 	reflex: 6,
