@@ -1,20 +1,3 @@
-export const SHEETNAMES = {
-	decktypes: 'DeckTypes',
-	maneuvers: 'Maneuvers',
-	attacks: 'Attacks',
-	items: 'Items',
-	traps: 'Traps',
-	minions: 'Minions',
-	bosses: 'Bosses',
-	artifacts: 'Artifacts',
-	backgrounds: 'Backgrounds',
-	statuses: 'Statuses',
-	conditions: 'Conditions',
-	icons: 'Icons',
-	deckcontent: 'DeckContent',
-	locations: 'Locations'
-} as const;
-
 export const CARDTYPES = {
 	attack: 'Attack',
 	maneuver: 'Maneuver',

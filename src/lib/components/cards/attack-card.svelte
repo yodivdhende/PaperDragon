@@ -1,32 +1,32 @@
 <script lang="ts">
+	import CanEdit from '../can-edit.svelte';
 	import Attributes from '../card-sections/attributes/attributes.svelte';
 	import Value from '../value.svelte';
 	import { type AttackCardData } from './attack-card.type';
 
 	export let card: AttackCardData;
 	export let canEdit: boolean = false;
-	const setName = ({ data }: any) => (card.name = data);
-	const setAttackType = ({ data }: any) => (card.attackType = data);
-	const setEffect = ({ data }: any) => (card.effect = data);
 </script>
 
 <main class="card">
 	<div class="kost">
 		<Value bind:value={card.kost} {canEdit} />
 	</div>
-	<div contenteditable={canEdit} on:input={setName} class="name">{card.name}</div>
+	<div class="name">
+		<CanEdit bind:value={card.name} {canEdit} />
+	</div>
 	<div class="damage">
 		<Value bind:value={card.damage} {canEdit} />
 		{@html card.damageType}
 	</div>
-	<div contenteditable={canEdit} on:input={setAttackType} class="type">
-		{card.attackType}
+	<div class="type">
+		<CanEdit bind:value={card.attackType} {canEdit} />
 	</div>
-	<div contenteditable={canEdit} on:input={setEffect} class="effect">
-		{@html card.effect}
+	<div class="effect">
+		<CanEdit bind:value={card.effect} {canEdit} />
 	</div>
 	<div class="attributes">
-		<Attributes attributes="{card.attributes}"></Attributes>
+		<Attributes attributes={card.attributes}></Attributes>
 	</div>
 	<div class="id">{card?.id}</div>
 </main>
