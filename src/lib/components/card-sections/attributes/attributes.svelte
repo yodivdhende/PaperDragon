@@ -1,30 +1,38 @@
 <script lang="ts">
+	import { ATTRIBUTES} from './attributes.type';
 	import type { Attribute } from './attributes.type';
 	import brain from '$lib/assets/icons/brain.png';
 	import biceps from '$lib/assets/icons/biceps.png';
-	import sprint from '$lib/assets/icons/sprint.png';
-	import Value from '$lib/components/value.svelte';
+	import walkingBoot from '$lib/assets/icons/walking-boot.png';
+	import spikes from '$lib/assets/icons/spikes.png';
 
-	export let card: Attribute;
-	function showAttributes() {
-		return card.mind != null && card.strength != null && card.reflex != null;
-	}
+	export let attributes: Attribute[] | undefined;
 </script>
 
-{#if showAttributes()}
+{#if attributes}
 	<main>
-		<div class="mind">
-			<Value value={card.mind} />
-			<img src={brain} alt="brain icon" />
-		</div>
-		<div class="strength">
-			<Value value={card.strength} />
-			<img src={biceps} alt="biceps icon" />
-		</div>
-		<div class="reflex">
-			<Value value={card.reflex} />
-			<img src={sprint} alt="sprint icon" />
-		</div>
+		{#each attributes as attribute}
+			{#if attribute === ATTRIBUTES.mind}
+			 <div class="mind">
+				<img src={brain} alt="brain icon" />
+			 </div>
+			{/if}
+			{#if attribute === ATTRIBUTES.strength}
+			 <div class="strength">
+				<img src={biceps} alt="biceps icon" />
+			 </div>
+			{/if}
+			{#if attribute === ATTRIBUTES.reflex}
+			 <div class="reflex">
+				<img src={walkingBoot} alt="walking boot" />
+			 </div>
+			{/if}
+			{#if attribute === ATTRIBUTES.void}
+			 <div class="void">
+				<img src={spikes} alt="spiky star" />
+			 </div>
+			{/if}
+		{/each}
 	</main>
 {/if}
 
@@ -32,26 +40,29 @@
 	main {
 		display: flex;
 		height: 100%;
-	}
-	div {
-		width: 100%;
-		padding: auto;
-		display: flex;
 		justify-content: center;
-		align-items: center;
-		gap: 0.5em;
 	}
-	div img {
+	main>div {
+		width: 2em;
+		height: 2em;
+		padding: 1em;
+	}
+	img {
 		width: 2em;
 		height: 2em;
 	}
-	.mind {
-		background-color: #39f;
-	}
-	.strength {
-		background-color: #e74c3c;
-	}
-	.reflex {
-		background-color: #3c3;
-	}
+  .mind {
+    background-color: #39f;
+  }
+
+  .strength {
+    background-color: #e74c3c;
+  }
+
+  .reflex {
+    background-color: #3c3;
+  }
+  .void {
+    	background-color: #9b9b9b;
+  }
 </style>

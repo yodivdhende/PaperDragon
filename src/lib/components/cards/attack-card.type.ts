@@ -1,3 +1,4 @@
+import { ATTRIBUTES } from '../card-sections/attributes/attributes.type';
 import { CARDTYPES } from './card-type.types';
 
 export const AttackCardTemplate = {
@@ -11,9 +12,8 @@ export const AttackCardTemplate = {
 	effect: 'effect',
 	damage: 3,
 	damageType: 'DT',
-	mind: 4,
-	strength: 5,
-	reflex: 6,
-	amount: 0,
+	attributes: [ATTRIBUTES.mind, ATTRIBUTES.strength, ATTRIBUTES.reflex, ATTRIBUTES.void],
+	amount: 1
 };
+
 export type AttackCardData = typeof AttackCardTemplate;

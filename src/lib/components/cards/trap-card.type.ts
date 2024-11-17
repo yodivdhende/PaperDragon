@@ -1,3 +1,4 @@
+import { ATTRIBUTES } from '../card-sections/attributes/attributes.type';
 import { CARDTYPES } from './card-type.types';
 
 export const TrapCardTemplate = {
@@ -7,9 +8,7 @@ export const TrapCardTemplate = {
 	level: 1,
 	kost: 1,
 	effect: 'effect',
-	mind: 2,
-	strength: 3,
-	reflex: 4,
-	amount: 0,
+	attributes: [ATTRIBUTES.mind, ATTRIBUTES.strength, ATTRIBUTES.reflex, ATTRIBUTES.void],
+	amount: 0
 };
 export type TrapCardData = typeof TrapCardTemplate;

@@ -16,8 +16,9 @@
 <style>
 	main {
 		width: 1.2em;
+		height: 1.2em;
+		padding: 0.2em;
 		text-align: center;
-		aspect-ratio: 1;
 		border-radius: 50%;
 		background-color: white;
 	}

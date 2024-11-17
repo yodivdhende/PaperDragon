@@ -60,7 +60,6 @@
 		display: grid;
 		place-content: center;
 		background-color: yellow;
-		border-radius: 50%;
 		font-size: 2em;
 	}
 
@@ -127,8 +126,10 @@
 
 	:global(.actions) {
 		grid-area: actions;
+		display: grid;
 		font-size: 2em;
-		text-align: center;
+		justify-items: center;
+		align-items: center;
 		background-color: yellow;
 	}
 

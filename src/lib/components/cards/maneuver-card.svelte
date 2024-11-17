@@ -11,7 +11,7 @@
   <div class="type"><em>{card.type}</em></div>
   <div class="effect">{@html card.effect}</div>
   <div class="attributes">
-    <Attributes {card}></Attributes>
+    <Attributes attributes="{card.attributes}"></Attributes>
   </div>
   <div class="id">{card.id}</div>
 </main>

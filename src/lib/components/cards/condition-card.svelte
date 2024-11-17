@@ -12,7 +12,7 @@
   <div class="image">{@html card.icon}</div>
   <div class="effect">{card.effect}</div>
   <div class="attributes">
-    <Attributes {card}></Attributes>
+    <Attributes attributes="{card.attributes}" ></Attributes>
   </div>
   <div class="id">{card.id}</div>
 </main>

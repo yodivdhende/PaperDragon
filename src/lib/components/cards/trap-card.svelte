@@ -10,7 +10,7 @@
   <div class="kost">{card.kost}</div>
   <div class="effect">{card.effect}</div>
   <div class="attributes">
-    <Attributes {card} />
+    <Attributes attributes="{card.attributes}" />
   </div>
   <div class="id">{card.id}</div>
 </main>

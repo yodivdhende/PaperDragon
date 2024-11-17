@@ -1,3 +1,4 @@
+import { ATTRIBUTES } from '../card-sections/attributes/attributes.type';
 import { CARDTYPES } from './card-type.types';
 
 export const BackgroundCardTemplate = {
@@ -8,6 +9,7 @@ export const BackgroundCardTemplate = {
 	mind: 1,
 	strength: 2,
 	reflex: 3,
-	amount: 0,
+	attributes: [ATTRIBUTES.mind, ATTRIBUTES.strength, ATTRIBUTES.reflex, ATTRIBUTES.void],
+	amount: 0
 };
 export type BackgroundCardData = typeof BackgroundCardTemplate;
