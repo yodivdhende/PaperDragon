@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import Deck from '$lib/components/deck.svelte';
 	import ExportButton from '../../../lib/components/export-button.svelte';
 	import CardSideSelector from '../../../lib/components/selectors/card-side-selector.svelte';
@@ -17,6 +18,10 @@
 		});
 		console.log(`%c saveDeck reponse`, `background:white;color:black`, response);
 	}
+
+	function goToPrintPage(id) {
+		if (id) goto(`../print/decks/${id}`, { replaceState: true });
+	}
 </script>
 
 <SettingsLayout>
@@ -25,6 +30,7 @@
 		<CardSideSelector />
 		<ExportButton />
 		<button on:click={saveDeck}>save</button>
+		<button on:click={() => goToPrintPage(deck?.id)}> print </button>
 	</div>
 </SettingsLayout>
 

@@ -28,6 +28,4 @@
 		width: 250px; /* TODO make this reactive */
 		padding: 0;
 	}
-
-	/* TODO: fix styling so deckpreview is in a grid */
 </style>

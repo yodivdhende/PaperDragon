@@ -6,17 +6,12 @@
 	export let data;
 	const { deck } = data;
 
-	let mainElement: HTMLElement;
-	$: cardScale = 1;
-
-	onMount(() => {
-		console.log(mainElement);
-		cardScale = window.innerWidth / 4 / 500;
-		console.log(cardScale);
-	});
+	let mainWidth: number;
+	$: cardScale = mainWidth / 4 / 500;
+	$: console.log(mainWidth);
 </script>
 
-<div bind:this={mainElement}>
+<div bind:clientWidth={mainWidth}>
 	{#if deck}
 		{#each deck.cards as card}
 			<Card {card} canEdit={false} scale={cardScale} />

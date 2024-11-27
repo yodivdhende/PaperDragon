@@ -8,8 +8,6 @@
 		<nav>
 			<a href="/decks">decks</a>
 			<a href="/cards">cards</a>
-			<a href="/print/nosplit">print</a>
-			<a href="/print/split">print split</a>
 		</nav>
 	</header>
 	<slot />
