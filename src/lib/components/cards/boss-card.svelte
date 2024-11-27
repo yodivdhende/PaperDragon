@@ -1,20 +1,33 @@
 <script lang="ts">
+	import CanEdit from '../can-edit.svelte';
 	import AttributesStats from '../card-sections/attributes/attributes-stats.svelte';
 	import { type BossesCardData } from './card-type.types';
 
 	export let card: BossesCardData;
+	export let canEdit: boolean = false;
+	const asHtml = true;
 </script>
 
-<main class="card">
-	<div class="lp">{card.lp}</div>
-	<div class="kost">{card.actions}</div>
-	<div class="name">{card.name}</div>
-	<div class="type">{card.type}</div>
-	<div class="effect">{@html card.effect}</div>
-	<div class="attributes">
+<main class="card-front">
+	<div class="card-front-lp">
+		<CanEdit bind:value={card.lp} {canEdit} />
+	</div>
+	<div class="card-front-kost">
+		<CanEdit bind:value={card.actions} {canEdit} />
+	</div>
+	<div class="card-front-name">
+		<CanEdit bind:value={card.name} {canEdit} />
+	</div>
+	<div class="card-front-type">
+		<CanEdit bind:value={card.type} {canEdit} />
+	</div>
+	<div class="card-front-effect">
+		<CanEdit bind:value={card.effect} {canEdit} {asHtml} />
+	</div>
+	<div class="card-front-attributes">
 		<AttributesStats bind:card />
 	</div>
-	<div class="id">{card.id}</div>
+	<div class="card-front-id">{card.id}</div>
 </main>
 
 <style>

@@ -1,5 +1,6 @@
 <script>
 	import '../app.css';
+	import '$lib/assets/style/card.css';
 </script>
 
 <main>

@@ -1,25 +1,29 @@
 <script lang="ts">
+	import CanEdit from '../can-edit.svelte';
 	import Attributes from '../card-sections/attributes/attributes.svelte';
 	import Value from '../value.svelte';
 	import type { ManeuverCardData } from './card-type.types';
 
 	export let card: ManeuverCardData;
 	export let canEdit: boolean = true;
-	const setName = ({ data }: any) => (card.name = data);
-	const setEffect = ({ data }: any) => (card.effect = data);
+	const asHtml = true;
 </script>
 
-<main class="card">
-	<div class="kost">
+<main class="card-front">
+	<div class="card-front-kost">
 		<Value bind:value={card.kost} />
 	</div>
-	<div contenteditable={canEdit} on:input={setName} class="name">{card.name}</div>
-	<div class="type"><em>{card.type}</em></div>
-	<div contenteditable={canEdit} on:input={setEffect} class="effect">{@html card.effect}</div>
-	<div class="attributes">
+	<div class="card-front-name">
+		<CanEdit bind:value={card.name} {canEdit} />
+	</div>
+	<div class="card-front-type"><em>{card.type}</em></div>
+	<div class="card-front-effect">
+		<CanEdit bind:value={card.effect} {canEdit} {asHtml} />
+	</div>
+	<div class="card-front-attributes">
 		<Attributes attributes={card.attributes}></Attributes>
 	</div>
-	<div class="id">{card.id}</div>
+	<div class="card-front-id">{card.id}</div>
 </main>
 
 <style>

@@ -1,24 +1,31 @@
 <script lang="ts">
-  import type { LocationCardData } from "./card-type.types";
+	import CanEdit from '../can-edit.svelte';
+	import type { LocationCardData } from './card-type.types';
 
-  export let card: LocationCardData;
+	export let card: LocationCardData;
+	export let canEdit: boolean = false;
+	const asHtml = true;
 </script>
 
-<main class="card">
-  <div class="name">{card.name}</div>
-  <div class="effect">{@html card.effect}</div>
-  <div class="id">{card.id}</div>
+<main class="card-front">
+	<div class="card-front-name">
+		<CanEdit bind:value={card.name} {canEdit} />
+	</div>
+	<div class="card-front-effect">
+		<CanEdit bind:value={card.effect} {canEdit} {asHtml} />
+	</div>
+	<div class="card-front-id">{card.id}</div>
 </main>
 
 <style>
-  main {
-    border-color: var(--border-color);
-    place-content: center;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 2fr 12fr 1fr;
-    grid-template-areas:
-      ". name ."
-      "effect effect effect"
-      ". . id";
-  }
+	main {
+		border-color: var(--border-color);
+		place-content: center;
+		grid-template-columns: 1fr 3fr 1fr;
+		grid-template-rows: 2fr 12fr 1fr;
+		grid-template-areas:
+			'. name .'
+			'effect effect effect'
+			'. . id';
+	}
 </style>

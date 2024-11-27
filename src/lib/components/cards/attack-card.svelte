@@ -6,29 +6,30 @@
 
 	export let card: AttackCardData;
 	export let canEdit: boolean = false;
+	const asHtml = true;
 </script>
 
-<main class="card">
-	<div class="kost">
+<main class="card-front">
+	<div class="card-front-kost">
 		<Value bind:value={card.kost} {canEdit} />
 	</div>
-	<div class="name">
+	<div class="card-front-name">
 		<CanEdit bind:value={card.name} {canEdit} />
 	</div>
-	<div class="damage">
+	<div class="card-front-damage">
 		<Value bind:value={card.damage} {canEdit} />
 		{@html card.damageType}
 	</div>
-	<div class="type">
+	<div class="card-front-type">
 		<CanEdit bind:value={card.attackType} {canEdit} />
 	</div>
-	<div class="effect">
-		<CanEdit bind:value={card.effect} {canEdit} />
+	<div class="card-front-effect">
+		<CanEdit bind:value={card.effect} {canEdit} {asHtml} />
 	</div>
-	<div class="attributes">
+	<div class="card-front-attributes">
 		<Attributes attributes={card.attributes}></Attributes>
 	</div>
-	<div class="id">{card?.id}</div>
+	<div class="card-front-id">{card?.id}</div>
 </main>
 
 <style>

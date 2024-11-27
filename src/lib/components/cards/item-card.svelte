@@ -1,29 +1,32 @@
 <script lang="ts">
+	import CanEdit from '../can-edit.svelte';
 	import Attributes from '../card-sections/attributes/attributes.svelte';
 	import Value from '../value.svelte';
 	import type { ItemCardData } from './item-card.type';
 
 	export let card: ItemCardData;
 	export let canEdit: boolean = true;
-	const setName = ({ data }: any) => (card.name = data);
-	const setEffect = ({ data }: any) => (card.effect = data);
-	const setUses = ({ data }: any) => (card.uses = data);
+	const asHtml = true;
 </script>
 
-<main class="card">
-	<div class="kost">
+<main class="card-front">
+	<div class="card-front-kost">
 		<Value bind:value={card.kost} />
 	</div>
-	<div contenteditable={canEdit} on:input={setName} class="name">{card.name}</div>
-	<div class="uses">
-		<Value bind:value={card.uses} {canEdit} />
-		<div class="type"><em>{card.type}</em></div>
-		<div contenteditable={canEdit} on:input={setEffect} class="effect">{@html card.effect}</div>
-		<div class="attributes">
-			<Attributes attributes={card.attributes} />
-		</div>
-		<div class="id">{card.id}</div>
+	<div class="card-front-name">
+		<CanEdit bind:value={card.name} {canEdit} />
 	</div>
+	<div class="card-front-uses">
+		<Value bind:value={card.uses} {canEdit} />
+	</div>
+	<div class="card-front-type"><em>{card.type}</em></div>
+	<div class="card-front-effect">
+		<CanEdit bind:value={card.effect} {canEdit} {asHtml} />
+	</div>
+	<div class="card-front-attributes">
+		<Attributes attributes={card.attributes} />
+	</div>
+	<div class="card-front-id">{card.id}</div>
 </main>
 
 <style>
@@ -33,14 +36,14 @@
 		grid-template-columns: 1fr 3fr 1fr;
 		grid-template-rows: 2fr 1fr 1fr 10fr 1fr;
 		grid-template-areas:
-			'kost name   .'
+			'kost name .'
 			'uses type .'
 			'. . .'
 			'effect  effect effect '
 			'.  attributes id';
 	}
 
-	.uses {
+	.card-front-uses {
 		grid-area: uses;
 		font-size: 1.5em;
 		text-align: center;

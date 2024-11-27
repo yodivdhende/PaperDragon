@@ -1,0 +1,98 @@
+.card-front {
+	--outline-width: calc(10px * var(--scale));
+	width: calc(100% - var(--outline-width) * 2);
+	height: calc(100% - var(--outline-width) * 2);
+	border: var(--outline-width) solid;
+	border-radius: calc(20px * var(--scale));
+	border-color: var(--border-color);
+	background-color: white;
+	color: black;
+	font-size: calc(1rem * var(--scale));
+	display: grid;
+}
+
+.card-front-kost {
+	grid-area: kost;
+	display: grid;
+	place-content: center;
+	background-color: yellow;
+	font-size: 2em;
+}
+
+.card-front-name {
+	grid-area: name;
+	display: grid;
+	place-content: center;
+	font-size: 2em;
+	font-weight: bolder;
+	border-bottom: 3px solid black;
+}
+.card-front-damage {
+	grid-area: damage;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	font-size: 2em;
+	font-weight: bolder;
+	background-color: red;
+}
+.card-front-damage img {
+	width: 1em;
+	height: 1em;
+	display: inline;
+}
+.card-front-type {
+	grid-area: type;
+	display: grid;
+	align-content: start;
+	justify-content: center;
+}
+.card-front-effect {
+	grid-area: effect;
+	justify-self: center;
+	font-size: 1.2em;
+	padding: 2em 1em;
+}
+.card-front-effect img {
+	width: 2em;
+	height: 2em;
+	display: inline;
+}
+
+.card-front-attributes {
+	grid-area: attributes;
+}
+
+.card-front-id {
+	grid-area: id;
+	font-size: 0.8em;
+	display: grid;
+	justify-content: center;
+	align-content: end;
+}
+
+.card-front-lp {
+	grid-area: lp;
+	font-size: 2em;
+	display: grid;
+	place-content: center;
+	background-color: lightcoral;
+}
+
+.card-front-actions div {
+	grid-area: actions;
+	display: grid;
+	font-size: 2em;
+	justify-items: center;
+	align-items: center;
+	background-color: yellow;
+}
+
+.card-front-image {
+	grid-area: image;
+}
+.card-front-image img {
+	width: 100%;
+	height: 100%;
+}

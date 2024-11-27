@@ -43,7 +43,6 @@ function migrateCard(originalCard) {
 	delete originalCard.deckid;
 	const result = {};
 	if (['Attack', 'Maneuver', 'Item', 'Trap'].includes(originalCard.type)) {
-		console.log(JSON.stringify(originalCard));
 		result.abilities = getAbilities(originalCard);
 	}
 	delete originalCard.mind;
