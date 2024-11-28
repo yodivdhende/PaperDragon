@@ -9,24 +9,36 @@
 	export let data;
 	const { deck } = data;
 
-	let mainElement: HTMLElement;
-	$: cardScale = mainElement?.clientWidth / 4 / 500;
+	let frontElement: HTMLElement;
+	let backElement: HTMLElement;
+	$: cardScale = frontElement?.clientWidth / 4 / 500;
 
 	async function exportPrintImg() {
 		if (deck == null) return console.error('no deck');
-		const url = await htmlToImage.toPng(mainElement);
-		download(url, `${deck.name}-${$selectedCardSideStore}`);
+		const frontUrl = await htmlToImage.toPng(frontElement);
+		const backUrl = await htmlToImage.toPng(backElement);
+		download(frontUrl, `${deck.id}-front`);
+		download(backUrl, `${deck.id}-back`);
 	}
 </script>
 
 <SettingsLayout>
-	<div bind:this={mainElement} slot="section">
-		{#if deck}
-			{#each deck.cards as card}
-				<Card {card} canEdit={false} scale={cardScale} />
-			{/each}
-		{/if}
-	</div>
+	<main slot="section">
+		<div class="deck" bind:this={frontElement}>
+			{#if deck}
+				{#each deck.cards as card}
+					<Card {card} canEdit={false} scale={cardScale} side={'Front'} />
+				{/each}
+			{/if}
+		</div>
+		<div class="deck" bind:this={backElement}>
+			{#if deck}
+				{#each deck.cards as card}
+					<Card {card} canEdit={false} scale={cardScale} side={'Back'} />
+				{/each}
+			{/if}
+		</div>
+	</main>
 	<div slot="aside">
 		<CardSideSelector />
 		<button on:click={exportPrintImg}>download</button>
@@ -34,7 +46,7 @@
 </SettingsLayout>
 
 <style>
-	div {
+	.deck {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 	}
