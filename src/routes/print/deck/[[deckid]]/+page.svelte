@@ -1,7 +1,5 @@
 <script lang="ts">
 	import Card from '$lib/components/cards/card.svelte';
-	import { marketingplatformadmin } from 'googleapis/build/src/apis/marketingplatformadmin/index.js';
-	import { onMount } from 'svelte';
 
 	export let data;
 	const { deck } = data;

@@ -4,6 +4,7 @@
 	import ExportButton from '../../../lib/components/export-button.svelte';
 	import CardSideSelector from '../../../lib/components/selectors/card-side-selector.svelte';
 	import SettingsLayout from '../../../lib/components/settings-layout.svelte';
+
 	export let data;
 	const { deck } = data;
 
@@ -20,7 +21,7 @@
 	}
 
 	function goToPrintPage(id) {
-		if (id) goto(`../print/decks/${id}`, { replaceState: true });
+		if (id) goto(`../print/deck/${id}`, { replaceState: true });
 	}
 </script>
 
