@@ -2,7 +2,6 @@
 	import Card from '$lib/components/cards/card.svelte';
 	import CardSideSelector from '$lib/components/selectors/card-side-selector.svelte';
 	import SettingsLayout from '$lib/components/settings-layout.svelte';
-	import { selectedCardSideStore } from '$lib/services/card-selector.service';
 	import * as htmlToImage from 'html-to-image';
 	import download from 'downloadjs';
 

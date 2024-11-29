@@ -9,14 +9,14 @@ export async function getDecks() {
 		//@ts-ignore
 		decks.push({
 			...deck,
-			cards: await Promise.all(deck.cards.map(card => addIconsToCard(card))),
+			cards: await Promise.all(deck.cards.map((card) => addIconsToCard(card)))
 		});
 	}
 	return decks;
 }
 
 export async function getDeck(id: string) {
-	const result = (await getDecks()).find(deck => deck.id === id);
+	const result = (await getDecks()).find((deck) => deck.id === id);
 	return result;
 }
 
@@ -24,9 +24,8 @@ export async function saveDeck(deck: Deck) {
 	const updatedDecks = Decks;
 	//@ts-ignore
 	updatedDecks[deck.id] = deck;
-	await writeFile('../data/composite-deck.json', JSON.stringify(updatedDecks))
+	await writeFile('../data/composite-deck.json', JSON.stringify(updatedDecks));
 }
-
 
 export function splitDecks(decks: Deck[], cardLimit: number) {
 	return decks.flatMap((deck) => {
@@ -59,4 +58,17 @@ export async function addIconsToCard<TCard extends Record<string, unknown>>(card
 		}
 	}
 	return result;
+}
+
+export function duplicateCards(card: { id: string; amount: string }) {
+	const cards = [];
+	const amount = Number(card.amount);
+	if (isNaN(amount)) return [];
+	for (let index = 1; index <= amount; index++) {
+		cards.push({
+			...card,
+			id: `${card.id}-${amount}`
+		});
+	}
+	return cards;
 }
