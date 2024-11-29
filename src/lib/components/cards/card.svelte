@@ -6,7 +6,7 @@
 
 	export let card: CardData;
 	export let scale = 1;
-	export let canEdit: boolean = true;
+	export let canEdit: boolean = false;
 	export let side: CardSide | undefined;
 
 	$: selectedSide = side ?? $selectedCardSideStore;

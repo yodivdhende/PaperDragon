@@ -12,11 +12,11 @@
 	<div class="card-front-lp">
 		<CanEdit bind:value={card.lp} {canEdit} />
 	</div>
-	<div class="card-front-kost">
-		<CanEdit bind:value={card.actions} {canEdit} />
-	</div>
 	<div class="card-front-name">
 		<CanEdit bind:value={card.name} {canEdit} />
+	</div>
+	<div class="card-front-kost">
+		<CanEdit bind:value={card.actions} {canEdit} />
 	</div>
 	<div class="card-front-type">
 		<CanEdit bind:value={card.type} {canEdit} />

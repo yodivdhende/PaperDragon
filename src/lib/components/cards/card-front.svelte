@@ -14,7 +14,7 @@
 	import type { CardData } from './card-data.types';
 
 	export let card: CardData;
-	export let canEdit: boolean = true;
+	export let canEdit: boolean = false;
 </script>
 
 {#if card.type === CARDTYPES.attack}
@@ -40,6 +40,3 @@
 {:else if card.type === CARDTYPES.locations}
 	<LocationCard {card} --border-color="green" />
 {/if}
-
-<style>
-</style>

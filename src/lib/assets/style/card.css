@@ -11,6 +11,30 @@
 	display: grid;
 }
 
+.card-back {
+	--border-size: calc(10px * var(--scale));
+	width: calc(100% - var(--border-size) * 2);
+	height: calc(100% - var(--border-size) * 2);
+	border: var(--border-size) solid var(--border-color);
+	border-radius: calc(20px * var(--scale));
+	border-color: var(--border-color);
+	background-color: white;
+	color: black;
+	display: grid;
+	place-content: center;
+}
+
+.card-back-kost {
+	width: calc(200px * var(--scale));
+	height: calc(200px * var(--scale));
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	background-color: yellow;
+	border-radius: 50%;
+	font-size: calc(4rem * var(--scale));
+}
+
 .card-front-kost {
 	grid-area: kost;
 	display: grid;
@@ -27,6 +51,7 @@
 	font-weight: bolder;
 	border-bottom: 3px solid black;
 }
+
 .card-front-damage {
 	grid-area: damage;
 	display: flex;
@@ -37,17 +62,20 @@
 	font-weight: bolder;
 	background-color: red;
 }
+
 .card-front-damage img {
 	width: 1em;
 	height: 1em;
 	display: inline;
 }
+
 .card-front-type {
 	grid-area: type;
 	display: grid;
 	align-content: start;
 	justify-content: center;
 }
+
 .card-front-effect {
 	grid-area: effect;
 	justify-self: center;

@@ -1,31 +1,42 @@
 <script lang="ts">
-  import Attributes from "../card-sections/attributes/attributes.svelte";
-  import { type BossesCardData } from "./card-type.types";
+	import CanEdit from '../can-edit.svelte';
+	import AttributesStats from '../card-sections/attributes/attributes-stats.svelte';
+	import { type BossesCardData } from './card-type.types';
 
-  export let card: BossesCardData;
+	export let card: BossesCardData;
+	export let canEdit: boolean = false;
+	let asHtml = true;
 </script>
 
-<main class="card">
-  <div class="lp">0</div>
-  <div class="name">{card.name}</div>
-  <div class="kost">{card.actions}</div>
-  <div class="type">{card.type}</div>
-  <div class="effect">{@html card.defeatcondition}</div>
-  <div class="attributes">
-    <Attributes {card}></Attributes>
-  </div>
-  <div class="id">{card.id}</div>
+<main class="card-front">
+	<div class="card-front-lp">0</div>
+	<div class="card-front-name">
+		<CanEdit bind:value={card.name} {canEdit} />
+	</div>
+	<div class="card-front-kost">
+		<CanEdit bind:value={card.actions} {canEdit} />
+	</div>
+	<div class="card-front-type">
+		<CanEdit bind:value={card.type} {canEdit} />
+	</div>
+	<div class="card-front-effect">
+		<CanEdit bind:value={card.defeatcondition} {canEdit} {asHtml} />
+	</div>
+	<div class="card-front-attributes">
+		<AttributesStats bind:card />
+	</div>
+	<div class="card-front-id">{card.id}</div>
 </main>
 
 <style>
-  main {
-    border-color: var(--border-color);
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 2fr 2fr 10fr 1fr;
-    grid-template-areas:
-      "lp name ."
-      "kost type ."
-      "effect effect effect"
-      ". attributes  id";
-  }
+	main {
+		border-color: var(--border-color);
+		grid-template-columns: 1fr 3fr 1fr;
+		grid-template-rows: 2fr 2fr 10fr 1fr;
+		grid-template-areas:
+			'lp name .'
+			'kost type .'
+			'effect effect effect'
+			'. attributes  id';
+	}
 </style>

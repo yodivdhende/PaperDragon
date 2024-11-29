@@ -10,7 +10,7 @@
 		{#each deck.cards as card}
 			<div class="deck-card">
 				<div class="deck-amount" bind:innerHTML={card.amount} contenteditable></div>
-				<Card {card} />
+				<Card {card} canEdit={true} />
 			</div>
 		{/each}
 	</div>
