@@ -2,6 +2,7 @@ import { replaceWithIcons } from './icon.server';
 import Decks from '../data/composite-deck.json';
 import type { Deck } from '../services/deck.service';
 import { writeFile } from 'fs/promises';
+import { Query } from 'firebase/firestore';
 
 export async function getDecks() {
 	const decks = [];
@@ -13,6 +14,11 @@ export async function getDecks() {
 		});
 	}
 	return decks;
+}
+
+export async function getDecksToPrint() {
+	const decks = await getDecks();
+	return decks.filter((deck) => deck.print);
 }
 
 export async function getDeck(id: string) {

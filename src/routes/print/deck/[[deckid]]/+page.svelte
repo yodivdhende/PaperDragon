@@ -4,6 +4,7 @@
 	import SettingsLayout from '$lib/components/settings-layout.svelte';
 	import * as htmlToImage from 'html-to-image';
 	import download from 'downloadjs';
+	import { getPrintConfig } from '$lib/utils/deck.utils.js';
 
 	export let data;
 	const { deck } = data;
@@ -16,8 +17,9 @@
 		if (deck == null) return console.error('no deck');
 		const frontUrl = await htmlToImage.toPng(frontElement);
 		const backUrl = await htmlToImage.toPng(backElement);
-		download(frontUrl, `${deck.id}-front`);
-		download(backUrl, `${deck.id}-back`);
+		download(frontUrl, `PD-${deck.id}-front.png`);
+		download(backUrl, `PD-${deck.id}-back.png`);
+		download(getPrintConfig([deck]), 'importConfig.txt');
 	}
 </script>
 

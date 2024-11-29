@@ -3,6 +3,7 @@
 	import SettingsLayout from '$lib/components/settings-layout.svelte';
 	import * as htmlToImage from 'html-to-image';
 	import download from 'downloadjs';
+	import { getPrintConfig } from '$lib/utils/deck.utils.js';
 
 	export let data;
 	const { decks } = data;
@@ -14,14 +15,17 @@
 	let canEdit = false;
 
 	async function printAll() {
-		await Promise.all(
-			decks.map(async (deck, index) => {
-				const frontUrl = await htmlToImage.toPng(deckFrontElements[index]);
-				const backUrl = await htmlToImage.toPng(deckBackElements[index]);
-				download(frontUrl, `${deck.id}-front`);
-				download(backUrl, `${deck.id}-back`);
-			})
-		);
+		for (let index = 0; index < decks.length; index++) {
+			const deck = decks[index];
+			const frontUrl = await htmlToImage.toPng(deckFrontElements[index]);
+			const backUrl = await htmlToImage.toPng(deckBackElements[index]);
+			download(frontUrl, `PD-${deck.id}-front.png`);
+			download(backUrl, `PD-${deck.id}-back.png`);
+		}
+	}
+
+	function getConfig() {
+		download(getPrintConfig(decks), 'importConfig.txt');
 	}
 </script>
 
@@ -41,7 +45,8 @@
 		{/each}
 	</main>
 	<div slot="aside">
-		<button on:click={printAll}>download</button>
+		<button on:click={printAll}>download images</button>
+		<button on:click={getConfig}>download config</button>
 	</div>
 </SettingsLayout>
 

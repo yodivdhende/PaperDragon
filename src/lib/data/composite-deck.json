@@ -64,7 +64,8 @@
 			}
 		],
 		"name": "Acolyth",
-		"id": "AC"
+		"id": "AC",
+		"print": true
 	},
 	"AD": {
 		"cards": [
@@ -186,7 +187,8 @@
 			}
 		],
 		"name": "Fangs of Zephyr",
-		"id": "AD"
+		"id": "AD",
+		"print": true
 	},
 	"BD": {
 		"cards": [
@@ -344,7 +346,8 @@
 			}
 		],
 		"name": "Bear Dragon",
-		"id": "BD"
+		"id": "BD",
+		"print": true
 	},
 	"ET": {
 		"cards": [
@@ -417,7 +420,8 @@
 			}
 		],
 		"name": "Entertainer",
-		"id": "ET"
+		"id": "ET",
+		"print": true
 	},
 	"I": {
 		"cards": [
@@ -459,7 +463,8 @@
 			}
 		],
 		"name": "Items",
-		"id": "I"
+		"id": "I",
+		"print": true
 	},
 	"LL": {
 		"cards": [
@@ -478,7 +483,8 @@
 			}
 		],
 		"name": "Locations",
-		"id": "LL"
+		"id": "LL",
+		"print": true
 	},
 	"M": {
 		"cards": [
@@ -502,7 +508,8 @@
 			}
 		],
 		"name": "Minions",
-		"id": "M"
+		"id": "M",
+		"print": true
 	},
 	"MB": {
 		"cards": [
@@ -565,7 +572,8 @@
 			}
 		],
 		"name": "Beast",
-		"id": "MB"
+		"id": "MB",
+		"print": true
 	},
 	"MD": {
 		"cards": [
@@ -628,7 +636,8 @@
 			}
 		],
 		"name": "Dragon Blood",
-		"id": "MD"
+		"id": "MD",
+		"print": true
 	},
 	"MG": {
 		"cards": [
@@ -708,7 +717,8 @@
 			}
 		],
 		"name": "Goblin",
-		"id": "MG"
+		"id": "MG",
+		"print": false
 	},
 	"MV": {
 		"cards": [
@@ -771,12 +781,14 @@
 			}
 		],
 		"name": "Venomous",
-		"id": "MV"
+		"id": "MV",
+		"print": true
 	},
 	"NS": {
 		"cards": [],
 		"name": "Necro Syct",
-		"id": "NS"
+		"id": "NS",
+		"print": false
 	},
 	"PB": {
 		"cards": [
@@ -890,7 +902,8 @@
 			}
 		],
 		"name": "Preacher book",
-		"id": "PB"
+		"id": "PB",
+		"print": true
 	},
 	"PC": {
 		"cards": [
@@ -1024,7 +1037,8 @@
 			}
 		],
 		"name": "Todorokis rings",
-		"id": "PC"
+		"id": "PC",
+		"print": true
 	},
 	"RA": {
 		"cards": [
@@ -1161,7 +1175,8 @@
 			}
 		],
 		"name": "Ghahorks blood axe",
-		"id": "RA"
+		"id": "RA",
+		"print": true
 	},
 	"SC": {
 		"cards": [
@@ -1234,7 +1249,8 @@
 			}
 		],
 		"name": "Scout",
-		"id": "SC"
+		"id": "SC",
+		"print": true
 	},
 	"SO": {
 		"cards": [
@@ -1307,7 +1323,8 @@
 			}
 		],
 		"name": "Barbarian",
-		"id": "SO"
+		"id": "SO",
+		"print": true
 	},
 	"SS": {
 		"cards": [
@@ -1441,7 +1458,8 @@
 			}
 		],
 		"name": "Stone Sword and Shield",
-		"id": "SS"
+		"id": "SS",
+		"print": false
 	},
 	"T": {
 		"cards": [
@@ -1601,6 +1619,7 @@
 			}
 		],
 		"name": "Tokens",
-		"id": "T"
+		"id": "T",
+		"print": true
 	}
 }
