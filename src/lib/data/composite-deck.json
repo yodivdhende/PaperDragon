@@ -13,6 +13,7 @@
 				"reflex": "2",
 				"print": true,
 				"cardid": "AC",
+"effect": "when preforming a research action you gain 1 #mind# to spend on other action"
 				"name": "Acolyth",
 				"id": "AC",
 				"type": "Background"
@@ -1266,6 +1267,7 @@
 				"reflex": "2",
 				"print": true,
 				"cardid": "SO",
+"effect":" when failing a check you gain 1 #str# to spend on a other action"
 				"name": "Barbarian",
 				"id": "SO",
 				"type": "Background"
