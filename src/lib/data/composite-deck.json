@@ -1193,6 +1193,7 @@
 				"reflex": "3",
 				"print": true,
 				"cardid": "SC",
+"effect":"when yousecside on a observation check you gain up to 1 #luck#"
 				"name": "Scout",
 				"id": "SC",
 				"type": "Background"
