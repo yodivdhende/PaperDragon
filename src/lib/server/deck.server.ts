@@ -1,8 +1,7 @@
-import { replaceWithIcons } from './icon.server';
 import Decks from '../data/composite-deck.json';
 import type { Deck } from '../services/deck.service';
 import { writeFile } from 'fs/promises';
-import { Query } from 'firebase/firestore';
+import { addIconsToCard } from './card.server';
 
 export async function getDecks() {
 	const decks = [];
@@ -51,30 +50,3 @@ export function splitDecks(decks: Deck[], cardLimit: number) {
 	});
 }
 
-export async function addIconsToCard<TCard extends Record<string, unknown>>(card: TCard) {
-	let result: TCard = {} as TCard;
-	const parametersOfCards = Object.entries(card);
-	for (let [key, value] of parametersOfCards) {
-		if (typeof value === 'string') {
-			//@ts-ignore
-			result[key] = await replaceWithIcons(value);
-		} else {
-			//@ts-ignore
-			result[key] = value;
-		}
-	}
-	return result;
-}
-
-export function duplicateCards(card: { id: string; amount: string }) {
-	const cards = [];
-	const amount = Number(card.amount);
-	if (isNaN(amount)) return [];
-	for (let index = 1; index <= amount; index++) {
-		cards.push({
-			...card,
-			id: `${card.id}-${amount}`
-		});
-	}
-	return cards;
-}

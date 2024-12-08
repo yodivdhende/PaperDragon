@@ -1,4 +1,3 @@
-import { SHEETNAMES } from "$lib/components/cards/card-type.types";
 
 const ICONS = [
   { id: 'air-dmg', name: 'Air Damage', path: 'fluffy-cloud.png' },
@@ -18,12 +17,14 @@ const ICONS = [
   { id: 'ice-dmg', name: 'Ice Damage', path: 'snowflake-2.png' },
   { id: 'lp', name: 'Life points', path: 'hearts.png' },
   { id: 'marked', name: 'Mark ', path: 'crosshair.png' },
-  { id: 'mnd', name: 'Mind', path: 'brain.png' },
   { id: 'rage', name: 'Rage', path: 'swallower.png' },
+  { id: 'mnd', name: 'Mind', path: 'brain.png' },
+  { id: 'str', name: 'Strength', path: 'biceps.png' },
   { id: 'rfx', name: 'Reflex', path: 'sprint.png' },
+  { id: 'luck', name: 'Luck', path: 'fireflake.png' },
+  { id: 'trouble', name: 'Trouble', path: 'spikes.png' },
   { id: 'shaken', name: 'Shaken', path: 'knocked-out-stars.png' },
   { id: 'sharp-dmg', name: 'Sharp damage', path: 'saber-slash.png' },
-  { id: 'str', name: 'Strength', path: 'biceps.png' },
   { id: 'trap', name: 'trap', path: 'wolf-trap.png' },
   { id: 'posion', name: 'posion', path: 'deathcab.png' },
 ] as const;

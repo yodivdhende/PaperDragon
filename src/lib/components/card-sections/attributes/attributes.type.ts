@@ -2,7 +2,8 @@ export const ATTRIBUTES = {
 	mind: 'mind',
 	strength: 'strength',
 	reflex: 'reflex',
-	void: 'void'
+	void: 'void',
+	luck: 'luck',
 } as const;
 
 export type Attribute = (typeof ATTRIBUTES)[keyof typeof ATTRIBUTES];

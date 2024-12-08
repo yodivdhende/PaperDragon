@@ -5,6 +5,7 @@
 	import biceps from '$lib/assets/icons/biceps.png';
 	import walkingBoot from '$lib/assets/icons/walking-boot.png';
 	import spikes from '$lib/assets/icons/spikes.png';
+	import fireflake from '$lib/assets/icons/fireflake.png';
 
 	export let attributes: Attribute[] | undefined;
 </script>
@@ -30,6 +31,11 @@
 			{#if attribute === ATTRIBUTES.void}
 				<div class="void">
 					<img src={spikes} alt="spiky star" />
+				</div>
+			{/if}
+			{#if attribute === ATTRIBUTES.luck}
+				<div class="luck">
+					<img src={fireflake} alt="fireflake" />
 				</div>
 			{/if}
 		{/each}
@@ -64,5 +70,8 @@
 	}
 	.void {
 		background-color: #9b9b9b;
+	}
+	.luck {
+		background-color: #ddd;
 	}
 </style>
