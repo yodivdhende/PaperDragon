@@ -28,8 +28,8 @@
 					<img src={walkingBoot} alt="walking boot" />
 				</div>
 			{/if}
-			{#if attribute === ATTRIBUTES.void}
-				<div class="void">
+			{#if attribute === ATTRIBUTES.trouble}
+				<div class="trouble">
 					<img src={spikes} alt="spiky star" />
 				</div>
 			{/if}
@@ -68,8 +68,8 @@
 	.reflex {
 		background-color: #3c3;
 	}
-	.void {
-		background-color: #9b9b9b;
+	.trouble {
+		background-color: #999;
 	}
 	.luck {
 		background-color: #ddd;

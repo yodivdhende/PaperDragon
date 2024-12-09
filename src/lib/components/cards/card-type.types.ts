@@ -3,7 +3,7 @@ export const CARDTYPES = {
 	maneuver: 'Maneuver',
 	item: 'Item',
 	trap: 'Trap',
-	status: 'Statuse',
+	status: 'Status',
 	condition: 'Condition',
 	minions: 'Minion',
 	bosses: 'Boss',

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import CanEdit from '../can-edit.svelte';
-	import AttributesStats from '../card-sections/attributes/attributes-stats.svelte';
-	import { type BackgroundCardData } from './card-type.types';
+	import type { BackgroundCardData } from './background-card.type';
 
 	export let card: BackgroundCardData;
 	export let canEdit: boolean = false;
@@ -14,9 +13,6 @@
 	<div class="card-front-name">
 		<CanEdit bind:value={card.name} {canEdit} />
 	</div>
-	<div class="card-front-attributes">
-		<AttributesStats bind:card />
-	</div>
 	<div class="card-front-id">{card.id}</div>
 </main>
 
@@ -27,7 +23,7 @@
 		grid-template-rows: 2fr 1fr 11fr 1fr;
 		grid-template-areas:
 			'lp name .'
-			'. attributes .'
+			'. . .'
 			'. . .'
 			'. . id';
 	}

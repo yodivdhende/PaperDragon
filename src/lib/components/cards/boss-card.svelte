@@ -1,7 +1,6 @@
 <script lang="ts">
 	import CanEdit from '../can-edit.svelte';
-	import AttributesStats from '../card-sections/attributes/attributes-stats.svelte';
-	import { type BossesCardData } from './card-type.types';
+	import type { BossesCardData } from './boss-card.type';
 
 	export let card: BossesCardData;
 	export let canEdit: boolean = false;
@@ -24,9 +23,6 @@
 	<div class="card-front-effect">
 		<CanEdit bind:value={card.effect} {canEdit} {asHtml} />
 	</div>
-	<div class="card-front-attributes">
-		<AttributesStats bind:card />
-	</div>
 	<div class="card-front-id">{card.id}</div>
 </main>
 
@@ -39,6 +35,6 @@
 			'lp name .'
 			'kost type .'
 			'effect effect effect'
-			'. attributes id';
+			'. . id';
 	}
 </style>
