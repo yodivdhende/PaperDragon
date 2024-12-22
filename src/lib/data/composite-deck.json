@@ -1118,13 +1118,13 @@
 				"deckid": "MB",
 				"deckname": "Beast",
 				"effect": "",
-				"id": "AA-016"
+				"id": "AA-016",
 				"image": "",
 				"kost": "1",
 				"level": "1",
 				"name": "Claw Slash",
 				"print": false,
-				"type": "Attack",
+				"type": "Attack"
 			},
 			{
 				"amount": "2",
@@ -1135,13 +1135,13 @@
 				"deckid": "MB",
 				"deckname": "Beast",
 				"effect": "",
-				"id": "AA-016"
+				"id": "AA-016",
 				"image": "",
 				"kost": "2",
 				"level": "1",
 				"name": "Bite",
 				"print": false,
-				"type": "Attack",
+				"type": "Attack"
 			},
 			{
 				"amount": "2",
@@ -1152,13 +1152,13 @@
 				"deckid": "MB",
 				"deckname": "Beast",
 				"effect": "**#str# DC 1** < gain 1 stack of shaken",
-				"id": "AA-015"
+				"id": "AA-015",
 				"image": "",
 				"kost": "2",
 				"level": "1",
 				"name": "Leap",
 				"print": false,
-				"type": "Attack",
+				"type": "Attack"
 			},
 			{
 				"amount": "1",
@@ -1166,13 +1166,13 @@
 				"deckname": "Beast",
 				"attributes": ["mind", "strength", "reflex"],
 				"effect": "Target attacks deal 1 less damage this round.",
-				"id": "AM-007"
+				"id": "AM-007",
 				"image": "",
 				"kost": "2",
 				"level": "1",
 				"name": "Growl",
 				"print": false,
-				"type": "Maneuver",
+				"type": "Maneuver"
 			}
 		],
 		"name": "Beast",
@@ -1238,7 +1238,7 @@
 		],
 		"name": "Dragon Blood",
 		"id": "MD",
-		"print":false 
+		"print": false
 	},
 	"MG": {
 		"cards": [
@@ -1327,7 +1327,7 @@
 				"deckid": "MV",
 				"deckname": "Venomous",
 				"effect": "**#rfx# DC 1** < gain 1 poison condition",
-				"id": "AA-017"
+				"id": "AA-017",
 				"image": "",
 				"kost": "1",
 				"level": "1",
@@ -1335,7 +1335,7 @@
 				"print": false,
 				"reflex": "3",
 				"strength": "1",
-				"type": "Attack",
+				"type": "Attack"
 			},
 			{
 				"amount": "3",
@@ -1345,7 +1345,7 @@
 				"deckid": "MV",
 				"deckname": "Venomous",
 				"effect": "**#rfx# DC 1** < gain 2 poison conditions",
-				"id": "AA-018"
+				"id": "AA-018",
 				"image": "",
 				"kost": "1",
 				"level": "1",
@@ -1354,14 +1354,14 @@
 				"print": false,
 				"reflex": "1",
 				"strength": "2",
-				"type": "Attack",
+				"type": "Attack"
 			},
 			{
 				"amount": "2",
 				"deckid": "MV",
 				"deckname": "Venomous",
 				"effect": "Damaged by melee attack, attacker gains 2 poison card",
-				"id": "TR-007"
+				"id": "TR-007",
 				"image": "",
 				"kost": "1",
 				"level": "1",
@@ -1370,7 +1370,7 @@
 				"print": false,
 				"reflex": "1",
 				"strength": "3",
-				"type": "Trap",
+				"type": "Trap"
 			}
 		],
 		"name": "Venomous",
