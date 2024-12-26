@@ -1027,61 +1027,60 @@
 	"I": {
 		"cards": [
 			{
-				"image": "",
-				"deckname": "Items",
-				"level": "",
-				"deckid": "I",
-				"type": "Item",
-				"print": true,
-				"kost": "1",
-				"effect": "Heal 5 #lp#",
 				"amount": "5",
 				"attributes": ["mind", "strength", "reflex"],
+				"deckid": "I",
+				"deckname": "Items",
+				"effect": "Heal 5 #lp#",
+				"id": "IT-001",
+				"image": "",
+				"kost": "1",
+				"level": "",
 				"name": "Healing Potion",
-				"uses": "3",
-				"id": "IT-001"
+				"print": true,
+				"type": "Item",
+				"uses": "3"
 			},
 			{
-				"mind": "1",
-				"image": "",
 				"amount": "1",
-				"strength": "3",
-				"deckname": "Items",
-				"level": "",
-				"deckid": "I",
-				"reflex": "1",
-				"type": "Item",
-				"print": true,
-				"kost": "1",
-				"effect": "Deal 2 #blunt-dmg#.\nDestroyed, upgrade",
 				"attributes": ["mind", "strength", "reflex"],
+				"deckid": "I",
+				"deckname": "Items",
+				"effect": "Deal 2 #blunt-dmg#.\nDestroyed, upgrade",
+				"id": "IT-002",
+				"image": "",
+				"kost": "1",
+				"level": "",
 				"name": "Small treasure bag",
-				"uses": "5",
-				"id": "IT-002"
+				"print": true,
+				"type": "Item",
+				"uses": "5"
 			}
 		],
 		"name": "Items",
 		"id": "I",
 		"print": true
 	},
-	"LL": {
+	"LF": {
 		"cards": [
 			{
-				"image": "",
-				"print": true,
 				"amount": "1",
+				"deckid": "LF",
 				"deckname": "Locations",
-				"level": "",
-				"deckid": "LL",
 				"effect": "1 action: add a exlore token. <br/>\n5 explore token, upgrade",
-				"name": "Forest",
 				"id": "L-01",
+				"image": "",
+				"level": "",
+				"location-type": "",
+				"name": "Forest",
+				"print": true,
 				"type": "Location"
 			}
 		],
 		"name": "Locations",
-		"id": "LL",
-		"print": true
+		"id": "LF",
+		"print": true,
+		"type": "Land"
 	},
 	"M": {
 		"cards": [
