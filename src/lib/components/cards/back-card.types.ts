@@ -5,7 +5,6 @@ import type { CardData } from "./card-data.types";
 import { CARDTYPES } from "./card-type.types";
 import type { ConditionCardData } from "./condition-card.type";
 import type { ItemCardData } from "./item-card.type";
-import type { LocationCardData } from "./location-card.type";
 import type { ManeuverCardData } from "./maneuver-card.type";
 import type { MinionCardData } from "./minions-card.type";
 import type { StatusCardData } from "./status-card.type";
@@ -32,7 +31,6 @@ export type BlankCardBackData = Extract<CardData, StatusCardData
     | MinionCardData
     | ArtifactCardData
     | BackgroundCardData
-    | LocationCardData
 >
 
 export function isBlankCardBack(card: CardData): card is BlankCardBackData {
@@ -41,7 +39,6 @@ export function isBlankCardBack(card: CardData): card is BlankCardBackData {
         case (CARDTYPES.minions):
         case (CARDTYPES.artifacts):
         case (CARDTYPES.backgrounds):
-        case (CARDTYPES.locations):
             return true;
         default:
             return false;

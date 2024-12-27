@@ -16,6 +16,8 @@
 	<TrapBackCard {card} --border-color="purple" {canEdit} />
 {:else if card.type === CARDTYPES.bosses}
 	<BossCardBack {card} --border-color="black" {canEdit} />
+{:else if card.type === CARDTYPES.locations}
+	<BossCardBack {card} --border-color="black" {canEdit} />
 {:else if isActionCard(card)}
 	<ActionBackCard {card} --border-color="black" {canEdit} />
 {:else}
