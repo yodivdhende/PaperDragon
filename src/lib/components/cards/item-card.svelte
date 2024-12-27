@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CanEdit from '../can-edit.svelte';
 	import Attributes from '../card-sections/attributes/attributes.svelte';
+	import Level from '../card-sections/level/level.svelte';
 	import Value from '../value.svelte';
 	import type { ItemCardData } from './item-card.type';
 
@@ -17,9 +18,12 @@
 		<CanEdit bind:value={card.name} {canEdit} />
 	</div>
 	<div class="card-front-uses">
-		<Value bind:value={card.uses} {canEdit} />
+		<CanEdit bind:value={card.uses} {canEdit} />
 	</div>
 	<div class="card-front-type"><em>{card.type}</em></div>
+	<div class="card-front-level">
+		<Level level={card.level} />
+	</div>
 	<div class="card-front-effect">
 		<CanEdit bind:value={card.effect} {canEdit} {asHtml} />
 	</div>
@@ -36,7 +40,7 @@
 		grid-template-columns: 1fr 3fr 1fr;
 		grid-template-rows: 2fr 1fr 1fr 10fr 1fr;
 		grid-template-areas:
-			'kost name .'
+			'kost name level'
 			'uses type .'
 			'. . .'
 			'effect  effect effect '
@@ -45,7 +49,10 @@
 
 	.card-front-uses {
 		grid-area: uses;
+		display: block;
+		width: 100%;
 		font-size: 1.5em;
 		text-align: center;
+		background-color: lightgray;
 	}
 </style>
