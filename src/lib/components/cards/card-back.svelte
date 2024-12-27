@@ -4,6 +4,7 @@
 	import BossCardBack from './boss-card-back.svelte';
 	import type { CardData } from './card-data.types';
 	import { CARDTYPES } from './card-type.types';
+	import LocationCardBack from './location-card-back.svelte';
 	import TrapBackCard from './trap-card-back.svelte';
 
 	export let card: CardData;
@@ -17,7 +18,7 @@
 {:else if card.type === CARDTYPES.bosses}
 	<BossCardBack {card} --border-color="black" {canEdit} />
 {:else if card.type === CARDTYPES.locations}
-	<BossCardBack {card} --border-color="black" {canEdit} />
+	<LocationCardBack {card} --border-color="green" {canEdit} />
 {:else if isActionCard(card)}
 	<ActionBackCard {card} --border-color="black" {canEdit} />
 {:else}

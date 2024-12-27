@@ -8,14 +8,14 @@
 </script>
 
 <main class="card-front">
-	<div class="cost">
-		<CanEdit bind:value={card.exploreTarget} {canEdit} />
-	</div>
 	<div class="card-front-name">
+		<CanEdit bind:value={card.name} {canEdit} />
+	</div>
+	<div class="card-front-type">
 		<CanEdit bind:value={card.locationType} {canEdit} />
 	</div>
 	<div class="card-front-effect">
-		<CanEdit bind:value={card.exloreCondition} {canEdit} {asHtml} />
+		<CanEdit bind:value={card.effect} {canEdit} {asHtml} />
 	</div>
 	<div class="card-front-id">{card.id}</div>
 </main>
@@ -25,17 +25,14 @@
 		border-color: var(--border-color);
 		place-content: center;
 		grid-template-columns: 1fr 3fr 1fr;
-		grid-template-rows: 2fr 12fr 1fr;
+		grid-template-rows: 2fr 1fr 12fr 1fr;
 		grid-template-areas:
-			'cost name .'
+			'. name .'
+			'. type .'
 			'effect effect effect'
 			'. . id';
 	}
 	.cost {
-		grid-area: cost;
-		display: grid;
-		place-content: center;
-		background-color: silver;
-		font-size: 2em;
+		background-color: yellow;
 	}
 </style>
