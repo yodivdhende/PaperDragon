@@ -168,7 +168,7 @@
 				"attributes": ["mind", "strength", "reflex"],
 				"deckid": "SC",
 				"deckname": "Scout",
-				"effect": "**Quick**(you may play this card open and resolve its effect)<br /> target must play 1 action revealed",
+				"effect": "**Quick** (you may play this card open and resolve its effect)<br /> target must play 1 action revealed",
 				"id": "AM-006",
 				"image": "",
 				"kost": "1",

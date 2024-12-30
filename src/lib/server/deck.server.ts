@@ -7,10 +7,13 @@ export async function getDecks() {
 	const decks = [];
 	for (let deck of Object.values(Decks)) {
 		//@ts-ignore
-		decks.push({
+		const newCards = await Promise.all(deck.cards.map((card) => fromatCard(card)));
+		if (deck.id === 'SC') console.log(newCards);
+		const newDeck = {
 			...deck,
-			cards: await Promise.all(deck.cards.map((card) => fromatCard(card)))
-		});
+			cards: newCards
+		};
+		decks.push(newDeck);
 	}
 	return decks;
 }
@@ -49,4 +52,3 @@ export function splitDecks(decks: Deck[], cardLimit: number) {
 		return deckSplits;
 	});
 }
-
