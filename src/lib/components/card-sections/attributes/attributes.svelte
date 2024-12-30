@@ -4,7 +4,7 @@
 	import brain from '$lib/assets/icons/brain.png';
 	import biceps from '$lib/assets/icons/biceps.png';
 	import walkingBoot from '$lib/assets/icons/walking-boot.png';
-	import spikes from '$lib/assets/icons/spikes.png';
+	import eclipse from '$lib/assets/icons/eclipse.png';
 	import fireflake from '$lib/assets/icons/fireflake.png';
 
 	export let attributes: Attribute[] | undefined;
@@ -30,7 +30,7 @@
 			{/if}
 			{#if attribute === ATTRIBUTES.trouble}
 				<div class="trouble">
-					<img src={spikes} alt="spiky star" />
+					<img src={eclipse} alt="eclipse" />
 				</div>
 			{/if}
 			{#if attribute === ATTRIBUTES.luck}
@@ -69,7 +69,7 @@
 		background-color: #3c3;
 	}
 	.trouble {
-		background-color: #999;
+		background-color: #444;
 	}
 	.luck {
 		background-color: #ddd;

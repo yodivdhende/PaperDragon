@@ -24,13 +24,12 @@ export async function getCard(id: string) {
 let converter: Showdown.Converter;
 export async function fromatCard<TCard extends Record<string, unknown>>(card: TCard) {
 	if (converter == null) converter = new Showdown.Converter();
-	const cardWithIcons = await addIconsToCard(card);
 	const newCard = {
-		...cardWithIcons,
+		...card,
 		effect: formatEffect(card, converter),
 		level: formatLevel(card)
 	};
-	return newCard;
+	return await addIconsToCard(newCard);
 }
 
 function formatEffect<TCard extends { effect?: string }>(
