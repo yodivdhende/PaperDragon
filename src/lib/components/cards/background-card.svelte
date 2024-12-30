@@ -13,6 +13,9 @@
 	<div class="card-front-name">
 		<CanEdit bind:value={card.name} {canEdit} />
 	</div>
+	<div class="card-front-effect">
+		<CanEdit bind:value={card.effect} {canEdit} />
+	</div>
 	<div class="card-front-id">{card.id}</div>
 </main>
 
@@ -20,11 +23,10 @@
 	main {
 		border-color: var(--border-color);
 		grid-template-columns: 1fr 3fr 1fr;
-		grid-template-rows: 2fr 1fr 11fr 1fr;
+		grid-template-rows: 2fr 12fr 1fr;
 		grid-template-areas:
 			'lp name .'
-			'. . .'
-			'. . .'
+			'. effect .'
 			'. . id';
 	}
 </style>

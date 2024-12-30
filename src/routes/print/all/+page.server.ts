@@ -1,4 +1,5 @@
-import { duplicateCards, getDecks, getDecksToPrint } from '$lib/server/deck.server';
+import { duplicateCards } from '$lib/server/card.server';
+import { getDecksToPrint } from '$lib/server/deck.server';
 
 export async function load() {
 	const decks = (await getDecksToPrint()).map((deck) => ({

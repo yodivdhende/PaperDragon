@@ -6,7 +6,7 @@ export function getPrintConfig(decks: { cards: unknown[]; id: string; name: stri
 			const amountOfCards = deck.cards.length;
 			const frontImageName = `PD-${deck.id}-front.png`;
 			const backImageName = `PD-${deck.id}-back.png`;
-			return `4;${amountOfCards % 4};${amountOfCards};True;${deck.name};${frontImageName};${backImageName};`;
+			return `4;${Math.ceil(amountOfCards / 4)};${amountOfCards};True;${deck.name};${frontImageName};${backImageName};`;
 		})
 		.join('\r\n');
 }
