@@ -20,7 +20,6 @@ export function isActionCard(card: CardData): card is ActionCardBackData {
         case (CARDTYPES.attack):
         case (CARDTYPES.maneuver):
         case (CARDTYPES.item):
-        case (CARDTYPES.condition):
             return true;
         default:
             return false;

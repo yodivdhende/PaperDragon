@@ -1,7 +1,8 @@
 <script lang="ts">
 	import CanEdit from '../can-edit.svelte';
 	import Attributes from '../card-sections/attributes/attributes.svelte';
-	import type { TrapCardData } from './card-type.types';
+	import Value from '../value.svelte';
+	import type { TrapCardData } from './trap-card.type';
 
 	export let card: TrapCardData;
 	export let canEdit: boolean = false;
@@ -9,10 +10,10 @@
 </script>
 
 <main class="card-front">
-	<div class="card-front-name">
-		<CanEdit bind:value={card.name} {canEdit} />
-	</div>
 	<div class="card-front-kost">
+		<Value bind:value={card.kost} {canEdit} />
+	</div>
+	<div class="card-front-name">
 		<CanEdit bind:value={card.name} {canEdit} />
 	</div>
 	<div class="card-front-effect">

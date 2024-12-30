@@ -26,9 +26,9 @@
 {:else if card.type === CARDTYPES.trap}
 	<TrapCard {card} --border-color="purple" />
 {:else if card.type === CARDTYPES.status}
-	<StatusCard {card} --border-color="red" />
+	<StatusCard {card} --border-color="silver" />
 {:else if card.type === CARDTYPES.condition}
-	<ConditionCard {card} --border-color="silver" />
+	<ConditionCard {card} --border-color="red" />
 {:else if card.type === CARDTYPES.minions}
 	<MinionCard {card} --border-color="black" />
 {:else if card.type === CARDTYPES.bosses}

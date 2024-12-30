@@ -19,6 +19,8 @@
 	<BossCardBack {card} --border-color="black" {canEdit} />
 {:else if card.type === CARDTYPES.locations}
 	<LocationCardBack {card} --border-color="green" {canEdit} />
+{:else if card.type === CARDTYPES.condition}
+	<ActionBackCard {card} --border-color="red" {canEdit} />
 {:else if isActionCard(card)}
 	<ActionBackCard {card} --border-color="black" {canEdit} />
 {:else}
