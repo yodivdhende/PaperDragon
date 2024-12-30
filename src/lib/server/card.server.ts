@@ -1,9 +1,8 @@
 import Decks from '$lib/data/composite-deck.json';
 import { replaceWithIcons } from './icon.server';
-import * as showdown from 'showdown';
+import Showdown from 'showdown';
 
 export function getCards() {
-	const converter = new showdown.Converter;
 	return Promise.all([...Object.values(Decks)]
 		.map((deck) => deck.cards.map(card => ({
 			...card,
@@ -11,7 +10,7 @@ export function getCards() {
 		}))
 		)
 		.flat()
-		.map(card => fromatCard(card, converter))
+		.map(card => fromatCard(card))
 	)
 }
 
@@ -19,15 +18,18 @@ export async function getCard(id: string) {
 	return (await getCards()).find(card => card.id === id);
 }
 
-export async function fromatCard<TCard extends Record<string, unknown>>(card: TCard, converter: showdown.Converter) {
+let converter: Showdown.Converter;
+export async function fromatCard<TCard extends Record<string, unknown>>(card: TCard) {
+	if (converter == null) converter = new Showdown.Converter();
 	let newCard = await addIconsToCard(card);
 	newCard = formatEffect(card, converter);
 	newCard = formatLevel(card);
 	return newCard;
 }
 
-function formatEffect<TCard extends Record<string, unknown>>(card: TCard, converter: showdown.Converter): TCard {
+function formatEffect<TCard extends Record<string, unknown>>(card: TCard, converter: Showdown.Converter): TCard {
 	if (typeof card.effect === 'string') {
+		console.log(converter.makeHtml(card.effect));
 		card = {
 			...card,
 			effect: converter.makeHtml(card.effect),

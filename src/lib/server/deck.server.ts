@@ -1,7 +1,7 @@
 import Decks from '../data/composite-deck.json';
 import type { Deck } from '../services/deck.service';
 import { writeFile } from 'fs/promises';
-import { addIconsToCard } from './card.server';
+import { fromatCard } from './card.server';
 
 export async function getDecks() {
 	const decks = [];
@@ -9,7 +9,7 @@ export async function getDecks() {
 		//@ts-ignore
 		decks.push({
 			...deck,
-			cards: await Promise.all(deck.cards.map((card) => addIconsToCard(card)))
+			cards: await Promise.all(deck.cards.map((card) => fromatCard(card)))
 		});
 	}
 	return decks;

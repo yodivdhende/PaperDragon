@@ -8,6 +8,9 @@
 </script>
 
 <main class="card-front">
+	<div class="target">
+		<CanEdit bind:value={card.exploreTarget} {canEdit} />
+	</div>
 	<div class="card-front-name">
 		<CanEdit bind:value={card.name} {canEdit} />
 	</div>
@@ -27,12 +30,16 @@
 		grid-template-columns: 1fr 3fr 1fr;
 		grid-template-rows: 2fr 1fr 12fr 1fr;
 		grid-template-areas:
-			'. name .'
+			'target name .'
 			'. type .'
 			'effect effect effect'
 			'. . id';
 	}
-	.cost {
-		background-color: yellow;
+	.target {
+		grid-area: target;
+		display: grid;
+		place-content: center;
+		background-color: silver;
+		font-size: 2em;
 	}
 </style>
