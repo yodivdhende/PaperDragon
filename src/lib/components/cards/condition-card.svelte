@@ -2,7 +2,7 @@
 	import CanEdit from '../can-edit.svelte';
 	import Attributes from '../card-sections/attributes/attributes.svelte';
 	import Value from '../value.svelte';
-	import type { ConditionCardData } from './card-type.types';
+	import type { ConditionCardData } from './condition-card.type';
 
 	export let card: ConditionCardData;
 	export let canEdit: boolean = false;

@@ -21,13 +21,27 @@ export async function getCard(id: string) {
 
 export async function fromatCard<TCard extends Record<string, unknown>>(card: TCard, converter: showdown.Converter) {
 	let newCard = await addIconsToCard(card);
-	if (typeof newCard.effect === 'string') {
-		newCard = {
-			...newCard,
-			effect: converter.makeHtml(newCard.effect),
+	newCard = formatEffect(card, converter);
+	newCard = formatLevel(card);
+	return newCard;
+}
+
+function formatEffect<TCard extends Record<string, unknown>>(card: TCard, converter: showdown.Converter): TCard {
+	if (typeof card.effect === 'string') {
+		card = {
+			...card,
+			effect: converter.makeHtml(card.effect),
 		}
 	}
-	return newCard;
+	return card;
+}
+
+function formatLevel<TCard extends { level?: string | number }>(card: TCard): TCard {
+	if (card.level == null) return card;
+	const levelNumber = Number(card.level);
+	if (isNaN(levelNumber)) return card;
+	card.level = levelNumber;
+	return card;
 }
 
 export async function addIconsToCard<TCard extends Record<string, unknown>>(card: TCard) {

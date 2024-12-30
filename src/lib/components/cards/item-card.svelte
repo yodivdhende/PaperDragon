@@ -7,6 +7,7 @@
 
 	export let card: ItemCardData;
 	export let canEdit: boolean = true;
+
 	const asHtml = true;
 </script>
 
@@ -38,11 +39,10 @@
 		border-color: var(--border-color);
 		display: grid;
 		grid-template-columns: 1fr 3fr 1fr;
-		grid-template-rows: 2fr 1fr 1fr 10fr 1fr;
+		grid-template-rows: 2fr 1fr 10fr 1fr;
 		grid-template-areas:
 			'kost name level'
 			'uses type .'
-			'. . .'
 			'effect  effect effect '
 			'.  attributes id';
 	}
