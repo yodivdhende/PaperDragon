@@ -17,7 +17,7 @@
 		<CanEdit bind:value={card.name} {canEdit} />
 	</div>
 	<div class="card-front-effect">
-		<CanEdit bind:value={card.name} {canEdit} {asHtml} />
+		<CanEdit bind:value={card.effect} {canEdit} {asHtml} />
 	</div>
 	<div class="card-front-attributes">
 		<Attributes attributes={card.attributes} />
