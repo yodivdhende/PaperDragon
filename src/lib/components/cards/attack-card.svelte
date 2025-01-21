@@ -23,6 +23,9 @@
 	<div class="card-front-type">
 		<CanEdit bind:value={card.attackType} {canEdit} />
 	</div>
+	<div class="card-front-image">
+		<img src={card.image} alt="card image" />
+	</div>
 	<div class="card-front-effect">
 		<CanEdit bind:value={card.effect} {canEdit} {asHtml} />
 	</div>
@@ -41,7 +44,7 @@
 		grid-template-areas:
 			'kost name .'
 			'damage type .'
-			'damageType . .'
+			'. image .'
 			'effect effect effect '
 			'. attributes id';
 	}

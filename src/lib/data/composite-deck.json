@@ -168,7 +168,7 @@
 				"attributes": ["mind", "strength", "reflex"],
 				"deckid": "SC",
 				"deckname": "Scout",
-				"effect": "**Quick** (you may play this card open and resolve its effect)<br /> target must play 1 action revealed",
+				"effect": "reveal target action",
 				"id": "AM-006",
 				"image": "",
 				"kost": "1",
@@ -271,7 +271,7 @@
 				"deckid": "AD",
 				"deckname": "Fangs of Zephyr",
 				"id": "AD",
-				"image": "",
+				"image": "AD",
 				"level": "",
 				"mechanics": "At the start of the round you may move a mark-token to a new Target. If there is no mark-token om the battle field you can place one on a target.",
 				"name": "Fangs of Zephyr",
@@ -285,7 +285,7 @@
 				"deckname": "Fangs of Zephyr",
 				"effect": "Target gets 2 #hasted# status",
 				"id": "AM-008",
-				"image": "",
+				"image": "AD",
 				"kost": "1",
 				"level": "1",
 				"name": "Guiding gust",
@@ -302,7 +302,7 @@
 				"deckname": "Fangs of Zephyr",
 				"effect": "all your next attacks deals +1 damage",
 				"id": "AA-004",
-				"image": "",
+				"image": "AD",
 				"kost": "1",
 				"level": "1",
 				"name": "Chain barage",
@@ -319,7 +319,7 @@
 				"deckname": "Fangs of Zephyr",
 				"effect": "If target has #marked#: they discard one spell action",
 				"id": "AD-AA-003",
-				"image": "",
+				"image": "AD",
 				"kost": "1",
 				"level": "1",
 				"name": "Breath cut",
@@ -336,7 +336,7 @@
 				"deckname": "Fangs of Zephyr",
 				"effect": "target must be #marked#",
 				"id": "AA-007",
-				"image": "",
+				"image": "AD",
 				"kost": "1",
 				"level": "1",
 				"name": "Flying dagger",
@@ -353,7 +353,7 @@
 				"deckname": "Fangs of Zephyr",
 				"effect": "add one ''Arial strike\" to you discard pile",
 				"id": "AA-035",
-				"image": "",
+				"image": "AD",
 				"kost": "1",
 				"level": "1",
 				"name": "Phantom Blade Slice",
@@ -361,7 +361,7 @@
 				"type": "Attack"
 			},
 			{
-				"image": "",
+				"image": "AD",
 				"level": "1",
 				"deckname": "Fangs of Zephyr",
 				"deckid": "AD",
@@ -383,7 +383,7 @@
 	"PB": {
 		"cards": [
 			{
-				"image": "",
+				"image": "PB",
 				"print": true,
 				"amount": "1",
 				"deckname": "Preacher book",
@@ -397,7 +397,7 @@
 			},
 			{
 				"damage": "3",
-				"image": "",
+				"image": "PB",
 				"level": "1",
 				"deckname": "Preacher book",
 				"deckid": "PB",
@@ -413,7 +413,7 @@
 				"id": "AA-032"
 			},
 			{
-				"image": "",
+				"image": "PB",
 				"level": "1",
 				"deckname": "Preacher book",
 				"deckid": "PB",
@@ -428,7 +428,7 @@
 			},
 			{
 				"damage": "2",
-				"image": "",
+				"image": "PB",
 				"level": "1",
 				"deckname": "Preacher book",
 				"deckid": "PB",
@@ -445,7 +445,7 @@
 			},
 			{
 				"damage": "2",
-				"image": "",
+				"image": "PB",
 				"level": "1",
 				"deckname": "Preacher book",
 				"deckid": "PB",
@@ -461,7 +461,7 @@
 				"id": "AA-033"
 			},
 			{
-				"image": "",
+				"image": "PB",
 				"damage": "1",
 				"level": "1",
 				"deckname": "Preacher book",
@@ -478,7 +478,7 @@
 				"id": "AA-033"
 			},
 			{
-				"image": "",
+				"image": "PB",
 				"level": "1",
 				"deckname": "Preacher book",
 				"deckid": "PB",
@@ -499,7 +499,7 @@
 	"PC": {
 		"cards": [
 			{
-				"image": "",
+				"image": "PC",
 				"print": true,
 				"amount": "1",
 				"deckname": "Todorokis rings",
@@ -513,7 +513,7 @@
 			},
 			{
 				"damage": "1",
-				"image": "",
+				"image": "PC",
 				"level": "1",
 				"deckname": "Todorokis rings",
 				"deckid": "PC",
@@ -530,7 +530,7 @@
 			},
 			{
 				"damage": "2",
-				"image": "",
+				"image": "PC",
 				"level": "1",
 				"deckname": "Todorokis rings",
 				"deckid": "PC",
@@ -547,7 +547,7 @@
 			},
 			{
 				"damage": "1",
-				"image": "",
+				"image": "PC",
 				"level": "1",
 				"deckname": "Todorokis rings",
 				"deckid": "PC",
@@ -564,7 +564,7 @@
 			},
 			{
 				"damage": "1",
-				"image": "",
+				"image": "PC",
 				"level": "1",
 				"deckname": "Todorokis rings",
 				"deckid": "PC",
@@ -580,7 +580,7 @@
 				"id": "AA-036"
 			},
 			{
-				"image": "",
+				"image": "PC",
 				"level": "1",
 				"deckname": "Todorokis rings",
 				"deckid": "PC",
@@ -594,7 +594,7 @@
 				"id": "AM-011"
 			},
 			{
-				"image": "",
+				"image": "PC",
 				"level": "1",
 				"deckname": "Todorokis rings",
 				"deckid": "PC",
@@ -615,7 +615,7 @@
 	"RA": {
 		"cards": [
 			{
-				"image": "",
+				"image": "RA",
 				"print": true,
 				"amount": "1",
 				"deckname": "Ghahorks blood axe",
@@ -629,7 +629,7 @@
 			},
 			{
 				"damage": "7",
-				"image": "",
+				"image": "RA",
 				"level": "1",
 				"deckname": "Ghahorks blood axe",
 				"deckid": "RA",
@@ -646,7 +646,7 @@
 			},
 			{
 				"damage": "2",
-				"image": "",
+				"image": "RA",
 				"level": "1",
 				"deckname": "Ghahorks blood axe",
 				"deckid": "RA",
@@ -663,7 +663,7 @@
 			},
 			{
 				"damage": "1",
-				"image": "",
+				"image": "RA",
 				"level": "1",
 				"deckname": "Ghahorks blood axe",
 				"deckid": "RA",
@@ -680,7 +680,7 @@
 			},
 			{
 				"damage": "2",
-				"image": "",
+				"image": "RA",
 				"level": "1",
 				"deckname": "Ghahorks blood axe",
 				"deckid": "RA",
@@ -697,7 +697,7 @@
 			},
 			{
 				"damage": "2",
-				"image": "",
+				"image": "RA",
 				"level": "1",
 				"deckname": "Ghahorks blood axe",
 				"deckid": "RA",
@@ -713,7 +713,7 @@
 				"id": "AA-034"
 			},
 			{
-				"image": "",
+				"image": "RA",
 				"level": "1",
 				"deckname": "Ghahorks blood axe",
 				"deckid": "RA",

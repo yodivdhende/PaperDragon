@@ -7,7 +7,7 @@ export async function exportAll() {
 	try {
 		const deckElements = document.getElementsByClassName('deck');
 		for (let deckElement of deckElements) {
-			await exportCurrentElement(deckElement, deckElement.id);
+			await exportCurrentElement(deckElement, `PD-${deckElement.id}-front.png`);
 		}
 	} catch (error) {
 		console.error(error);

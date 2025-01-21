@@ -8,7 +8,6 @@ export async function getDecks() {
 	for (let deck of Object.values(Decks)) {
 		//@ts-ignore
 		const newCards = await Promise.all(deck.cards.map((card) => fromatCard(card)));
-		if (deck.id === 'SC') console.log(newCards);
 		const newDeck = {
 			...deck,
 			cards: newCards

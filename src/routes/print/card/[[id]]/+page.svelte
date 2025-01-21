@@ -5,7 +5,6 @@
 	const { deck } = data;
 	let mainElement: HTMLElement;
 	$: cardScale = mainElement.clientWidth / 4 / 500;
-	$: console.log(cardScale);
 </script>
 
 <main bind:this={mainElement}>

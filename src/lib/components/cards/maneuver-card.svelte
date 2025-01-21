@@ -2,7 +2,7 @@
 	import CanEdit from '../can-edit.svelte';
 	import Attributes from '../card-sections/attributes/attributes.svelte';
 	import Value from '../value.svelte';
-	import type { ManeuverCardData } from './card-type.types';
+	import { type ManeuverCardData } from './maneuver-card.type';
 
 	export let card: ManeuverCardData;
 	export let canEdit: boolean = true;
@@ -17,6 +17,9 @@
 		<CanEdit bind:value={card.name} {canEdit} />
 	</div>
 	<div class="card-front-type"><em>{card.type}</em></div>
+	<div class="card-front-image">
+		<img src={card.image} alt="card image" />
+	</div>
 	<div class="card-front-effect">
 		<CanEdit bind:value={card.effect} {canEdit} {asHtml} />
 	</div>
@@ -35,7 +38,7 @@
 		grid-template-areas:
 			'kost name   .'
 			'damage type .'
-			'damageType . .'
+			'. image .'
 			'effect  effect effect '
 			'.  attributes id';
 	}

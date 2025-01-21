@@ -1,7 +1,7 @@
 import Decks from '$lib/data/composite-deck.json';
-import { Query } from 'firebase/firestore';
 import { replaceWithIcons } from './icon.server';
 import Showdown from 'showdown';
+import { IMAGES } from './image.server';
 
 export function getCards() {
 	return Promise.all(
@@ -27,7 +27,8 @@ export async function fromatCard<TCard extends Record<string, unknown>>(card: TC
 	const newCard = {
 		...card,
 		effect: formatEffect(card, converter),
-		level: formatLevel(card)
+		level: formatLevel(card),
+		image: formatImage(card)
 	};
 	return await addIconsToCard(newCard);
 }
@@ -45,6 +46,13 @@ function formatLevel<TCard extends { level?: string | number }>(card: TCard): nu
 	const levelNumber = Number(card.level);
 	if (isNaN(levelNumber)) return undefined;
 	return levelNumber;
+}
+
+function formatImage<TCard extends { image?: string }>(card: TCard): string | undefined {
+	if (card.image == null) return undefined;
+	const imageSrc = IMAGES[card.image as keyof typeof IMAGES];
+	if (imageSrc == null) return undefined;
+	return imageSrc;
 }
 
 export async function addIconsToCard<TCard extends Record<string, unknown>>(card: TCard) {

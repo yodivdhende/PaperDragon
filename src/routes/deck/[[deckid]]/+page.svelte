@@ -29,7 +29,6 @@
 	<Deck slot="section" {deck} />
 	<div slot="aside">
 		<CardSideSelector />
-		<ExportButton />
 		<button on:click={saveDeck}>save</button>
 		<button on:click={() => goToPrintPage(deck?.id)}> print </button>
 	</div>

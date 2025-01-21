@@ -120,6 +120,7 @@
 .card-front-image {
 	grid-area: image;
 }
+
 .card-front-image img {
 	width: 100%;
 	height: 100%;

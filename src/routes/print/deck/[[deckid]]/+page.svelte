@@ -19,20 +19,20 @@
 		const backUrl = await htmlToImage.toPng(backElement);
 		download(frontUrl, `PD-${deck.id}-front.png`);
 		download(backUrl, `PD-${deck.id}-back.png`);
-		download(getPrintConfig([deck]), 'importConfig.txt');
+		download(getPrintConfig([deck]), `PD-${deck.id}.txt`);
 	}
 </script>
 
 <SettingsLayout>
 	<main slot="section">
-		<div class="deck" bind:this={frontElement}>
+		<div class="deck front" bind:this={frontElement}>
 			{#if deck}
 				{#each deck.cards as card}
 					<Card {card} canEdit={false} scale={cardScale} side={'Front'} />
 				{/each}
 			{/if}
 		</div>
-		<div class="deck" bind:this={backElement}>
+		<div class="deck back" bind:this={backElement}>
 			{#if deck}
 				{#each deck.cards as card}
 					<Card {card} canEdit={false} scale={cardScale} side={'Back'} />
@@ -42,7 +42,7 @@
 	</main>
 	<div slot="aside">
 		<CardSideSelector />
-		<button on:click={exportPrintImg}>download</button>
+		<button on:click={exportPrintImg}>print</button>
 	</div>
 </SettingsLayout>
 
