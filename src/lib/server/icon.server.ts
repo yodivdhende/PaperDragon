@@ -25,7 +25,8 @@ const ICONS = [
 	{ id: 'shaken', name: 'Shaken', path: 'knocked-out-stars.png' },
 	{ id: 'sharp-dmg', name: 'Sharp damage', path: 'saber-slash.png' },
 	{ id: 'trap', name: 'trap', path: 'wolf-trap.png' },
-	{ id: 'posion', name: 'posion', path: 'deathcab.png' }
+	{ id: 'posion', name: 'posion', path: 'deathcab.png' },
+	{ id: 'use', name: 'use', path: 'hand.png' }
 ] as const;
 
 export async function replaceWithIcons(text: string) {
